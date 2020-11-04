@@ -8,12 +8,9 @@ use App\Http\Controllers\Controller;
 
 // use Illuminate\Support\Facades\Cookie;
 
-class UserController extends Controller
+class IndexController extends Controller
 {
-	public function reg(){
-		return view('index/reg');
-	}
-    public function login(){
-    	return view('index/login');
+    public function index(){
+    	return view('index/index');
     }
 }
