@@ -5,3 +5,5 @@ Route::any('/','Index\IndexController@index');
 Route::any('/index/login','Index\UserController@login');
 //登陆
 Route::any('/index/reg','Index\UserController@reg');
+//教师
+Route::any('/index/teacher','Index\TeacherController@teacher');
