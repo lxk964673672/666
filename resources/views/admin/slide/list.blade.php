@@ -87,8 +87,6 @@
     <!-- iCheck -->
     <script src="/admin/js/plugins/iCheck/icheck.min.js"></script>
 
-    <!-- Peity -->
-    <script src="/admin/js/demo/peity-demo.js"></script>
 
     <script>
         $(document).ready(function () {

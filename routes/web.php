@@ -18,7 +18,7 @@ Route::prefix('admin')->group(function () {
     Route::any('/login', 'admin\UserController@login');
     Route::any('/powerAdd', 'admin\PowerController@powerAdd');
     Route::any('/powerList', 'admin\PowerController@powerList');
-    Route::any('/listAdd', 'admin\ListController@listAdd');
+    // Route::any('/listAdd', 'admin\ListController@listAdd');
 
     //图片添加 第三方插件
     Route::any('/slide/uploads', 'admin\SlideController@uploads');

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -12,25 +12,24 @@ class SlideController extends Controller
     {
         return view('admin.slide.create');
     }
-    // 第三方插件 图片
-    public function uploads(Request $request){
-        $arr = $_FILES["Filedata"];
-        $tmpName = $arr['tmp_name'];
-        $ext  = explode(".",$arr['name'])[1];
-        $newFileName = uniqid().md5(time()).".".$ext;
-        $newFilePath = "./uploads/".$newFileName;
-        move_uploaded_file($tmpName, $newFilePath);
-        $newFilePath = trim($newFilePath,".");
-        echo $newFilePath;
-    }
+    public function slideImg(Request $request){
+		$arr = $_FILES["Filedata"];
+    	$tmpName = $arr['tmp_name'];
+    	$ext  = explode(".",$arr['name'])[1];
+    	$newFileName = md5(time()).".".$ext;
+    	$newFilePath = "./uploads/".$newFileName;
+    	move_uploaded_file($tmpName, $newFilePath);
+    	$newFilePath = trim($newFilePath,".");
+    	echo $newFilePath;
+	}
 
-	public function store(){
+	public function addimg(){
 		$data=request()->all();
 		$data['add_time']=time();
 //		dd($data);
 //		dd(request()->slide_log);
-		$photomodel=new SlideModel();
-		$res=$photomodel->insert($data);
+		$slidemodel=new SlideModel();
+		$res=$slidemodel->insert($data);
 		if($res){
 			$arr=[
 				'code'=>'00000',

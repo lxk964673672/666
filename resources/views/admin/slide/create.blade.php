@@ -29,8 +29,10 @@
                         <h5>给我点支烟</h5>
                     </div>
 
+                        <script src="/uploadify/jquery.min.js"></script>
                         <link rel="stylesheet" href="/uploadify/uploadify.css">
-    <script src="/uploadify/jquery.uploadify.js"></script>
+                        <script src="/uploadify/jquery.uploadify.js"></script>
+
 
                     <div class="ibox-content">
                         <form class="form-horizontal">
@@ -67,7 +69,7 @@
 
                             <div class="form-group">
                                 <div class="col-sm-offset-3 col-sm-8">
-                                      <button class="btn btn-primary" ng-click="save()" id="uploadify">提交</button></button>
+                                       <button class="btn btn-primary" ng-click="setEditorValue();save()">添加</button>
                                 </div>
                             </div>
                         </form>
@@ -82,7 +84,7 @@
    
 
     <!-- 全局js -->
-    <script src="/admin/js/jquery.min.js?v=2.1.4"></script>
+    <!-- <script src="/admin/js/jquery.min.js?v=2.1.4"></script> -->
     <script src="/admin/js/bootstrap.min.js?v=3.3.6"></script>
 
     <!-- 自定义js -->
@@ -97,35 +99,34 @@
                 radioClass: 'iradio_square-green',
             });
         });
-    </script>
-
-    <script>
+</script>
+<script>
    $(document).ready(function(){
-    $("#slide_log").uploadify({
-
-    uploader: "/admin/slide/uploads",
-    swf: "/uploadify/uploadify.swf",
-    onUploadSuccess:function(res,data,msg){
-        var imgPath  = data;
-        var imgstr = "< img src='"+imgPath+"' style='width: 50px;height: 50px;'>";
-        $("input[name='slide_url']").val(imgPath);
-        $(".showimg").append(imgstr);
-//        console.log(data);
-        $("#img_url").val(data);
-
-    }
-});
-});
-$(document).on('click','#uploadify',function(){
+        $("#slide_log").uploadify({
+            uploader: "/admin/slide/uploads",
+            swf: "/uploadify/uploadify.swf",
+            onUploadSuccess:function(res,data,msg){
+                var imgPath  = data;
+                var imgstr= "<img src='"+imgPath+"'style='width: 50px;height: 50px;'>";
+                $("input[name='slide_log']").val(imgPath);
+                $(".showimg").append(imgstr);
+                $("#img_url").val(data);
+            }
+            });
+    });
+ 
+    </script>
+    <script>
+ $(document).on('click','button',function(){
         var slide_log=$("#img_url").val();
         var slide_url=$("#slide_url").val();
-        var slide_weight=$("#slide_weight").val();
         var is_show = $("input[name='is_show']").val();
+        var slide_weight=$("#slide_weight").val();
 
-        // if(slide_log==''){
-        //    alert('图片不能为空');
-        //     return false;
-        // }
+        if(slide_log==''){
+           alert('图片不能为空');
+            return false;
+        }
         if(slide_url==''){
            alert('地址不能为空');
             return false;
@@ -136,7 +137,7 @@ $(document).on('click','#uploadify',function(){
         }
         $.ajax({
             url:"{{url('/admin/slide/store')}}",
-            data:{slide_url:slide_url,slide_weight:slide_weight,slide_log:slide_log,is_show:is_show},
+            data:{slide_log:slide_log,slide_url:slide_url,is_show:is_show,slide_weight:slide_weight},
             type:"post",
             dataType:"json",
             success:function(res){
