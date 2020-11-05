@@ -28,6 +28,10 @@
                     <div class="ibox-title">
                         <h5>给我点支烟</h5>
                     </div>
+
+                        <link rel="stylesheet" href="/uploadify/uploadify.css">
+    <script src="/uploadify/jquery.uploadify.js"></script>
+
                     <div class="ibox-content">
                         <form class="form-horizontal">
                             <div class="form-group">
@@ -43,21 +47,21 @@
                              <div class="form-group">
                                 <label class="col-sm-3 control-label">地址</label>
                                 <div class="col-sm-8">
-                                    <input type="text" placeholder="地址" class="form-control" name=slide_url>
+                                    <input type="text" placeholder="地址" class="form-control" name='slide_url' id="slide_url">
                                 </div>
                             </div>
 
                                <div class="form-group">
                                 <label class="col-sm-3 control-label">是否展示</label>
                                 <div class="col-sm-8">
-                                    <input type="radio" value="1" name=is_show>是
-                                    <input type="radio" value="2" name=is_show>否
+                                    <input type="radio" value="1" id='is_show' name='is_show' checked>是
+                                    <input type="radio" value="2" id='is_show' name='is_show'>否
                                 </div>
                             </div>
                              <div class="form-group">
                                 <label class="col-sm-3 control-label">权重</label>
                                 <div class="col-sm-8">
-                                    <input type="text" placeholder="权重" class="form-control" name=slide_weight>
+                                    <input type="text" placeholder="权重" class="form-control" id='slide_weight' name='slide_weight'>
                                 </div>
                             </div>
 
@@ -113,13 +117,23 @@
 });
 });
 $(document).on('click','#uploadify',function(){
+        var slide_log=$("#img_url").val();
         var slide_url=$("#slide_url").val();
         var slide_weight=$("#slide_weight").val();
-        var slide_log=$("#img_url").val();
-//    alert(slide_log);return;
-    var is_show=$('input:radio:checked').val();
+        var is_show = $("input[name='is_show']").val();
 
-        
+        // if(slide_log==''){
+        //    alert('图片不能为空');
+        //     return false;
+        // }
+        if(slide_url==''){
+           alert('地址不能为空');
+            return false;
+        }
+        if(slide_weight==''){
+           alert('权重不能为空');
+            return false;
+        }
         $.ajax({
             url:"{{url('/admin/slide/store')}}",
             data:{slide_url:slide_url,slide_weight:slide_weight,slide_log:slide_log,is_show:is_show},
