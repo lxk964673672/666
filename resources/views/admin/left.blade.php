@@ -70,15 +70,15 @@
                 <li>
                     <a href="#">
                         <i class="fa fa fa-bar-chart-o"></i>
-                        <span class="nav-label">节点</span>
+                        <span class="nav-label">轮播图</span>
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a class="J_menuItem" href="/admin/powerAdd">节点添加</a>
+                            <a class="J_menuItem" href="/admin/slide/create">轮播图添加</a>
                         </li>
                         <li>
-                            <a class="J_menuItem" href="/admin/powerList">节点展示</a>
+                            <a class="J_menuItem" href="/admin/slide/list">轮播图列表</a>
                         </li>
                     </ul>
                 </li>
