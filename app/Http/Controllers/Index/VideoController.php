@@ -8,12 +8,9 @@ use App\Http\Controllers\Controller;
 
 // use Illuminate\Support\Facades\Cookie;
 
-class TeacherController extends Controller
+class VideoController extends Controller
 {
-	public function teacher(){
-		return view('index/teacher/teacher');
-	}
-	public function list(){
-		return view('index/teacher/list');
-	}
+    public function video(){
+    	return view('index/video');
+    }
 }

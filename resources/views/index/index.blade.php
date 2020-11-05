@@ -1,5 +1,5 @@
 @include('top.index')
-   
+ 
 <div class="content">
 <div class="fullwidthbanner-container">
 		<div id="revolution-slider" style="max-height:500px !important; background:#46B0AC">
@@ -531,4 +531,5 @@
 <span class="morecourse"><a href="courselist.html" class="btnlink">更多课程</a></span>
 
 </div>
+
   @include('foot.index')
