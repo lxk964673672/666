@@ -6,10 +6,8 @@ Route::any('/index/login','Index\UserController@login');
 //登陆
 Route::any('/index/reg','Index\UserController@reg');
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::any('/index/login','Index\UserController@login');
+ 
+ 
 
 /**
  * 后台
@@ -21,7 +19,15 @@ Route::prefix('admin')->group(function () {
     Route::any('/powerAdd', 'admin\PowerController@powerAdd');
     Route::any('/powerList', 'admin\PowerController@powerList');
     Route::any('/listAdd', 'admin\ListController@listAdd');
+
+    //图片添加 第三方插件
+    Route::any('/slide/uploads', 'admin\SlideController@uploads');
+    //轮播图
+    Route::any('/slide/create', 'admin\SlideController@create');
+    Route::any('/slide/store', 'admin\SlideController@store');
+    Route::any('/slide/list', 'admin\SlideController@list');
 });
+
 Route::any('/index/video','Index\VideoController@video');
 
 //教师
