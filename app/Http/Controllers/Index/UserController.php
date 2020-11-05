@@ -10,6 +10,9 @@ use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
+	public function reg(){
+		return view('index/reg');
+	}
     public function login(){
     	return view('index/login');
     }
