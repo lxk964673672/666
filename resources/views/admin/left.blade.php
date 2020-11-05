@@ -53,32 +53,53 @@
                     </a>
                 </li>
                 <li>
+                    <a class="J_menuItem" href="/admin/listAdd">
+                        <i class="fa fa-home"></i>
+                        <span class="nav-label">添加菜单</span>
+                    </a>
+                </li>
+                <li>
                     <a href="#">
                         <i class="fa fa fa-bar-chart-o"></i>
-                        <span class="nav-label">节点</span>
+                        <span class="nav-label">权限管理</span>
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a class="J_menuItem" href="/admin/powerAdd">节点添加</a>
+                            <a class="J_menuItem" href="/admin/powerAdd">权限添加</a>
                         </li>
                         <li>
-                            <a class="J_menuItem" href="/admin/powerList">节点展示</a>
+                            <a class="J_menuItem" href="/admin/powerList">权限展示</a>
                         </li>
                     </ul>
                 </li>
                 <li>
                     <a href="#">
                         <i class="fa fa fa-bar-chart-o"></i>
-                        <span class="nav-label">节点</span>
+                        <span class="nav-label">用户管理</span>
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a class="J_menuItem" href="/admin/powerAdd">节点添加</a>
+                            <a class="J_menuItem" href="/admin/userAdd">用户添加</a>
                         </li>
                         <li>
-                            <a class="J_menuItem" href="/admin/powerList">节点展示</a>
+                            <a class="J_menuItem" href="/admin/userList">用户展示</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa fa-bar-chart-o"></i>
+                        <span class="nav-label">角色管理</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a class="J_menuItem" href="/admin/roleAdd">角色添加</a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="/admin/roleList">角色展示</a>
                         </li>
                     </ul>
                 </li>

@@ -48,19 +48,31 @@
                     </div>
                 </div>
                 <div class="ibox-content">
-                    <form method="get" class="form-horizontal">
+                    <form method="/admin/listAdd" class="form-horizontal">
                         <div class="form-group">
                             <label class="col-sm-2 control-label">菜单名称</label>
 
                             <div class="col-sm-10">
-                                <input type="text" class="form-control">
+                                <input type="text" name="name" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">父级菜单</label>
+
+                            <div class="col-sm-10">
+                                <select class="form-control m-b" name="pid">
+                                    <option value="0">父级</option>
+                                    @foreach($data as $v)
+                                    <option value={{$v['id']}}>{{$v['name']}}</option>
+                                        @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">菜单路径</label>
 
                             <div class="col-sm-10">
-                                <input type="text" class="form-control">
+                                <input type="text" name="url" class="form-control">
                             </div>
                         </div>
                         <div class="hr-line-dashed"></div>
