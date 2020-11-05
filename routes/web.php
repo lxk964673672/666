@@ -6,10 +6,7 @@ Route::any('/index/login','Index\UserController@login');
 //登陆
 Route::any('/index/reg','Index\UserController@reg');
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::any('/index/login','Index\UserController@login');
+
 
 /**
  * 后台

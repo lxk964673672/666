@@ -55,7 +55,7 @@
                 <li>
                     <a href="#">
                         <i class="fa fa fa-bar-chart-o"></i>
-                        <span class="nav-label">节点</span>
+                        <span class="nav-label">课程</span>
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level">
@@ -70,7 +70,37 @@
                 <li>
                     <a href="#">
                         <i class="fa fa fa-bar-chart-o"></i>
-                        <span class="nav-label">节点</span>
+                        <span class="nav-label">资讯</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a class="J_menuItem" href="/admin/powerAdd">节点添加</a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="/admin/powerList">节点展示</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa fa-bar-chart-o"></i>
+                        <span class="nav-label">讲师</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a class="J_menuItem" href="/admin/powerAdd">节点添加</a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="/admin/powerList">节点展示</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa fa-bar-chart-o"></i>
+                        <span class="nav-label">问答</span>
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level">
