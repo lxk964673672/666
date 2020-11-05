@@ -16,8 +16,9 @@ Route::prefix('admin')->group(function () {
     Route::get('/index', 'admin\IndexController@index');
     Route::any('/regist', 'admin\UserController@regist');
     Route::any('/login', 'admin\UserController@login');
-    Route::any('/powerAdd', 'admin\UserController@powerAdd');
-    Route::any('/powerList', 'admin\UserController@powerList');
+    Route::any('/powerAdd', 'admin\PowerController@powerAdd');
+    Route::any('/powerList', 'admin\PowerController@powerList');
+    Route::any('/listAdd', 'admin\ListController@listAdd');
 
     //图片添加 第三方插件
     Route::any('/slide/uploads', 'admin\SlideController@uploads');
