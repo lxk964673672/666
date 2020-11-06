@@ -55,33 +55,135 @@
                 <li>
                     <a href="#">
                         <i class="fa fa fa-bar-chart-o"></i>
-                        <span class="nav-label">节点</span>
+                        <span class="nav-label">权限管理</span>
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a class="J_menuItem" href="/admin/powerAdd">节点添加</a>
+                            <a class="J_menuItem" href="/admin/powerAdd">权限添加</a>
                         </li>
                         <li>
-                            <a class="J_menuItem" href="/admin/powerList">节点展示</a>
+                            <a class="J_menuItem" href="/admin/powerList">权限展示</a>
                         </li>
                     </ul>
                 </li>
                 <li>
                     <a href="#">
                         <i class="fa fa fa-bar-chart-o"></i>
-                        <span class="nav-label">节点</span>
+                        <span class="nav-label">用户管理</span>
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a class="J_menuItem" href="/admin/powerAdd">节点添加</a>
+                            <a class="J_menuItem" href="/admin/userAdd">用户添加</a>
                         </li>
                         <li>
-                            <a class="J_menuItem" href="/admin/powerList">节点展示</a>
+                            <a class="J_menuItem" href="/admin/userList">用户展示</a>
                         </li>
                     </ul>
                 </li>
+                 <li>
+                    <a href="#">
+                        <i class="fa fa fa-bar-chart-o"></i>
+                        <span class="nav-label">角色管理</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a class="J_menuItem" href="/admin/roleAdd">角色添加</a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="/admin/roleList">角色展示</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa fa-bar-chart-o"></i>
+                        <span class="nav-label">轮播图</span>
+
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a class="J_menuItem" href="/admin/slide/create">轮播图添加</a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="/admin/slide/list">轮播图列表</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa fa fa-bar-chart-o"></i>
+                        <span class="nav-label">课程目录</span>
+
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a class="J_menuItem" href="/admin/course/catalog/create">课程目录添加</a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="/admin/course/catalog/list">课程目录列表</a>
+
+                        </li>
+                    </ul>
+                </li>
+
+                 <li>
+                    <a href="#">
+                        <i class="fa fa fa-bar-chart-o"></i>
+                        <span class="nav-label">课程分类</span>
+
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a class="J_menuItem" href="/admin/course/category/create">课程分类添加</a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="/admin/course/category/list">课程分类列表</a>
+
+                        </li>
+                    </ul>
+                </li>
+                 <li>
+                    <a href="#">
+                        <i class="fa fa fa-bar-chart-o"></i>
+                        <span class="nav-label">课程</span>
+
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a class="J_menuItem" href="/admin/course/course/create">课程添加</a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="/admin/course/course/list">课程列表</a>
+
+                        </li>
+                    </ul>
+                </li>
+                 <li>
+                    <a href="#">
+                        <i class="fa fa fa-bar-chart-o"></i>
+                        <span class="nav-label">课程详情</span>
+
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a class="J_menuItem" href="/admin/course/detail/create">课程详情添加</a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="/admin/course/detail/list">课程详情列表</a>
+
+                        </li>
+                    </ul>
+                </li>
+
                 <li class="line dk"></li>
             </ul>
         </div>
