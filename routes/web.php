@@ -12,19 +12,17 @@ Route::any('/index/reg','Index\UserController@reg');
 /**
  * 后台
  */
-Route::prefix('admin')->group(function () {
+Route::prefix('Admin')->group(function () {
     Route::get('/index', 'admin\IndexController@index');
     Route::any('/regist', 'admin\UserController@regist');
     Route::any('/login', 'admin\UserController@login');
-    Route::any('/powerAdd', 'admin\UserController@powerAdd');
-    Route::any('/powerList', 'admin\UserController@powerList');
+    Route::any('/powerAdd', 'admin\PowerController@powerAdd');
+    Route::any('/powerList', 'admin\PowerController@powerList');
 
-    //图片添加 第三方插件
-    Route::any('/slide/uploads', 'admin\SlideController@uploads');
     //轮播图
-    Route::any('/slide/create', 'admin\SlideController@create');
-    Route::any('/slide/store', 'admin\SlideController@store');
-    Route::any('/slide/list', 'admin\SlideController@list');
+    Route::any('slide/create', 'admin\SlideController@create');
+    Route::any('slide/store', 'admin\SlideController@store');
+    Route::any('slide/list', 'admin\SlideController@list');
 });
 
 Route::any('/index/video','Index\VideoController@video');
