@@ -82,18 +82,45 @@
                         </li>
                     </ul>
                 </li>
-                <li>
+                 <li>
                     <a href="#">
                         <i class="fa fa fa-bar-chart-o"></i>
+<<<<<<< HEAD
                         <span class="nav-label">轮播图</span>
+=======
+                        <span class="nav-label">角色管理</span>
+>>>>>>> 20232109a9c66018aebfbfb679602a5276e4c38b
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level">
                         <li>
+<<<<<<< HEAD
+=======
+                            <a class="J_menuItem" href="/admin/roleAdd">角色添加</a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="/admin/roleList">角色展示</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa fa-bar-chart-o"></i>
+                        <span class="nav-label">轮播图</span>
+
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+>>>>>>> 20232109a9c66018aebfbfb679602a5276e4c38b
                             <a class="J_menuItem" href="/admin/slide/create">轮播图添加</a>
                         </li>
                         <li>
                             <a class="J_menuItem" href="/admin/slide/list">轮播图列表</a>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 20232109a9c66018aebfbfb679602a5276e4c38b
                         </li>
                     </ul>
                 </li>

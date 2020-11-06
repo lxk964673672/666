@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SlideModel extends Model
+class Slide extends Model
 {
         # 表名
     protected $table = 'slide';
