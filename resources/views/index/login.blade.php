@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-=======
- @include('top.index')
+@include('top.index')
 <!-- InstanceBeginEditable name="EditRegion1" -->
 <div class="login" style="background:url(/index/images/12.jpg) right center no-repeat #fff">
 <h2>登录</h2>

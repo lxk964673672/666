@@ -1,15 +1,51 @@
 <?php
+/*
+*前台
+*/ 
 //前台首页
 Route::any('/','Index\IndexController@index');
-//登陆页面
-Route::any('/index/login','Index\UserController@login');
-//登陆
-Route::any('/index/reg','Index\UserController@reg');
+Route::prefix('/index')->group(function () {
+	//登陆页面
+	Route::any('/login','Index\UserController@login');
+	//登陆
+	Route::any('/reg','Index\UserController@reg');
+	//讲师
+	Route::any('/teacher/list','Index\TeacherController@list');
+	//讲师详情
+	Route::any('/teacher/teacher','Index\TeacherController@teacher');
+	// 咨询
+	Route::any('/article/list','Index\ArticleController@list');
+	//咨询详情
+	Route::any('/article/article','Index\ArticleController@article');
+	//课程首页
+	Route::any('/course/list','Index\CourseController@list');
+	//课程首页
+	Route::any('/course/coursecont','Index\CourseController@coursecont');
+	//加入学习
+	Route::any('/course/coursecont1','Index\CourseController@coursecont1');
 
-Route::get('/', function () {
-    return view('welcome');
+	Route::any('/page/page','Index\PageController@page');
+	Route::any('/page/contact','Index\PageController@contact');
+
+	Route::any('/course/mycourse','Index\CourseController@mycourse');
+
+
+	Route::any('/index/video','Index\VideoController@video');
 });
-Route::any('/index/login','Index\UserController@login');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * 后台
@@ -21,22 +57,5 @@ Route::prefix('admin')->group(function () {
     Route::any('/powerAdd', 'admin\UserController@powerAdd');
     Route::any('/powerList', 'admin\UserController@powerList');
 });
-Route::any('/index/video','Index\VideoController@video');
 
-//教师
-Route::any('/index/teacher/teacher','Index\TeacherController@teacher');
-Route::any('/index/teacher/list','Index\TeacherController@list');
-
-Route::any('/index/article/article','Index\ArticleController@article');
-Route::any('/index/article/list','Index\ArticleController@list');
-
-
-Route::any('/index/course/coursecont','Index\CourseController@coursecont');
-Route::any('/index/course/coursecont1','Index\CourseController@coursecont1');
-Route::any('/index/course/list','Index\CourseController@list');
-Route::any('/index/course/mycourse','Index\CourseController@mycourse');
-
-Route::any('/index/page/page','Index\PageController@page');
-Route::any('/index/page/contact','Index\PageController@contact');
-
- 
+?>
