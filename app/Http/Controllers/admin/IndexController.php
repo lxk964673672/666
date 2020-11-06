@@ -10,8 +10,10 @@ class IndexController extends Controller
 {
     public function index()
     {
-        $data = DB::table('list')->get();
-        $data = json_decode(json_encode($data),true);
+
+        // $data = DB::table('list')->get();
+        // $data = json_decode(json_encode($data),true);
+
         return view('admin.index');
     }
 }

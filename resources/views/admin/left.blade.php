@@ -94,10 +94,10 @@
                     </a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a class="J_menuItem" href="/admin/powerAdd">资讯添加</a>
+                            <a class="J_menuItem" href="information/create">资讯添加</a>
                         </li>
                         <li>
-                            <a class="J_menuItem" href="/admin/powerList">资讯展示</a>
+                            <a class="J_menuItem" href="information/list">资讯展示</a>
                         </li>
                     </ul>
                 </li>
@@ -145,25 +145,74 @@
                         </li>
                         <li>
                             <a class="J_menuItem" href="/admin/slide/list">轮播图列表</a>
-
                         </li>
                     </ul>
                 </li>
-                    <li>
+
+                <li>
                     <a href="#">
                         <i class="fa fa fa-bar-chart-o"></i>
-                        <span class="nav-label">课程</span>
+                        <span class="nav-label">课程目录</span>
+
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a class="J_menuItem" href="/admin/slide/create">课程添加</a>
+                            <a class="J_menuItem" href="/admin/course/catalog/create">课程目录添加</a>
                         </li>
                         <li>
-                            <a class="J_menuItem" href="/admin/slide/list">课程列表</a>
+                            <a class="J_menuItem" href="/admin/course/catalog/list">课程目录列表</a>
+
                         </li>
                     </ul>
-                </li>           
+                </li>
+
+                 <li>
+                    <a href="#">
+                        <i class="fa fa fa-bar-chart-o"></i>
+                        <span class="nav-label">课程分类</span>
+
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a class="J_menuItem" href="/admin/course/category/create">课程分类添加</a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="/admin/course/category/list">课程分类列表</a>
+
+                        </li>
+                    </ul>
+                </li>
+                 <li>
+                    <a href="#">
+                        <i class="fa fa fa-bar-chart-o"></i>
+                        <span class="nav-label">课程</span>
+                            <a class="J_menuItem" href="/admin/course/course/create">课程添加</a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="/admin/course/course/list">课程列表</a>
+
+                        </li>
+                    </ul>
+                </li>
+                 <li>
+                    <a href="#">
+                        <i class="fa fa fa-bar-chart-o"></i>
+                        <span class="nav-label">课程详情</span>
+
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a class="J_menuItem" href="/admin/course/detail/create">课程详情添加</a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="/admin/course/detail/list">课程详情列表</a>
+
+                        </li>
+                    </ul>
+                </li>
                 <li class="line dk"></li>
             </ul>
         </div>
