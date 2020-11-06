@@ -83,16 +83,17 @@
                     </a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a class="J_menuItem" href="/admin/userAdd">课程添加</a>
+                            <a class="J_menuItem" href="/admin/userAdd">用户添加</a>
                         </li>
                         <li>
-                            <a class="J_menuItem" href="/admin/userList">课程展示</a>
+                            <a class="J_menuItem" href="/admin/userList">用户展示</a>
                         </li>
                     </ul>
                 </li>
-                <li>
+                 <li>
                     <a href="#">
                         <i class="fa fa fa-bar-chart-o"></i>
+
 
                         <span class="nav-label">资讯</span>
                         <span class="fa arrow"></span>
@@ -133,6 +134,7 @@
                         </li>
                         <li>
                             <a class="J_menuItem" href="/admin/powerList">问答展示</a>
+
                         </li>
                     </ul>
                 </li>
@@ -140,6 +142,7 @@
                     <a href="#">
                         <i class="fa fa fa-bar-chart-o"></i>
                         <span class="nav-label">轮播图</span>
+
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level">
@@ -148,6 +151,7 @@
                         </li>
                         <li>
                             <a class="J_menuItem" href="/admin/slide/list">轮播图列表</a>
+
                         </li>
                     </ul>
                 </li>
