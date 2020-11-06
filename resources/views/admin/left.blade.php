@@ -53,12 +53,6 @@
                     </a>
                 </li>
                 <li>
-                    <a class="J_menuItem" href="/admin/listAdd">
-                        <i class="fa fa-home"></i>
-                        <span class="nav-label">添加菜单</span>
-                    </a>
-                </li>
-                <li>
                     <a href="#">
                         <i class="fa fa fa-bar-chart-o"></i>
                         <span class="nav-label">权限管理</span>
