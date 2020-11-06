@@ -39,7 +39,7 @@ Route::prefix('admin')->group(function () {
     Route::any('/course/course/store', 'Admin\Course\CourseController@store');
     Route::any('/course/course/list', 'Admin\Course\CourseController@list');
 
-     //课程分类
+    //课程分类
     Route::any('/course/detail/create', 'Admin\Course\DetailController@create');
     Route::any('/course/detail/store', 'Admin\Course\DetailController@store');
     Route::any('/course/detail/list', 'Admin\Course\DetailController@list');
