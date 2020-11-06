@@ -18,10 +18,6 @@ Route::prefix('admin')->group(function () {
     Route::any('/login', 'admin\UserController@login');
     Route::any('/powerAdd', 'admin\PowerController@powerAdd');
     Route::any('/powerList', 'admin\PowerController@powerList');
-    Route::any('/listAdd', 'admin\ListController@listAdd');
-
-    //图片添加 第三方插件
-    Route::any('/slide/uploads', 'admin\SlideController@uploads');
     //轮播图
     Route::any('/slide/create', 'admin\SlideController@create');
     Route::any('/slide/store', 'admin\SlideController@store');

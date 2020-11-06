@@ -53,12 +53,6 @@
                     </a>
                 </li>
                 <li>
-                    <a class="J_menuItem" href="/admin/listAdd">
-                        <i class="fa fa-home"></i>
-                        <span class="nav-label">添加菜单</span>
-                    </a>
-                </li>
-                <li>
                     <a href="#">
                         <i class="fa fa fa-bar-chart-o"></i>
                         <span class="nav-label">权限管理</span>
@@ -91,26 +85,15 @@
                 <li>
                     <a href="#">
                         <i class="fa fa fa-bar-chart-o"></i>
-<<<<<<< HEAD
-                        <span class="nav-label">角色管理</span>
-=======
                         <span class="nav-label">轮播图</span>
->>>>>>> c0d95101acf1a96012f36fd48b1e2a73f3c1bb7f
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level">
                         <li>
-<<<<<<< HEAD
-                            <a class="J_menuItem" href="/admin/roleAdd">角色添加</a>
-                        </li>
-                        <li>
-                            <a class="J_menuItem" href="/admin/roleList">角色展示</a>
-=======
                             <a class="J_menuItem" href="/admin/slide/create">轮播图添加</a>
                         </li>
                         <li>
                             <a class="J_menuItem" href="/admin/slide/list">轮播图列表</a>
->>>>>>> c0d95101acf1a96012f36fd48b1e2a73f3c1bb7f
                         </li>
                     </ul>
                 </li>
