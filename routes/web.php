@@ -12,7 +12,7 @@ Route::any('/index/reg','Index\UserController@reg');
 /**
  * 后台
  */
-Route::prefix('admin')->group(function () {
+Route::prefix('Admin')->group(function () {
     Route::get('/index', 'admin\IndexController@index');
     Route::any('/regist', 'admin\UserController@regist');
     Route::any('/login', 'admin\UserController@login');
