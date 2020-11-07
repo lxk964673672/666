@@ -94,10 +94,10 @@
                     </a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a class="J_menuItem" href="information/create">资讯添加</a>
+                            <a class="J_menuItem" href="admin/information/create">资讯添加</a>
                         </li>
                         <li>
-                            <a class="J_menuItem" href="information/list">资讯展示</a>
+                            <a class="J_menuItem" href="admin/information/list">资讯展示</a>
                         </li>
                     </ul>
                 </li>
@@ -184,10 +184,17 @@
                         </li>
                     </ul>
                 </li>
-                 <li>
+
+
+                <li>
                     <a href="#">
                         <i class="fa fa fa-bar-chart-o"></i>
                         <span class="nav-label">课程</span>
+
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
                             <a class="J_menuItem" href="/admin/course/course/create">课程添加</a>
                         </li>
                         <li>
@@ -196,6 +203,9 @@
                         </li>
                     </ul>
                 </li>
+
+
+
                  <li>
                     <a href="#">
                         <i class="fa fa fa-bar-chart-o"></i>
@@ -213,6 +223,7 @@
                         </li>
                     </ul>
                 </li>
+
                 <li class="line dk"></li>
             </ul>
         </div>

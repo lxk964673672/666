@@ -67,9 +67,9 @@ Route::prefix('admin')->group(function () {
     Route::any('/course/detail/store', 'Admin\Course\DetailController@store');
     Route::any('/course/detail/list', 'Admin\Course\DetailController@list');
     //资讯
-    Route::any('information/create', 'Admin\InformationController@create');
-    Route::any('information/store', 'Admin\InformationController@store');
-    Route::any('information/list', 'Admin\InformationController@list');
+    Route::any('admin/information/create', 'Admin\InformationController@create');
+    Route::any('admin/information/createdo', 'Admin\InformationController@createdo');
+    Route::any('admin/information/list', 'Admin\InformationController@list');
 });
 
 ?>
