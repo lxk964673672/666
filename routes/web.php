@@ -32,6 +32,21 @@ Route::prefix('/index')->group(function () {
 
     Route::any('/index/video','Index\VideoController@video');
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
  * 后台
  */
@@ -68,8 +83,6 @@ Route::prefix('admin')->group(function () {
     Route::any('/course/course/create', 'Admin\Course\CourseController@create');
     Route::any('/course/course/store', 'Admin\Course\CourseController@store');
     Route::any('/course/course/list', 'Admin\Course\CourseController@list');
-
-   
 
 });
 
