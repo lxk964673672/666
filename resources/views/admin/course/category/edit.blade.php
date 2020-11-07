@@ -13,7 +13,7 @@
           <!-- session显示讲师名称 id -->
 </head>
 <body>
-<form class="form-horizontal">
+<form class="form-horizontal" action="{{url('/admin/course/category/update/'.$category->cate_id)}}" method="post">
  
   
   <div class="form-group">
@@ -22,9 +22,8 @@
 
       <select class="form-control" id='parents_id'>
         <option value="0">--顶级分类--</option>
-        @foreach($data as $k=>$v)
-        <option value="{{$v->cate_id}}">
-            {{str_repeat('|————',$v->level)}}
+        @foreach($cate as $k=>$v)
+        <option value="{{$v->cate_id}}"{{$category->parents_id==$v->cate_id ? "selected" : ""}}>
             {{$v->cate_name}}
         </option>
         @endforeach
@@ -36,42 +35,17 @@
   <div class="form-group">
     <label for="text" class="col-sm-2 control-label">分类名称</label>
     <div class="col-sm-10">
-        <input type="text" class="form-control" id="cate_name" name="cate_name" placeholder="分类名称">
+        <input type="text" class="form-control" id="cate_name" name="cate_name" placeholder="分类名称" value="{{$category->cate_name}}">
     </div>
   </div>
  
   
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default">添加</button>
+      <button type="submit" class="btn btn-default">修改</button>
     </div>
   </div>
 </form>
 </body>
 </html>
-<script src="/admin/js/jquery.js"></script>
-<script>
-      $(document).on('click','button',function(){
-       var parents_id = $('#parents_id').val();
-       var cate_name = $("input[name='cate_name']").val();
-       if(cate_name==''){
-           alert('分类名称不能不写');return false;
-       }
-       // return false;
-       $.ajax({
-            url:"{{url('/admin/course/category/store')}}",
-            type:'post',
-            data:{parents_id:parents_id,cate_name:cate_name},
-            dataType: "json",
-            success:function(res){
-                // console.log(res);
-                if(res.code="00000"){
-                    alert(res.msg);
-                    window.location.href=res.url;
-                }else{
-                    alert(res.msg);
-                }
-            }
-        });
-    });  
-</script>
+  

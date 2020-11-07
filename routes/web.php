@@ -77,12 +77,18 @@ Route::prefix('/admin')->group(function () {
     Route::any('/course/category/create', 'Admin\Course\CategoryController@create');
     Route::any('/course/category/store', 'Admin\Course\CategoryController@store');
     Route::any('/course/category/list', 'Admin\Course\CategoryController@list');
+    Route::any('/course/category/delete/{id}', 'Admin\Course\CategoryController@delete');
+    Route::any('/course/category/edit/{cate_id}', 'Admin\Course\CategoryController@edit');
+    Route::any('/course/category/update/{cate_id}', 'Admin\Course\CategoryController@update');
 
     //课程
     Route::any('/course/course/create', 'Admin\Course\CourseController@create');
     Route::any('/course/course/store', 'Admin\Course\CourseController@store');
     Route::any('/course/course/list', 'Admin\Course\CourseController@list');
-
+    Route::any('/course/course/edit/{cou_id}', 'Admin\Course\CourseController@edit');
+    Route::any('/course/course/update/{cou_id}', 'Admin\Course\CourseController@update');
+    Route::any('/course/course/delete/{cou_id}', 'Admin\Course\CourseController@delete');
+    Route::any('/course/course/detail/{cou_id}', 'Admin\Course\CourseController@detail');
 });
 
 ?>

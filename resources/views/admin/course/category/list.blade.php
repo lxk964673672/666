@@ -21,12 +21,19 @@
         <td>操作</td>
     </tr>
   
-    @foreach($data as $k=>$v)
+    @foreach($cateInfo as $k=>$v)
     <tr>
-        <td>$v->cate_id</td>
+        <td>{{$v->cate_id}}</td>
         <td>{{str_repeat('|——',$v->level)}}{{$v->cate_name}}</td>
         <td>{{$v->parents_id}}</td>
-        <td>删除</td>
+        <td>
+            <a href="{{url('admin/course/category/edit/'.$v->cate_id)}}">
+              <button type="button" class="btn bg-olive btn-xs" >修改</button>
+            </a>  
+            <a href="{{url('admin/course/category/delete/'.$v->cate_id)}}">
+              <button type="button" class="btn bg-olive btn-xs" >删除</button>
+            </a>
+        </td>
     </tr>
     @endforeach
 </table>

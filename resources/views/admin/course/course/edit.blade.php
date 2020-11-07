@@ -13,22 +13,22 @@
           <!-- session显示讲师名称 id -->
 </head>
 <body>
-<form class="form-horizontal">
+<form class="form-horizontal"  action="{{url('/admin/course/course/update/'.$data->cou_id)}}" method="post">
   <div class="form-group">
     <label for="text" class="col-sm-2 control-label">课程名称：</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="cou_name" name="cou_name" placeholder="课程名称">
+      <input type="text" class="form-control" id="cou_name" name="cou_name" placeholder="课程名称" value="{{$data->cou_name}}">
     </div>
   </div>
   
   <div class="form-group">
     <label for="text" class="col-sm-2 control-label">所属分类 :</label>
     <div class="col-sm-10">
-     <select class="form-control" id='cate_id'>
+     <select class="form-control" name="cate_id">
         <option value="0">--顶级分类--</option>
-        @foreach($data as $k=>$v)
-        <option value="{{$v->cate_id}}">
-            {{str_repeat('|————',$v->level)}}
+        @foreach($cate as $k=>$v)
+        <option value="{{$v->cate_id}}" {{$data->cate_id==$v->cate_id ? "selected" : ""}}>
+        	{{str_repeat('|————',$v->level)}}
             {{$v->cate_name}}
         </option>
         @endforeach
@@ -40,40 +40,17 @@
   <div class="form-group">
     <label for="text" class="col-sm-2 control-label">介绍：</label>
     <div class="col-sm-10">
-     <textarea class="form-control" rows="3" id="cou_desc" name="cou_desc"></textarea>
+     <textarea class="form-control" rows="3" id="cou_desc" name="cou_desc">{{$data->cou_desc}}</textarea>
     </div>
   </div>
  
   
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default">添加</button>
+      <button type="submit" class="btn btn-default">修改</button>
     </div>
   </div>
 </form>
 </body>
 </html>
-<script src="/admin/js/jquery.js"></script>
-<script>
-    $(document).on('click','button',function () {
-        var cou_name = $('[name="cou_name"]').val();
-        var cate_id = $('#cate_id').val();
-        var cou_desc = $('[name="cou_desc"]').val();
-
-        // 从session中拿到讲师id 后期写上
-        $.ajax({
-            url:"{{url('/admin/course/course/store')}}",
-            type:'post',
-            data:{cou_name:cou_name,cate_id:cate_id,cou_desc:cou_desc},
-            dataType: "json",
-            success:function(res){
-                if(res.code == "00000"){
-                    alert(res.msg);
-                    window.location.href=res.url;
-                }else{
-                    alert(res.msg);
-                }
-            }
-        });
-    });
-</script>
+ 
