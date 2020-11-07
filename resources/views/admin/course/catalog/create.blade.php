@@ -1,1 +1,70 @@
-create.blade.php
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+                              session拿到当前讲师的id 和 当前讲师的课程id 给这个讲师的这个课程增加章节 自动生成目录（标题，大致描述） 点击进去就是 这一章的详情（标题 具体描述）
+<body>
+<form class="form-horizontal">
+  <div class="form-group">
+    <label for="text" class="col-sm-2 control-label">标题：</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="catalog_name" placeholder="目录名称">
+    </div>
+  </div>
+
+   <div class="form-group">
+    <label for="text" class="col-sm-2 control-label">大致描述：</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="catalog_desc">
+    </div>
+  </div>
+
+   <div class="form-group">
+    <label for="text" class="col-sm-2 control-label">具体描述：</label>
+    <div class="col-sm-10">
+     <textarea class="form-control" rows="3" id="catalog_detail"></textarea>
+    </div>
+  </div>
+
+ <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">添加</button>
+    </div>
+  </div>
+
+</form>
+</body>
+</html>
+
+<script>
+    $('[class="btn btn-primary"]').click(function () {
+        var catalog_name = $('[name="catalog_name"]').val();
+        var catalog_desc = $('[name="catalog_desc"]').val();
+        var catalog_detail = $('[name="catalog_detail"]').val();
+        // var tea_id = $('[name="tea_id"]').val(); session里拿讲师 tea_id
+        // // var cou_id = $('[name="cou_id"]').val(); 接收课程 cou_id
+        $.ajax({
+            url:"{{url('admin/course/catalog/store')}}"
+            type:'post',
+            data:{catalog_name:catalog_name,catalog_desc:catalog_desc,catalog_detail:catalog_detail},
+            dataType: "json",
+            success:function(res){
+                if(res.code == "00000"){
+                    alert(res.msg);
+                    window.location.href=res.url;
+                }else{
+                    alert(res.msg);
+                }
+            }
+        });
+    });
+</script>
