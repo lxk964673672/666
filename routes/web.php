@@ -86,6 +86,7 @@ Route::prefix('admin')->group(function () {
     Route::any('/course/course/edit/{cou_id}', 'Admin\Course\CourseController@edit');
     Route::any('/course/course/update/{cou_id}', 'Admin\Course\CourseController@update');
     Route::any('/course/course/delete/{cou_id}', 'Admin\Course\CourseController@delete');
+    Route::any('/course/course/detail/{cou_id}', 'Admin\Course\CourseController@detail');
 });
 
 ?>

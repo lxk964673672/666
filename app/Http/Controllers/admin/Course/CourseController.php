@@ -38,7 +38,7 @@ class CourseController extends Controller
 	
 	public function list(){
 
-		 $data=Course::leftJoin('course_category','course.cate_id','=','course_category.cate_id')->get();
+		$data=Course::leftJoin('course_category','course.cate_id','=','course_category.cate_id')->get();
 
 		return view('admin.course.course.list',['data'=>$data]);
 	}
@@ -66,9 +66,6 @@ class CourseController extends Controller
 
         }
     }
-
-
-
 	public function delete(Request $request ,$cou_id){
      
             $res = Course::where("cou_id",$cou_id)->delete();
@@ -78,5 +75,10 @@ class CourseController extends Controller
             }else{
                 return "<script>alert('删除失败');location.href='/admin/course/course/list'</script>";
             }
-        }
+    }
+    public function detail($cou_id){
+        $data=Course::where("cou_id",$cou_id)->first();
+        return view('admin.course.course.detail',['data'=>$data]);
+
+    }
 }
