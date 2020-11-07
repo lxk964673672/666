@@ -32,13 +32,32 @@ Route::prefix('/index')->group(function () {
 
     Route::any('/index/video','Index\VideoController@video');
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
  * 后台
  */
 Route::prefix('admin')->group(function () {
+    //首页
     Route::get('/index', 'Admin\IndexController@index');
+    //注册
     Route::any('/regist', 'Admin\UserController@regist');
+    //登陆   
     Route::any('/login', 'Admin\UserController@login');
+    //权限
     Route::any('/powerAdd', 'Admin\PowerController@powerAdd');
     Route::any('/powerList', 'Admin\PowerController@powerList');
 
@@ -56,20 +75,21 @@ Route::prefix('admin')->group(function () {
     Route::any('/course/category/create', 'Admin\Course\CategoryController@create');
     Route::any('/course/category/store', 'Admin\Course\CategoryController@store');
     Route::any('/course/category/list', 'Admin\Course\CategoryController@list');
+    Route::any('/course/category/delete/{id}', 'Admin\Course\CategoryController@delete');
+    Route::any('/course/category/edit/{id}', 'Admin\Course\CategoryController@edit');
+    Route::any('/course/category/update/{id}', 'Admin\Course\CategoryController@update');
 
     //课程
     Route::any('/course/course/create', 'Admin\Course\CourseController@create');
     Route::any('/course/course/store', 'Admin\Course\CourseController@store');
     Route::any('/course/course/list', 'Admin\Course\CourseController@list');
 
-    //课程分类
-    Route::any('/course/detail/create', 'Admin\Course\DetailController@create');
-    Route::any('/course/detail/store', 'Admin\Course\DetailController@store');
-    Route::any('/course/detail/list', 'Admin\Course\DetailController@list');
+
     //资讯
     Route::any('admin/information/create', 'Admin\InformationController@create');
     Route::any('admin/information/createdo', 'Admin\InformationController@createdo');
     Route::any('admin/information/list', 'Admin\InformationController@list');
+
 });
 
 ?>
