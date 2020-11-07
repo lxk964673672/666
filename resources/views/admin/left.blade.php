@@ -203,6 +203,24 @@
                         </li>
                     </ul>
                 </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa fa-bar-chart-o"></i>
+                        <span class="nav-label">提问</span>
+
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a class="J_menuItem" href="admin/answer/list">回答展示</a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="admin/question/list">提问展示</a>
+
+                        </li>
+                    </ul>
+                </li>
+               
              
                 <li class="line dk"></li>
             </ul>

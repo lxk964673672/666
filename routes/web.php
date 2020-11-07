@@ -89,7 +89,27 @@ Route::prefix('admin')->group(function () {
     Route::any('admin/information/create', 'Admin\InformationController@create');
     Route::any('admin/information/createdo', 'Admin\InformationController@createdo');
     Route::any('admin/information/list', 'Admin\InformationController@list');
+    Route::any('admin/information/del/{id}', 'Admin\InformationController@del');
+    Route::any('admin/information/update/{id}', 'Admin\InformationController@update');
+    Route::any('admin/information/updatedo/{id}', 'Admin\InformationController@updatedo');
 
+
+    //提问
+    Route::any('admin/question/create', 'Admin\QuestionController@create');
+    Route::any('admin/question/createdo', 'Admin\QuestionController@createdo');
+    Route::any('admin/question/list', 'Admin\QuestionController@list');
+    Route::any('admin/question/del/{id}', 'Admin\QuestionController@del');
+    Route::any('admin/question/update/{id}', 'Admin\QuestionController@update');
+    Route::any('admin/question/updatedo/{id}', 'Admin\QuestionController@updatedo');
+
+
+    //回答
+    Route::any('admin/answer/create', 'Admin\AnswerController@create');
+    Route::any('admin/answer/createdo', 'Admin\AnswerController@createdo');
+    Route::any('admin/answer/list', 'Admin\AnswerController@list');
+    Route::any('admin/answer/del/{id}', 'Admin\AnswerController@del');
+    Route::any('admin/answer/update/{id}', 'Admin\AnswerController@update');
+    Route::any('admin/answer/updatedo/{id}', 'Admin\AnswerController@updatedo');
 });
 
 ?>
