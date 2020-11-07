@@ -38,9 +38,47 @@ class CourseController extends Controller
 	
 	public function list(){
 
-		$data=Course::get();
-		// dd($data);
+		$data=Course::leftJoin('course_category','course.cate_id','=','course_category.cate_id')->get();
 
 		return view('admin.course.course.list',['data'=>$data]);
 	}
+	public function edit($cou_id){
+		$cate = Category::get();
+        $cate = $this->CreateTree($cate);
+         
+
+        $data=Course::leftJoin('course_category','course.cate_id','=','course_category.cate_id')
+        ->where("cou_id",$cou_id)
+        ->first();
+
+        return view("admin.course.course.edit",compact("data","cate"));
+	}
+
+	public function update(Request $request, $cou_id){
+        // dd($id); 
+        $post = $request->except('_token');
+        // dd($post);
+        // dd($post);
+        $cate = Course::where('cou_id',$cou_id)->update($post);
+        // dd($cate);
+        if($cate!==false){
+            return "<script>alert('修改成功');location.href='/admin/course/course/list'</script>";
+
+        }
+    }
+	public function delete(Request $request ,$cou_id){
+     
+            $res = Course::where("cou_id",$cou_id)->delete();
+            // dd($res);
+            if($res){
+                return "<script>alert('删除成功');location.href='/admin/course/course/list'</script>";
+            }else{
+                return "<script>alert('删除失败');location.href='/admin/course/course/list'</script>";
+            }
+    }
+    public function detail($cou_id){
+        $data=Course::where("cou_id",$cou_id)->first();
+        return view('admin.course.course.detail',['data'=>$data]);
+
+    }
 }
