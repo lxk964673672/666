@@ -44,6 +44,40 @@ Route::prefix('admin')->group(function () {
     Route::any('/course/detail/store', 'Admin\Course\DetailController@store');
     Route::any('/course/detail/list', 'Admin\Course\DetailController@list');
 
+    //课程公告
+    Route::any('/course/notice/create','Admin\Course\NoticeController@create');
+    Route::any('/course/notice/store','Admin\Course\NoticeController@store');
+    Route::any('/course/notice/list','Admin\Course\NoticeController@list');
+
+    //题库管理
+    Route::any('/course/catalog_bank/create','Admin\Course\Catalog_bankController@create');
+    Route::any('/course/catalog_bank/store','Admin\Course\Catalog_bankController@store');
+    Route::any('/course/catalog_bank/list','Admin\Course\Catalog_bankController@list');
+
+    //讲师添加
+    Route::any('/course/teacher/create','Admin\Course\TeacherController@create');
+    Route::any('/course/teacher/store','Admin\Course\TeacherController@store');
+    Route::any('/course/teacher/list','Admin\Course\TeacherController@list');
+
+    //考试添加
+    Route::any('/course/exam/create','Admin\Course\ExamController@create');
+    Route::any('/course/exam/store','Admin\Course\ExamController@store');
+    Route::any('/course/exam/list','Admin\Course\ExamController@list');
+
+    //作业添加
+    Route::any('/course/users_job/create','Admin\Course\Users_jobController@create');
+    Route::any('/course/users_job/store','Admin\Course\Users_jobController@store');
+    Route::any('/course/users_job/list','Admin\Course\Users_jobController@list');
+
+
+
+
+
+
+
+
+
+
 });
 
 Route::any('/index/video','Index\VideoController@video');
