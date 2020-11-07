@@ -59,7 +59,7 @@
 
                                     <div class="col-md-2 title">轮播图权重</div>
                                     <div class="col-md-10 data">
-                                        <input type="text" class="form-control" name="silde_weight"   value="{{$name->slide_weight}}" ng-model="entity.telephone"  placeholder="轮播图权重(最大{{$swei['slide_weight']}})">
+                                        <input type="text" class="form-control" name="silde_weight"   value="{{$name->slide_weight}}" ng-model="entity.telephone"  placeholder="轮播图权重(最大{{$swei}})">
                                     </div>
 
                                     <div class="col-md-2 title">是否展示</div>

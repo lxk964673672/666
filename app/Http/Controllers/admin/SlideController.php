@@ -123,7 +123,7 @@ class SlideController extends Controller
         }
         if(request()->isMethod('get')){
             $name = Slide::where("is_del",'1')->first();
-            $swei = Slide::orderBY("slide_weight",'desc')->first("slide_weight");
+            $swei = Slide::orderBY("slide_weight",'desc')->first("slide_weight")->slide_weight+1;
             return view("admin.slide.upd",["name"=>$name,"swei"=>$swei]);
         }
         if(request()->isMethod("post")){
