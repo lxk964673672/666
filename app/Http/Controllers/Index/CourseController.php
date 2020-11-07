@@ -10,9 +10,6 @@ use App\Http\Controllers\Controller;
 
 class CourseController extends Controller
 {
-    public function coursecont(){
-    	return view('index/course/coursecont');
-    }
     public function coursecont1(){
     	return view('index/course/coursecont1');
     }
@@ -21,5 +18,8 @@ class CourseController extends Controller
     }
     public function mycourse(){
     	return view('index/course/mycourse');
+    }
+    public function detail(){
+        return view('index/course/detail');
     }
 }
