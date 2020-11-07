@@ -40,10 +40,17 @@
       <td>{{$v->cou_name}}</td>
       <!-- <td>$v->tea_name</td> -->
       <td>{{$v->cou_desc}}</td>
-      <td>{{$v->cate_id}}</td>
+      <td>{{$v->cate_name}}</td>
       <td>{{$v->cou_time}}</td>
       <td>{{$v->cou_status}}</td>
-      <td>删除</td>
+      <td>
+         <a href="{{url('admin/course/course/edit/'.$v->cou_id)}}">
+              <button type="button" class="btn bg-olive btn-xs" >修改</button>
+         </a>  
+         <a href="{{url('admin/course/course/delete/'.$v->cou_id)}}">
+              <button type="button" class="btn bg-olive btn-xs" >删除</button>
+         </a>
+      </td>
    </tr>
    @endforeach
 </table>
