@@ -17,24 +17,30 @@
   <div class="form-group">
     <label for="text" class="col-sm-2 control-label">课程名称：</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="cou_name" placeholder="课程名称">
+      <input type="text" class="form-control" id="cou_name" name="cou_name" placeholder="课程名称">
     </div>
   </div>
   
   <div class="form-group">
     <label for="text" class="col-sm-2 control-label">所属分类 :</label>
     <div class="col-sm-10">
-      <select class="form-control" id='cate_id'>
-        <option value="java">java</option>
-        <option value="php">php</option>
+     <select class="form-control" id='cate_id'>
+        <option value="0">--顶级分类--</option>
+        @foreach($data as $k=>$v)
+        <option value="{{$v->cate_id}}">
+            {{str_repeat('|————',$v->level)}}
+            {{$v->cate_name}}
+        </option>
+        @endforeach
       </select>
+
     </div>
   </div>
 
   <div class="form-group">
     <label for="text" class="col-sm-2 control-label">介绍：</label>
     <div class="col-sm-10">
-     <textarea class="form-control" rows="3" id="cou_desc"></textarea>
+     <textarea class="form-control" rows="3" id="cou_desc" name="cou_desc"></textarea>
     </div>
   </div>
  
@@ -47,16 +53,18 @@
 </form>
 </body>
 </html>
-
+<script src="/admin/js/jquery.js"></script>
 <script>
     $(document).on('click','button',function () {
         var cou_name = $('[name="cou_name"]').val();
+        var cate_id = $('#cate_id').val();
         var cou_desc = $('[name="cou_desc"]').val();
+
         // 从session中拿到讲师id 后期写上
         $.ajax({
             url:"{{url('/admin/course/course/create')}}",
             type:'post',
-            data:{cou_name:cou_name,cou_desc:cou_desc},
+            data:{cou_name:cou_name,cate_id:cate_id,cou_desc:cou_desc},
             dataType: "json",
             success:function(res){
                 if(res.code == "00000"){

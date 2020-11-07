@@ -60,6 +60,9 @@ Route::prefix('admin')->group(function () {
     Route::any('/course/category/create', 'Admin\Course\CategoryController@create');
     Route::any('/course/category/store', 'Admin\Course\CategoryController@store');
     Route::any('/course/category/list', 'Admin\Course\CategoryController@list');
+    Route::any('/course/category/delete/{id}', 'Admin\Course\CategoryController@delete');
+    Route::any('/course/category/edit/{id}', 'Admin\Course\CategoryController@edit');
+    Route::any('/course/category/update/{id}', 'Admin\Course\CategoryController@update');
 
     //课程
     Route::any('/course/course/create', 'Admin\Course\CourseController@create');

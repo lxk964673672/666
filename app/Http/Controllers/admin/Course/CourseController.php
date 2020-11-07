@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Course;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Course\Course;
+use App\Models\Course\Category;
 
 /**
  * 课程
@@ -11,10 +12,13 @@ use App\Models\Course\Course;
 class CourseController extends Controller
 { 
 	public function create(){
-		return view('admin.course.course.create');
+		$data = Category::get();
+        $data = $this->CreateTree($data);
+		return view('admin.course.course.create',['data'=>$data]);
 	}
 	public function store(){
 		$data=request()->all();
+		dd($data);
 		$data=Course::insert($data);
 		if($data){
 			$arr=[
