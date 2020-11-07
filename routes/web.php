@@ -51,9 +51,13 @@ Route::prefix('/index')->group(function () {
  * 后台
  */
 Route::prefix('admin')->group(function () {
+    //首页
     Route::get('/index', 'Admin\IndexController@index');
+    //注册
     Route::any('/regist', 'Admin\UserController@regist');
+    //登陆   
     Route::any('/login', 'Admin\UserController@login');
+    //权限
     Route::any('/powerAdd', 'Admin\PowerController@powerAdd');
     Route::any('/powerList', 'Admin\PowerController@powerList');
 
@@ -76,16 +80,6 @@ Route::prefix('admin')->group(function () {
     Route::any('/course/course/create', 'Admin\Course\CourseController@create');
     Route::any('/course/course/store', 'Admin\Course\CourseController@store');
     Route::any('/course/course/list', 'Admin\Course\CourseController@list');
-
-    //课程分类
-    Route::any('/course/detail/create', 'Admin\Course\DetailController@create');
-    Route::any('/course/detail/store', 'Admin\Course\DetailController@store');
-    Route::any('/course/detail/list', 'Admin\Course\DetailController@list');
-   
-    //轮播图
-    Route::any('/course/SPicture/create', 'admin\SPictureController@create');
-    Route::any('/course/SPicture/store', 'admin\SPictureController@store');
-    Route::any('/course/SPicture/list', 'admin\SPictureController@list');
 
 });
 
