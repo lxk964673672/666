@@ -12,7 +12,7 @@
 		<p class="courstime">讲师：马老师</p>
 		<p class="courstime">课程评价：<img width="71" height="14" src="/index/images/evaluate5.png">&nbsp;&nbsp;<span class="hidden-sm hidden-xs">5.0分（10人评价）</span></p>
         <!--<p><a class="state end">完结</a></p>-->      
-        <span class="coursebtn"><a class="btnlink" href="coursecont1.html">加入学习</a><a class="codol fx" href="javascript:void(0);" onClick="$('#bds').toggle();">分享课程</a><a class="codol sc" href="#">收藏课程</a></span> 
+        <span class="coursebtn"><a class="btnlink" href="{{url('/index/course/coursecont1')}}">加入学习</a><a class="codol fx" href="javascript:void(0);" onClick="$('#bds').toggle();">分享课程</a><a class="codol sc" href="#">收藏课程</a></span> 
 		<div style="clear:both;"></div>
 		<div id="bds">
             <div class="bdsharebuttonbox">
@@ -39,7 +39,7 @@
 	<div class="clearh"></div>
 	<h3 class="leftit">课程目录</h3>
     <dl class="mulu">
-    	<dt><a href="coursecont1.html" class="graylink">第一章&nbsp;&nbsp;总论</a></dt>
+    	<dt><a href="{{url('/index/course/coursecont1')}}" class="graylink">第一章&nbsp;&nbsp;总论</a></dt>
         <dd>内容包括会计基础、财经法规和职业道德、电算化三科视频课程全系列。内容包括会计基础、财经法规和职业道德、电算化三科视频课程全系列</dd>
    
     
