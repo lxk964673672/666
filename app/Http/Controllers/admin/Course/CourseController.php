@@ -18,7 +18,8 @@ class CourseController extends Controller
 	}
 	public function store(){
 		$data=request()->all();
-		dd($data);
+		$data['cou_time']=time();
+		// dd($data);
 		$data=Course::insert($data);
 		if($data){
 			$arr=[
@@ -37,7 +38,8 @@ class CourseController extends Controller
 	
 	public function list(){
 
-		$data=Course::select();
+		$data=Course::get();
+		// dd($data);
 
 		return view('admin.course.course.list',['data'=>$data]);
 	}

@@ -62,7 +62,7 @@
 
         // 从session中拿到讲师id 后期写上
         $.ajax({
-            url:"{{url('/admin/course/course/create')}}",
+            url:"{{url('/admin/course/course/store')}}",
             type:'post',
             data:{cou_name:cou_name,cate_id:cate_id,cou_desc:cou_desc},
             dataType: "json",
