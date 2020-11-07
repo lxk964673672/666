@@ -32,6 +32,21 @@ Route::prefix('/index')->group(function () {
 
     Route::any('/index/video','Index\VideoController@video');
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
  * 后台
  */
@@ -66,6 +81,11 @@ Route::prefix('admin')->group(function () {
     Route::any('/course/detail/create', 'Admin\Course\DetailController@create');
     Route::any('/course/detail/store', 'Admin\Course\DetailController@store');
     Route::any('/course/detail/list', 'Admin\Course\DetailController@list');
+   
+    //轮播图
+    Route::any('/course/SPicture/create', 'admin\SPictureController@create');
+    Route::any('/course/SPicture/store', 'admin\SPictureController@store');
+    Route::any('/course/SPicture/list', 'admin\SPictureController@list');
 
 });
 

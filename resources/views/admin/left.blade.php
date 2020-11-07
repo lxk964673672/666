@@ -183,7 +183,23 @@
                         </li>
                     </ul>
                 </li>
+                 <li>
+                    <a href="#">
+                        <i class="fa fa fa-bar-chart-o"></i>
+                        <span class="nav-label">轮播图</span>
 
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a class="J_menuItem" href="{{url('/admin/course/SPicture/create')}}">轮播图添加</a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="{{url('/admin/course/SPicture/list')}}">轮播图列表</a>
+
+                        </li>
+                    </ul>
+                </li>
                 <li class="line dk"></li>
             </ul>
         </div>
