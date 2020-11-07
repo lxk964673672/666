@@ -17,14 +17,14 @@
    <tr>
    	<td>课程id</td>
    	<td>课程名称</td>
-   	<td>讲师名称</td>
+   	<!-- <td>讲师名称</td> -->
    	<td>课程介绍</td>
    	<td>所属分类</td>
    	<td>添加时间</td>
    	<td>状态</td>
       <td>操作</td>
    </tr>
-   <tr>
+  <!--  <tr>
       <td>1</td>
    	<td>斗罗大陆</td>
    	<td>唐家三少</td>
@@ -33,18 +33,29 @@
    	<td>2020</td>
    	<td>连载</td>
       <td>详情</td>
-   </tr>
-   <!-- @foreach($data as $k=>$v)
+   </tr> -->
+   @foreach($data as $k=>$v)
    <tr>
-      <td>$v->cou_id</td>
-      <td>$v->cou_name</td>
-      <td>$v->tea_name</td>
-      <td>$v->cou_desc</td>
-      <td>$v->cate_name</td>
-      <td>$v->create_time</td>
-      <td>$v->cou_status</td>
+      <td>{{$v->cou_id}}</td>
+      <td>{{$v->cou_name}}</td>
+      <!-- <td>$v->tea_name</td> -->
+      <td>{{$v->cou_desc}}</td>
+      <td>{{$v->cate_name}}</td>
+      <td>{{$v->cou_time}}</td>
+      <td>{{$v->cou_status==1?'连载':'完结'}}</td>
+      <td>
+         <a href="{{url('admin/course/course/edit/'.$v->cou_id)}}">
+              <button type="button" class="btn bg-olive btn-xs" >修改</button>
+         </a>  
+         <a href="{{url('admin/course/course/delete/'.$v->cou_id)}}">
+              <button type="button" class="btn bg-olive btn-xs" >删除</button>
+         </a>
+         <a href="{{url('admin/course/course/detail/'.$v->cou_id)}}">
+              <button type="button" class="btn bg-olive btn-xs" >详情</button>
+         </a>
+      </td>
    </tr>
-   @endforeach -->
+   @endforeach
 </table>
 </body>
 </html>

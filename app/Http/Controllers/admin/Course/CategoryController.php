@@ -26,12 +26,13 @@ class CategoryController extends Controller
         // dd($str);
         if($str){
             $arr = [
-                'success'=>true,
-                'msg'=>'课程分类添加成功'
+                'code'=>"00000",
+                'msg'=>'课程分类添加成功',
+                'url'=>"/admin/course/category/list"
             ];
         }else{
             $arr = [
-                'success'=>false,
+                'code'=>"00002",
                 'msg'=>'课程分类添加失败'
             ];
         }
@@ -43,15 +44,15 @@ class CategoryController extends Controller
 
         return view("admin.course.category.list",compact("cateInfo"));
 	}
-    public function delete(Request $request ,$id){
+    public function delete(Request $request ,$cate_id){
         
-        $cate = Category::where("parents_id",$id)->first();
+        $cate = Category::where("parents_id",$cate_id)->first();
         // dd($cate);
         if($cate){
             return "<script>alert('该分类下有子分类');location.href='/admin/course/category/list'</script>";
 
                     }else{
-            $res = Category::where("cate_id",$id)->delete();
+            $res = Category::where("cate_id",$cate_id)->delete();
             // dd($res);
             if($res){
                 return redirect("/admin/course/category/list");
@@ -60,17 +61,17 @@ class CategoryController extends Controller
             }
         }
     }
-    public function edit($id){
+    public function edit($cate_id){
         $cate = Category::get();
         $cate = $this->CreateTree($cate);
-        $category = Category::where("cate_id",$id)->first();
+        $category = Category::where("cate_id",$cate_id)->first();
         return view("admin.course.category.edit",compact("category","cate"));
     }
-    public function update(Request $request, $id){
+    public function update(Request $request, $cate_id){
         // dd($id); 
         $post = $request->except('_token');
         // dd($post);
-        $cate = Category::where('cate_id',$id)->update($post);
+        $cate = Category::where('cate_id',$cate_id)->update($post);
         // dd($cate);
         if($cate!==false){
             return "<script>alert('修改成功');location.href='/admin/course/category/list'</script>";

@@ -65,9 +65,9 @@
             dataType: "json",
             success:function(res){
                 // console.log(res);
-                if(res.success){
+                if(res.code="00000"){
                     alert(res.msg);
-                    window.location.href="{{url('admin/course/category/list')}}";
+                    window.location.href=res.url;
                 }else{
                     alert(res.msg);
                 }
