@@ -89,6 +89,13 @@ Route::prefix('/admin')->group(function () {
     Route::any('/course/course/update/{cou_id}', 'Admin\Course\CourseController@update');
     Route::any('/course/course/delete/{cou_id}', 'Admin\Course\CourseController@delete');
     Route::any('/course/course/detail/{cou_id}', 'Admin\Course\CourseController@detail');
+
+    //视频课程
+    Route::any('/course/video/create', 'admin\VideoController@create');
+    Route::any('/course/video/store', 'admin\VideoController@store');
+    Route::any('/course/video/list', 'admin\VideoController@list');
+    Route::any('/course/video/del/{id}', 'admin\VideoController@del');
+    Route::any('/course/video/upd/{id}', 'admin\VideoController@upd');
 });
 
 ?>
