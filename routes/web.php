@@ -81,7 +81,7 @@ Route::prefix('/admin')->group(function () {
     Route::any('/slide/upd/{id}', 'admin\SlideController@upd');
 
     //课程目录
-    Route::any('/course/catalog/create', 'Admin\Course\CatalogController@create');
+    Route::any('/course/catalog/create/{cou_id}', 'Admin\Course\CatalogController@create');
     Route::any('/course/catalog/store', 'Admin\Course\CatalogController@store');
     Route::any('/course/catalog/list', 'Admin\Course\CatalogController@list');
 
