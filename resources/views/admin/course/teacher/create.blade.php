@@ -10,18 +10,21 @@
 <body>
 <center>
 <h2>讲师添加</h2>
-
 </center>
-<form class="form-horizontal" role="form">
+<form class="form-horizontal">
 	<div class="form-group">
 		<label for="firstname" class="col-sm-2 control-label">所属分类</label>
         <div class="col-sm-8">
-            <select name="cate_id" id="cate_id" class="form-control">
-                <option value="">-请选择-</option>
-				<option value="1">-请选择-</option>
-				<option value="2">-请选择-</option>
-				<option value="3">-请选择-</option>
-            </select>
+			<select class="form-control" id='cate_id' name="cate_id">
+				<option value="0">--顶级分类--</option>
+				@foreach($data as $k=>$v)
+				<option value="{{$v->cate_id}}">
+					{{str_repeat('|————',$v->level)}}
+					{{$v->cate_name}}
+				</option>
+				@endforeach
+			</select>
+
 		</div>
 		</div>
 	</div>
@@ -36,7 +39,7 @@
     <div class="form-group">
 		<label for="lastname" class="col-sm-2 control-label">讲师个人简历</label>
 		<div class="col-sm-8">
-            <textarea name="tea_resume" id="" class="form-control" cols="10" rows="5"></textarea>
+            <textarea name="tea_resume" id="tea_resume" class="form-control tea_resume" cols="10" rows="5"></textarea>
 		</div>
 	</div>
 
@@ -50,14 +53,14 @@
     <div class="form-group">
 		<label for="firstname" class="col-sm-2 control-label">是否展示</label>
 		<div class="col-sm-8">
-            <input type="radio" name="ls_show" value="1"> 是
-            <input type="radio" name="ls_show" value="2"> 否
+            <input type="radio" name="is_show" id="is_show" value="1" checked> 是
+            <input type="radio" name="is_show" id="is_show" value="2"> 否
 		</div>
 	</div>
 
 	<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-10">
-			<button type="submit" class="btn btn-default">添加</button>
+			<button type="button" class="btn btn-default">添加</button>
 		</div>
 	</div>
 </form>
@@ -67,24 +70,25 @@
 <script src="/admin/js/jquery.js"></script>
 <script>
       $(document).on('click','button',function(){
-		//   alert(111);
+		//alert(111);
        var cate_id = $('#cate_id').val();
-	   alert(cate_id);
+		//alert(cate_id);
        var tea_name = $("input[name='tea_name']").val();
-	   alert(tea_name);
-	   var tea_resume = $("input[name='tea_resume']").val();
-		alert(tea_resume);
-       if(cate_name==''){
-           alert('分类名称不能不写');return false;
-       }
-       // return false;
+		//alert(tea_name);
+	   var tea_resume = $("#tea_resume").val();
+		//alert(tea_resume);
+		var tea_style = $("input[name='tea_style']").val();
+		// alert(tea_style);
+		var is_show = $("#is_show:checked").val();
+		// alert(is_show);
        $.ajax({
-            url:"{{url('/admin/course/category/store')}}",
-            type:'post',
-            data:{parents_id:parents_id,cate_name:cate_name},
+            url:"{{url('/admin/course/teacher/store')}}",
+            type:"post",
+            data:{cate_id:cate_id,tea_name:tea_name,tea_resume:tea_resume,tea_style:tea_style,is_show:is_show},
             dataType: "json",
+			async:true,
             success:function(res){
-                // console.log(res);
+                console.log(res);
                 if(res.code="00000"){
                     alert(res.msg);
                     window.location.href=res.url;

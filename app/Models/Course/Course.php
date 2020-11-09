@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Course extends Model
 {
-        # 表名
+    # 表名
     protected $table = 'course';
 
     # 主键

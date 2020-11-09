@@ -99,10 +99,14 @@ Route::prefix('admin')->group(function () {
     Route::any('/course/catalog_bank/store','Admin\Course\Catalog_bankController@store');
     Route::any('/course/catalog_bank/list','Admin\Course\Catalog_bankController@list');
 
-    //讲师添加
+    //讲师
     Route::any('/course/teacher/create','Admin\Course\TeacherController@create');
     Route::any('/course/teacher/store','Admin\Course\TeacherController@store');
     Route::any('/course/teacher/list','Admin\Course\TeacherController@list');
+    Route::any('/course/teacher/del','Admin\Course\TeacherController@del');
+    Route::any('/course/teacher/edit/{id}','Admin\Course\TeacherController@edit');
+    Route::any('/course/teacher/update/{id}','Admin\Course\TeacherController@update');
+
 
     //考试添加
     Route::any('/course/exam/create','Admin\Course\ExamController@create');
