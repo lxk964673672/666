@@ -35,9 +35,9 @@
 			<td height="80px">{{$v->q_name}}</td>
 			<td height="80px">{{date("Y-m-s H:i:s",$v->q_time)}}</td>
 			<td class="text-center" height="80px">		                          
-			 <a q_id="{{$v->q_id}}" class="btn bg-olive btn-xs del">删除</a>
-			  <a href="{{url('/admin/admin/information/update/'.$v->q_id)}}" class="btn bg-olive btn-xs ">编辑</a>	 
-			  <a is_show="{{$v->is_show}}" class="btn bg-olive btn-xs ">是否展示</a>
+			 <a q_id="{{$v->q_id}}"type="button" class="btn btn-primary del">删除</a>
+			  <a href="{{url('/admin/admin/question/update/'.$v->q_id)}}" type="button" class="btn btn-danger">编辑</a>	 
+			  <a is_show="{{$v->is_show}}" type="button" class="btn btn-info">是否展示</a>
 		    </td>
 		</tr>
 		@endforeach

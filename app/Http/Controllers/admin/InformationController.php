@@ -28,8 +28,22 @@ class InformationController extends Controller
     }
      //资讯展示
     public function list(){
-    	$info=Information::where("is_del","1")->get();
-    	return view("/admin/information/list",["info"=>$info]);
+        $title=request()->title;
+        //dd($title);
+        $where=[];
+        if($title){
+            $where[]=['infor_title','like',"%$title%"];
+        }
+        $content=request()->content;
+        if($content){
+            $where[]=['infor_content','like',"%$content%"];
+        }
+        $infor_hots=request()->infor_hots;
+        if($infor_hots){
+            $where[]=['infor_hot','like',"%$infor_hots%"];
+        }    
+    	$info=Information::where("is_del","1")->where($where)->paginate(3);
+    	return view("/admin/information/list",["info"=>$info,"title"=>$title,"content"=>$content,"infor_hots"=>$infor_hots]);
     }
     //资讯删除(软删除)
     public function del($id){

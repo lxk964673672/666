@@ -28,8 +28,23 @@ class AnswerController extends Controller
     }
     //回答展示
     public function list(){
-    	$info=Answer::where("is_del","1")->get();
-    	return view("/admin/answer/list",["info"=>$info]);
+        $u_ids=request()->u_ids;
+        //dd($u_ids);
+        $where=[];
+        if($u_ids){
+            $where[]=['u_id','like',"%$u_ids%"];
+        }
+        $cou_ids=request()->cou_ids;
+        if($cou_ids){
+            $where[]=['cou_id','like',"%$cou_ids%"];
+        }
+        $q_ids=request()->q_ids;
+        if($q_ids){
+            $where[]=['q_id','like',"%$q_ids%"];
+        }
+        
+    	$info=Answer::where("is_del","1")->where($where)->paginate(3);
+    	return view("/admin/answer/list",["info"=>$info,'u_ids'=>$u_ids,'cou_ids'=>$cou_ids,'q_ids'=>$q_ids]);
     
 }
 }

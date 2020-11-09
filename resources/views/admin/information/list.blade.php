@@ -11,6 +11,13 @@
 <center>
 <table class="table table-striped" border="7">
 	<h1><b>资讯展示</b></h1>
+	<span style="float:right"><a class="btn btn-default" href="{{'/admin/admin/information/create'}}">返回资讯添加</a></span>
+	 					<form>
+							<input type="text" name="title" placeholder="请输入标题" value="{{$title ?? ''}}">
+							<input type="text" name="content" placeholder="请输入内容" value="{{$content ?? ''}}">
+							<input type="text" name="infor_hots" placeholder="请输入浏览次数" value="{{$infor_hots ?? ''}}">																		
+							<input type="submit" value="搜索">
+						</form>
 	<thead>
 		<tr>
 			<th width="20px" height="80px">资讯id</th>
@@ -30,11 +37,15 @@
 			<td height="80px">{{$v->infor_hot}}</td>
 			<td height="80px">{{date("Y-m-s H:i:s",$v->infor_time)}}</td>
 			<td class="text-center" height="80px">		                          
-			 <a infor_id="{{$v->infor_id}}" class="btn bg-olive btn-xs del">删除</a>
-			  <a href="{{url('/admin/admin/information/update/'.$v->infor_id)}}" class="btn bg-olive btn-xs ">编辑</a>	 
+			 <a infor_id="{{$v->infor_id}}" type="button" class="btn btn-warning  del">删除</a>
+			  <a href="{{url('/admin/admin/information/update/'.$v->infor_id)}}" type="button" class="btn btn-danger">编辑</a>	 
 		    </td>
 		</tr>
 		@endforeach
+		<tr>
+			<td colspan="7">{{ $info->appends(['title'=>$title,'content'=>$content,'infor_hots'=>$infor_hots])->links() }}</td>
+			
+		</tr>
 	</tbody>
 </table>
 </center>

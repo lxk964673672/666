@@ -9,9 +9,15 @@
 </head>
 <body>
 <center>
-<table class="table table-striped" border="3">
+<table class="table table-striped" border="20">
 	<h1><b>回答展示</b></h1>
 	<span style="float:right"><a class="btn btn-default" href="{{'/admin/admin/answer/create'}}">返回回答添加</a></span>
+						 <form>
+							<input type="text" name="u_ids" placeholder="请输入用户ID" value="{{$u_ids ?? ''}}">
+							<input type="text" name="cou_ids" placeholder="请输入课程ID" value="{{$cou_ids ?? ''}}">
+							<input type="text" name="q_ids" placeholder="请输入问题ID" value="{{$q_ids ?? ''}}">																		
+							<input type="submit" value="搜索">
+						</form>
 	<thead>
 		<tr>
 			<th width="20px" height="80px">回答ID</th>
@@ -33,12 +39,17 @@
 			<td height="80px">{{$v->a_content}}</td>
 			<td height="80px">{{date("Y-m-s H:i:s",$v->q_time)}}</td>
 			<td class="text-center" height="80px">		                          
-			 <a a_id="{{$v->a_id}}" class="btn bg-olive btn-xs del">删除</a>
-			  <a href="{{url('/admin/admin/information/update/'.$v->a_id)}}" class="btn bg-olive btn-xs ">编辑</a>	 
+			 <a a_id="{{$v->a_id}}" type="button" class="btn btn-primary  del">删除</a>
+			  <a href="{{url('/admin/admin/answer/update/'.$v->a_id)}}"  type="button" class="btn btn-danger ">编辑</a>	 
 		    </td>
 		</tr>
 		@endforeach
+		<tr>
+			<td colspan="7">{{ $info->appends(['u_ids'=>$u_ids,'cou_ids'=>$cou_ids,'q_ids'=>$q_ids])->links() }}</td>
+			
+		</tr>
 	</tbody>
+
 </table>
 </center>
 </body>
