@@ -41,10 +41,33 @@ class AnswerController extends Controller
         $q_ids=request()->q_ids;
         if($q_ids){
             $where[]=['q_id','like',"%$q_ids%"];
-        }
-        
+        }       
     	$info=Answer::where("is_del","1")->where($where)->paginate(3);
-    	return view("/admin/answer/list",["info"=>$info,'u_ids'=>$u_ids,'cou_ids'=>$cou_ids,'q_ids'=>$q_ids]);
-    
-}
+    	return view("/admin/answer/list",["info"=>$info,'u_ids'=>$u_ids,'cou_ids'=>$cou_ids,'q_ids'=>$q_ids]);   
+    }
+    //回答删除
+     public function del($id){
+        $answerdel = Answer::where("a_id",$id)->update(["is_del"=>2]);
+            if($answerdel){
+            return redirect("admin/admin/answer/list");
+        }
+    }
+     //回答修改
+    public function update($id){
+        $answer=Answer::find($id);
+        $res=$answer->get();
+        // dd(123);
+        return view('/admin/answer/update',['answer'=>$answer]);
+    }
+    //回答修改执行
+    public function updatedo(Request $request,$id){
+        $post = $request->except('_token');
+        //dd($post);
+        $answer = new Answer;
+        $res = $answer::where('a_id',$id)->update($post);
+        //dd($res);
+        if($res or "1=1"){
+            return redirect('admin/admin/answer/list');
+        }
+    }
 }
