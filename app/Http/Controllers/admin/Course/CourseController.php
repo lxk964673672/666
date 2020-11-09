@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Course\Course;
 use App\Models\Course\Category;
+use App\Models\Course\Log;
 
 /**
  * 课程
@@ -19,7 +20,6 @@ class CourseController extends Controller
 	public function store(){
 		$data=request()->all();
 		$data['cou_time']=time();
-		// dd($data);
 		$data=Course::insert($data);
 		if($data){
 			$arr=[
@@ -77,8 +77,9 @@ class CourseController extends Controller
             }
     }
     public function detail($cou_id){
+        $log=Log::where('cou_id',$cou_id)->get();
         $data=Course::where("cou_id",$cou_id)->first();
-        return view('admin.course.course.detail',['data'=>$data]);
+        return view('admin.course.course.detail',['data'=>$data,'log'=>$log]);
 
     }
 }

@@ -24,16 +24,7 @@
    	<td>状态</td>
       <td>操作</td>
    </tr>
-  <!--  <tr>
-      <td>1</td>
-   	<td>斗罗大陆</td>
-   	<td>唐家三少</td>
-   	<td>唐家成神</td>
-   	<td>玄幻</td>
-   	<td>2020</td>
-   	<td>连载</td>
-      <td>详情</td>
-   </tr> -->
+
    @foreach($data as $k=>$v)
    <tr>
       <td>{{$v->cou_id}}</td>
@@ -41,7 +32,8 @@
       <!-- <td>$v->tea_name</td> -->
       <td>{{$v->cou_desc}}</td>
       <td>{{$v->cate_name}}</td>
-      <td>{{$v->cou_time}}</td>
+
+      <td>{{date('Y-m-d H:i:s',$v->cou_time)}}</td>
       <td>{{$v->cou_status==1?'连载':'完结'}}</td>
       <td>
          <a href="{{url('admin/course/course/edit/'.$v->cou_id)}}">

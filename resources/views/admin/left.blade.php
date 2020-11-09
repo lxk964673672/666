@@ -70,7 +70,9 @@
                 <li>
                     <a href="#">
                         <i class="fa fa fa-bar-chart-o"></i>
-                        <span class="nav-label">用户管理</span>
+
+                        <span class="nav-label">用户</span>
+
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level">
@@ -85,15 +87,48 @@
                  <li>
                     <a href="#">
                         <i class="fa fa fa-bar-chart-o"></i>
-                        <span class="nav-label">角色管理</span>
+
+
+                        <span class="nav-label">资讯</span>
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a class="J_menuItem" href="/admin/roleAdd">角色添加</a>
+                            <a class="J_menuItem" href="admin/information/create">资讯添加</a>
                         </li>
                         <li>
-                            <a class="J_menuItem" href="/admin/roleList">角色展示</a>
+                            <a class="J_menuItem" href="admin/information/list">资讯展示</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa fa-bar-chart-o"></i>
+                        <span class="nav-label">讲师</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a class="J_menuItem" href="/admin/powerAdd">讲师添加</a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="/admin/powerList">讲师展示</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa fa-bar-chart-o"></i>
+                        <span class="nav-label">问答</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a class="J_menuItem" href="/admin/powerAdd">问答添加</a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="/admin/powerList">问答展示</a>
+
                         </li>
                     </ul>
                 </li>
@@ -114,23 +149,6 @@
                     </ul>
                 </li>
 
-                <li>
-                    <a href="#">
-                        <i class="fa fa fa-bar-chart-o"></i>
-                        <span class="nav-label">课程目录</span>
-
-                        <span class="fa arrow"></span>
-                    </a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a class="J_menuItem" href="/admin/course/catalog/create">课程目录添加</a>
-                        </li>
-                        <li>
-                            <a class="J_menuItem" href="/admin/course/catalog/list">课程目录列表</a>
-
-                        </li>
-                    </ul>
-                </li>
 
                  <li>
                     <a href="#">
@@ -149,11 +167,12 @@
                         </li>
                     </ul>
                 </li>
-                 <li>
+
+
+                <li>
                     <a href="#">
                         <i class="fa fa fa-bar-chart-o"></i>
                         <span class="nav-label">课程</span>
-
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level">
@@ -166,11 +185,10 @@
                         </li>
                     </ul>
                 </li>
-                 <li>
+                <li>
                     <a href="#">
                         <i class="fa fa fa-bar-chart-o"></i>
                         <span class="nav-label">课程视频</span>
-
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level">
@@ -183,6 +201,23 @@
                         </li>
                     </ul>
                 </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa fa-bar-chart-o"></i>
+                        <span class="nav-label">提问</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a class="J_menuItem" href="admin/answer/list">回答展示</a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="admin/question/list">提问展示</a>
+
+                        </li>
+                    </ul>
+                </li>
+
                 <li class="line dk"></li>
             </ul>
         </div>
