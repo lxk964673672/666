@@ -9,9 +9,16 @@
 </head>
 <body>
 <center>
-<table class="table table-striped" border="3">
+<table class="table table-striped" border="30">
 	<h1><b>提问展示</b></h1>
-	<span style="float:right"><a class="btn btn-default" href="{{'/admin/admin/question/create'}}">返回提问添加</a></span>
+	<span style="float:right"><a type="button" class="btn btn-primary btn-xs" href="{{'/admin/admin/question/create'}}">返回提问添加</a></span>
+						<form>
+							<input type="text" name="u_ids" placeholder="请输入用户ID" value="{{$u_ids ?? ''}}">
+							<input type="text" name="cou_ids" placeholder="请输入课程ID" value="{{$cou_ids ?? ''}}">
+							<input type="text" name="q_titles" placeholder="请输入问题标题" value="{{$q_titles ?? ''}}">	
+							<input type="text" name="q_browses" placeholder="请输入浏览量" value="{{$q_browses ?? ''}}">																		
+							<input type="submit" value="搜索">
+						</form>
 	<thead>
 		<tr>
 			<th width="20px" height="80px">问题ID</th>
@@ -41,9 +48,27 @@
 		    </td>
 		</tr>
 		@endforeach
+		<tr>
+			<td colspan="8">{{ $info->appends(['u_ids'=>$u_ids,'cou_ids'=>$cou_ids,'q_titles'=>$q_titles,'q_browses'=>$q_browses])->links() }}</td>
+			
+		</tr>
 	</tbody>
 </table>
 </center>
 </body>
 </html>
 
+<script src="../../../jquery.js"></script>
+<script>
+	$(function(){
+		//js删除
+		$(".del").click(function(){
+			var _this = $(this);
+			var q_id = _this.attr("q_id");
+			if(window.confirm("你要删除这条数据吗")){
+				var url = "/admin/admin/question/del/"+q_id;
+				location.href=url;
+			}
+		});
+	});
+</script>

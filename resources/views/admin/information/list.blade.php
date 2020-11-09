@@ -11,7 +11,7 @@
 <center>
 <table class="table table-striped" border="7">
 	<h1><b>资讯展示</b></h1>
-	<span style="float:right"><a class="btn btn-default" href="{{'/admin/admin/information/create'}}">返回资讯添加</a></span>
+	<span style="float:right"><a type="button" class="btn btn-primary btn-xs" href="{{'/admin/admin/information/create'}}">返回资讯添加</a></span>
 	 					<form>
 							<input type="text" name="title" placeholder="请输入标题" value="{{$title ?? ''}}">
 							<input type="text" name="content" placeholder="请输入内容" value="{{$content ?? ''}}">
