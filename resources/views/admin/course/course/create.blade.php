@@ -43,7 +43,7 @@
      <textarea class="form-control" rows="3" id="cou_desc" name="cou_desc"></textarea>
     </div>
   </div>
- 
+
   
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
@@ -67,6 +67,8 @@
             data:{cou_name:cou_name,cate_id:cate_id,cou_desc:cou_desc},
             dataType: "json",
             success:function(res){
+              console.log(res);
+              return false;
                 if(res.code == "00000"){
                     alert(res.msg);
                     window.location.href=res.url;
