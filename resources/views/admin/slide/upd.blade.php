@@ -29,7 +29,7 @@
                         <ul class="nav nav-tabs">
                        		
                             <li class="active">
-                                <a href="" data-toggle="tab">轮播图添加</a>                             
+                                <a href="" data-toggle="tab">轮播图添加</a>                         
                             </li>                            
                         </ul>
                         <!--tab头/-->
@@ -89,6 +89,7 @@
 <script src="../../jquery.js"></script>
 <link rel="stylesheet" href="../../../status/uploadify/uploadify.css">
 <script src="../../status/uploadify/jquery.uploadify.js"></script>
+<script src="../../../../../admin/status/layui/layui.js"></script>
 <script>
     $(document).ready(function(){
 		$("#lmg").uploadify({
@@ -110,7 +111,15 @@
 			var is_show = $("input[name='is_show']").val();
             var slide_id = $("input[name='slide_id']").val();
 			if(slide_url == ""||Silde_name==""||img_path==""||silde_weight==""||is_show==""||slide_id==""){
-				alert("请不要丢下我");
+                layui.use('layer', function(){
+                    var layer = layui.layer;
+                    layer.msg('请不要空下选项', {
+                        icon: 2,
+                        time: 3000 //2秒关闭（如果不配置，默认是3秒）
+                        }, function(){
+                        //do something
+                    });   
+                });
 				return false;
 			}
 			var	url = "/admin/slide/upd/"+slide_id;
@@ -124,10 +133,28 @@
 					console.log(index);
 					if(index.error == 0){
 				     	var	uel = index.data;
-						alert(index.msg);
+                        layui.use('layer', function(){
+                            var layer = layui.layer;
+                                layer.msg(index.msg, {
+                                icon: 1,
+                                time: 3000 //2秒关闭（如果不配置，默认是3秒）
+                                }, function(){
+                                //do something
+
+                            });   
+                        });
 						location.href=uel;
 					}else{
-						alert(index.msg);
+                        layui.use('layer', function(){
+                            var layer = layui.layer;
+                                layer.msg(index.msg, {
+                                icon: 2,
+                                time: 3000 //2秒关闭（如果不配置，默认是3秒）
+                                }, function(){
+                                //do something
+
+                            });   
+                        });
 					}
 				}
 			});
