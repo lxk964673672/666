@@ -185,22 +185,7 @@
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa fa-bar-chart-o"></i>
-                        <span class="nav-label">课程视频</span>
-                        <span class="fa arrow"></span>
-                    </a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a class="J_menuItem" href="{{url('/admin/course/video/create')}}">课程视频添加</a>
-                        </li>
-                        <li>
-                            <a class="J_menuItem" href="{{url('/admin/course/video/list')}}">课程视频列表</a>
-
-                        </li>
-                    </ul>
-                </li>
+              
                 <li>
                     <a href="#">
                         <i class="fa fa fa-bar-chart-o"></i>

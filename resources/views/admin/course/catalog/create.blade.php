@@ -54,19 +54,6 @@
     </div>
   </div>
 
-   <div class="form-group">
-    <label for="text" class="col-sm-2 control-label">这一章 具体内容：</label>
-    <div class="col-sm-10">
-     <textarea class="form-control" rows="3" id="catalog_detail" name="catalog_detail" placeholder="具体内容"></textarea>
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="text" class="col-sm-2 control-label">视频名称</label>
-    <div class="col-sm-10">
-     <input type="text" class="form-control" name="video_name"   placeholder="视频名称" value="">
-    </div>
-  </div>
-
     <div class="form-group">
     <label for="text" class="col-sm-2 control-label">图片上传：</label>
     <div class="col-sm-10">
@@ -106,16 +93,15 @@
         var catalog_chapters = $('[name="catalog_chapters"]').val();
         var catalog_name = $('[name="catalog_name"]').val();
         var catalog_desc = $('[name="catalog_desc"]').val();
-        var catalog_detail = $('[name="catalog_detail"]').val();
 
-        var video_name = $('[name="video_name"]').val();
+  
         var video_img = $('[name="videodesc_img"]').val();
         // var tea_id = $('[name="tea_id"]').val(); session里拿讲师 tea_id
         // // var cou_id = $('[name="cou_id"]').val(); 接收课程 cou_id
         $.ajax({
             url:"{{url('admin/course/catalog/store')}}",
             type:'post',
-            data:{cou_id:cou_id,catalog_chapters:catalog_chapters,catalog_name:catalog_name,catalog_desc:catalog_desc,catalog_detail:catalog_detail,video_img:video_img,video_name:video_name},
+            data:{cou_id:cou_id,catalog_chapters:catalog_chapters,catalog_name:catalog_name,catalog_desc:catalog_desc,video_img:video_img},
             dataType: "json",
             success:function(res){
                 if(res.code == "00000"){
