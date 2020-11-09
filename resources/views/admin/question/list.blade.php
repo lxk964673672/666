@@ -11,6 +11,7 @@
 <center>
 <table class="table table-striped" border="3">
 	<h1><b>提问展示</b></h1>
+	<span style="float:right"><a class="btn btn-default" href="{{'/admin/admin/question/create'}}">返回提问添加</a></span>
 	<thead>
 		<tr>
 			<th width="20px" height="80px">问题ID</th>
