@@ -11,7 +11,7 @@
 <center>
 <table class="table table-striped" border="20">
 	<h1><b>回答展示</b></h1>
-	<span style="float:right"><a class="btn btn-default" href="{{'/admin/admin/answer/create'}}">返回回答添加</a></span>
+	<span style="float:right"><a type="button" class="btn btn-primary btn-xs" href="{{'/admin/admin/answer/create'}}">返回回答添加</a></span>
 						 <form>
 							<input type="text" name="u_ids" placeholder="请输入用户ID" value="{{$u_ids ?? ''}}">
 							<input type="text" name="cou_ids" placeholder="请输入课程ID" value="{{$cou_ids ?? ''}}">
@@ -55,3 +55,17 @@
 </body>
 </html>
 
+<script src="../../../jquery.js"></script>
+<script>
+	$(function(){
+		//js删除
+		$(".del").click(function(){
+			var _this = $(this);
+			var a_id = _this.attr("a_id");
+			if(window.confirm("你要删除这条数据吗")){
+				var url = "/admin/admin/answer/del/"+a_id;
+				location.href=url;
+			}
+		});
+	});
+</script>

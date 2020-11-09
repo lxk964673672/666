@@ -104,6 +104,12 @@ Route::prefix('/admin')->group(function () {
     Route::any('/course/course/detail/{cou_id}', 'Admin\Course\CourseController@detail');
     Route::any('/course/course/details/{catalog_id}', 'Admin\Course\CourseController@details');
 
+    //视频课程
+    Route::any('/course/video/create', 'admin\VideoController@create');
+    Route::any('/course/video/store', 'admin\VideoController@store');
+    Route::any('/course/video/list', 'admin\VideoController@list');
+    Route::any('/course/video/del/{id}', 'admin\VideoController@del');
+    Route::any('/course/video/upd/{id}', 'admin\VideoController@upd');
     //资讯
     Route::any('admin/information/create', 'Admin\InformationController@create');
     Route::any('admin/information/createdo', 'Admin\InformationController@createdo');

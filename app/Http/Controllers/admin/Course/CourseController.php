@@ -20,7 +20,6 @@ class CourseController extends Controller
 	public function store(){
 		$data=request()->all();
 		$data['cou_time']=time();
-		// dd($data);
 		$data=Course::insert($data);
 		if($data){
 			$arr=[

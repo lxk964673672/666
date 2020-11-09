@@ -60,6 +60,22 @@
      <textarea class="form-control" rows="3" id="catalog_detail" name="catalog_detail" placeholder="具体内容"></textarea>
     </div>
   </div>
+  <div class="form-group">
+    <label for="text" class="col-sm-2 control-label">视频名称</label>
+    <div class="col-sm-10">
+     <input type="text" class="form-control" name="video_name"   placeholder="视频名称" value="">
+    </div>
+  </div>
+
+    <div class="form-group">
+    <label for="text" class="col-sm-2 control-label">图片上传：</label>
+    <div class="col-sm-10">
+        <input type="file" name="video_img" id="lmg">
+        <input type="hidden" name="videodesc_img"  value="uploads/mp3/e53a85ca175901ad8ad4d769d281eea4.mp4" id="video_img">
+    </div>
+  </div>
+ <div  class="input-group" id="imgs_desc"></div>
+
 
  <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
@@ -71,19 +87,35 @@
 </body>
 </html>
 <script src="/admin/js/jquery.js"></script>
+<link rel="stylesheet" href="../../../../../admin/status/uploadify/uploadify.css">
+<script src="../../../../admin/status/uploadify/jquery.uploadify.js"></script>
 <script>
+    $(document).ready(function(){
+    $("#lmg").uploadify({
+      uploader:"/admin/course/video/store",
+      swf: "../../../../admin/status/uploadify/uploadify.swf",
+      onUploadSuccess:function(res,data,msg){
+        var images = data;
+        $("#video_img").val(images);
+                var imgstr = "<embed src='../../../../"+images+"' type=''>";
+        $("#imgs_desc").append(imgstr);
+      }
+    });
      $(document).on('click','button',function () {
         var cou_id=$('.bb').attr('cou_id');
         var catalog_chapters = $('[name="catalog_chapters"]').val();
         var catalog_name = $('[name="catalog_name"]').val();
         var catalog_desc = $('[name="catalog_desc"]').val();
         var catalog_detail = $('[name="catalog_detail"]').val();
+
+        var video_name = $('[name="video_name"]').val();
+        var video_img = $('[name="videodesc_img"]').val();
         // var tea_id = $('[name="tea_id"]').val(); session里拿讲师 tea_id
         // // var cou_id = $('[name="cou_id"]').val(); 接收课程 cou_id
         $.ajax({
             url:"{{url('admin/course/catalog/store')}}",
             type:'post',
-            data:{cou_id:cou_id,catalog_chapters:catalog_chapters,catalog_name:catalog_name,catalog_desc:catalog_desc,catalog_detail:catalog_detail},
+            data:{cou_id:cou_id,catalog_chapters:catalog_chapters,catalog_name:catalog_name,catalog_desc:catalog_desc,catalog_detail:catalog_detail,video_img:video_img,video_name:video_name},
             dataType: "json",
             success:function(res){
                 if(res.code == "00000"){
@@ -94,5 +126,6 @@
                 }
             }
         });
+    });
     });
 </script>

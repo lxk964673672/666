@@ -32,6 +32,7 @@
       <!-- <td>$v->tea_name</td> -->
       <td>{{$v->cou_desc}}</td>
       <td>{{$v->cate_name}}</td>
+
       <td>{{date('Y-m-d H:i:s',$v->cou_time)}}</td>
       <td>{{$v->cou_status==1?'连载':'完结'}}</td>
       <td>
