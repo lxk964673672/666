@@ -38,4 +38,14 @@ class CatalogController extends Controller
 	public function list(){
 		return view('admin.course.catalog.list');
 	}
+	public function delete(Request $request ,$catalog_id){
+     
+            $res = Log::where("catalog_id",$catalog_id)->delete();
+            // dd($res);
+            if($res){
+                return "<script>alert('删除章节成功');location.href='/admin/course/course/list'</script>";
+            }else{
+                return "<script>alert('删除章节失败');location.href='/admin/course/course/list'</script>";
+            }
+    }
 }

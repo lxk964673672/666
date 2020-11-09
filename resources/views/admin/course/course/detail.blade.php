@@ -49,18 +49,17 @@ color:orange;
 	<h3 class="leftit">课程简介</h3>
     <p class="coutex">{{$data->cou_desc}}</p>
 	<div class="clearh"></div>
+
+
 	<h3 class="leftit">课程目录</h3>
     <dl class="mulu">
-
         @foreach($log as $k=>$v)
     	<dt>第{{$v->catalog_chapters}}章&nbsp;&nbsp;{{$v->catalog_name}}</a></dt>
         <dd>{{$v->catalog_desc}}</dd>
+        <dd></a>  
+        <a href="{{url('admin/course/catalog/delete/'.$v->catalog_id)}}">删除</a></dd>
         @endforeach
    
-    
-    	<!-- <dt><a href="#" class="graylink">第二章&nbsp;&nbsp;会计要素与会计等式</a></dt> -->
-        <!-- <dd>内容包括会计基础、财经法规和职业道德、电算化三科视频课程全系列。内容包括会计基础、财经法规和职业道德、电算化三科视频课程全系列</dd> -->
-    
     </dl>
 </div>
 

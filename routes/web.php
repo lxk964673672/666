@@ -84,6 +84,7 @@ Route::prefix('/admin')->group(function () {
     Route::any('/course/catalog/create/{cou_id}', 'Admin\Course\CatalogController@create');
     Route::any('/course/catalog/store', 'Admin\Course\CatalogController@store');
     Route::any('/course/catalog/list', 'Admin\Course\CatalogController@list');
+    Route::any('/course/catalog/delete/{catalog_id}', 'Admin\Course\CatalogController@delete');
 
     //课程分类
     Route::any('/course/category/create', 'Admin\Course\CategoryController@create');
