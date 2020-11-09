@@ -24,11 +24,11 @@ Route::prefix('/index')->group(function () {
     //加入学习
     Route::any('/course/coursecont1','Index\CourseController@coursecont1');
 
+
     Route::any('/page/page','Index\PageController@page');
     Route::any('/page/contact','Index\PageController@contact');
 
     Route::any('/course/mycourse','Index\CourseController@mycourse');
-
 
     Route::any('/index/video','Index\VideoController@video');
 });
@@ -97,10 +97,41 @@ Route::prefix('/admin')->group(function () {
     Route::any('/course/course/create', 'Admin\Course\CourseController@create');
     Route::any('/course/course/store', 'Admin\Course\CourseController@store');
     Route::any('/course/course/list', 'Admin\Course\CourseController@list');
+
+
+    //资讯
+    Route::any('admin/information/create', 'Admin\InformationController@create');
+    Route::any('admin/information/createdo', 'Admin\InformationController@createdo');
+    Route::any('admin/information/list', 'Admin\InformationController@list');
+    Route::any('admin/information/del/{id}', 'Admin\InformationController@del');
+    Route::any('admin/information/update/{id}', 'Admin\InformationController@update');
+    Route::any('admin/information/updatedo/{id}', 'Admin\InformationController@updatedo');
+
+
+    //提问
+    Route::any('admin/question/create', 'Admin\QuestionController@create');
+    Route::any('admin/question/createdo', 'Admin\QuestionController@createdo');
+    Route::any('admin/question/list', 'Admin\QuestionController@list');
+    Route::any('admin/question/del/{id}', 'Admin\QuestionController@del');
+    Route::any('admin/question/update/{id}', 'Admin\QuestionController@update');
+    Route::any('admin/question/updatedo/{id}', 'Admin\QuestionController@updatedo');
+
+
+    //回答
+    Route::any('admin/answer/create', 'Admin\AnswerController@create');
+    Route::any('admin/answer/createdo', 'Admin\AnswerController@createdo');
+    Route::any('admin/answer/list', 'Admin\AnswerController@list');
+    Route::any('admin/answer/del/{id}', 'Admin\AnswerController@del');
+    Route::any('admin/answer/update/{id}', 'Admin\AnswerController@update');
+    Route::any('admin/answer/updatedo/{id}', 'Admin\AnswerController@updatedo');
+
+
+    
     Route::any('/course/course/edit/{cou_id}', 'Admin\Course\CourseController@edit');
     Route::any('/course/course/update/{cou_id}', 'Admin\Course\CourseController@update');
     Route::any('/course/course/delete/{cou_id}', 'Admin\Course\CourseController@delete');
     Route::any('/course/course/detail/{cou_id}', 'Admin\Course\CourseController@detail');
+
 });
 
 ?>
