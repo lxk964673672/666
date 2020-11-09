@@ -83,4 +83,10 @@ class CourseController extends Controller
         return view('admin.course.course.detail',['data'=>$data,'log'=>$log]);
 
     }
+    public function details($catalog_id){
+        $data=Log::where('catalog_id',$catalog_id)->first();
+        return view('admin.course.course.details',['data'=>$data]);
+
+    }
+
 }

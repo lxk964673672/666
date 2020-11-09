@@ -54,7 +54,7 @@ color:orange;
 	<h3 class="leftit">课程目录</h3>
     <dl class="mulu">
         @foreach($log as $k=>$v)
-    	<dt>第{{$v->catalog_chapters}}章&nbsp;&nbsp;{{$v->catalog_name}}</a></dt>
+    	<dt>第{{$v->catalog_chapters}}章&nbsp;&nbsp;<a href="{{url('/admin/course/course/details/'.$v->catalog_id)}}">{{$v->catalog_name}}</a></dt>
         <dd>{{$v->catalog_desc}}</dd>
         <dd></a>  
         <a href="{{url('admin/course/catalog/delete/'.$v->catalog_id)}}">删除</a></dd>
