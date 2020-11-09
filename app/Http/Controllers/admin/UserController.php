@@ -7,10 +7,6 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function regist()
-    {
-        return view('admin.regist');
-    }
     public function login()
     {
         return view('admin.login');

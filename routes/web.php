@@ -60,6 +60,18 @@ Route::prefix('/admin')->group(function () {
     //权限
     Route::any('/powerAdd', 'Admin\PowerController@powerAdd');
     Route::any('/powerList', 'Admin\PowerController@powerList');
+    //管理员添加
+    Route::any('/adminAdd', 'Admin\AdminController@adminAdd');
+    Route::any('/adminList', 'Admin\AdminController@adminList');
+    //角色添加
+    Route::any('/roleAdd', 'Admin\RoleController@roleAdd');
+    Route::any('/roleList', 'Admin\RoleController@roleList');
+    //角色权限添加
+    Route::any('/adminRoleAdd', 'Admin\AdminRole@adminRoleAdd');
+    Route::any('/adminRoleList', 'Admin\AdminRole@adminRoleList');
+    //管理员角色添加
+    Route::any('/rolePowerAdd', 'Admin\RolePower@rolePowerAdd');
+    Route::any('/rolePowerList', 'Admin\RolePower@rolePowerList');
 
     //轮播图
     Route::any('/slide/create', 'admin\SlideController@create');
