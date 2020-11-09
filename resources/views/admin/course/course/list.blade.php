@@ -56,6 +56,7 @@
       </td>
    </tr>
    @endforeach
+   <td colspan="20">{{$data->links()}}</td>
 </table>
 </body>
 </html>

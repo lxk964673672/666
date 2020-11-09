@@ -50,7 +50,7 @@ Route::prefix('/index')->group(function () {
 /**
  * 后台
  */
-Route::prefix('admin')->group(function () {
+Route::prefix('/admin')->group(function () {
     //首页
     Route::get('/index', 'Admin\IndexController@index');
     //注册
@@ -60,11 +60,25 @@ Route::prefix('admin')->group(function () {
     //权限
     Route::any('/powerAdd', 'Admin\PowerController@powerAdd');
     Route::any('/powerList', 'Admin\PowerController@powerList');
+    //管理员添加
+    Route::any('/adminAdd', 'Admin\AdminController@adminAdd');
+    Route::any('/adminList', 'Admin\AdminController@adminList');
+    //角色添加
+    Route::any('/roleAdd', 'Admin\RoleController@roleAdd');
+    Route::any('/roleList', 'Admin\RoleController@roleList');
+    //角色权限添加
+    Route::any('/adminRoleAdd', 'Admin\AdminRole@adminRoleAdd');
+    Route::any('/adminRoleList', 'Admin\AdminRole@adminRoleList');
+    //管理员角色添加
+    Route::any('/rolePowerAdd', 'Admin\RolePower@rolePowerAdd');
+    Route::any('/rolePowerList', 'Admin\RolePower@rolePowerList');
 
     //轮播图
-    Route::any('slide/create', 'Admin\SlideController@create');
-    Route::any('slide/store', 'Admin\SlideController@store');
-    Route::any('slide/list', 'Admin\SlideController@list');
+    Route::any('/slide/create', 'admin\SlideController@create');
+    Route::any('/slide/store', 'admin\SlideController@store');
+    Route::any('/slide/list', 'admin\SlideController@list');
+    Route::any('/slide/del/{id}', 'admin\SlideController@del');
+    Route::any('/slide/upd/{id}', 'admin\SlideController@upd');
 
     //课程目录
     Route::any('/course/catalog/create', 'Admin\Course\CatalogController@create');
