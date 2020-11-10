@@ -14,7 +14,7 @@
 </head>
 <body>
 <form class="form-horizontal">
- 
+ <input type="hidden" name="cate_id" value="{{$category->cate_id}}">
   
   <div class="form-group">
     <label for="text" class="col-sm-2 control-label">父级分类</label>
@@ -35,7 +35,7 @@
   <div class="form-group">
     <label for="text" class="col-sm-2 control-label">分类名称</label>
     <div class="col-sm-10">
-      <input type="hidden" name="cate_id" value="{{$category->cate_id}}">
+       
         <input type="text" class="form-control" id="cate_name" name="cate_name" placeholder="分类名称" value="{{$category->cate_name}}">
     </div>
   </div>

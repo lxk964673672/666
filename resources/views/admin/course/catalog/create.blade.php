@@ -76,6 +76,7 @@
 <script src="/admin/js/jquery.js"></script>
 <link rel="stylesheet" href="../../../../../admin/status/uploadify/uploadify.css">
 <script src="../../../../admin/status/uploadify/jquery.uploadify.js"></script>
+<script src="/admin/status/layui/layui.js"></script>
 <script>
     $(document).ready(function(){
     $("#lmg").uploadify({
@@ -105,10 +106,26 @@
             dataType: "json",
             success:function(res){
                 if(res.code == "00000"){
-                    alert(res.msg);
+                   layui.use('layer', function(){
+                    var layer = layui.layer;
+                    layer.msg(res.msg, {
+                        icon: 1,
+                        time: 3000 //2秒关闭（如果不配置，默认是3秒）
+                        }, function(){
+                        //do something
+                    });   
+                });
                     window.location.href=res.url;
                 }else{
-                    alert(res.msg);
+                    layui.use('layer', function(){
+                    var layer = layui.layer;
+                    layer.msg(res.msg, {
+                        icon: 1,
+                        time: 3000 //2秒关闭（如果不配置，默认是3秒）
+                        }, function(){
+                        //do something
+                    });   
+                });
                 }
             }
         });
