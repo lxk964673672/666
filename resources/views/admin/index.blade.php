@@ -1,12 +1,7 @@
 @include('admin.left')
     <!--右侧部分开始-->
     <style>
-        .aaa{
-            /*height:px;*/
-           /* width: 40px;
-            margin-left:850px;
-            margin-top:18px;*/
-        }
+ 
     </style>
     <div id="page-wrapper" class="gray-bg dashbard-1">
         <div class="row border-bottom">
