@@ -31,7 +31,7 @@ color:orange;
 		<p class="courstime">课程时长：<span class="course_tt">3小时20分</span></p> -->
 
         <!-- 浏览量 -->
-        <p class="courstime">学习人数：<span class="course_tt">{{$data->lll}}人</span></p>
+        <p class="courstime">学习人数：<span class="course_tt"><!-- {{$data->lll}}-->100人</span></p>
         <!-- 讲师 -->
 		<p class="courstime">{{$data->tea_id}}</p>
 

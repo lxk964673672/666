@@ -8,8 +8,8 @@
    </div>
    <div class="course_xq">
        <span class="courstime1"><p>课时<br/><span class="coursxq_num">{{$data->catalog_chapters}}</span></p></span>
-	   <span class="courstime1"><p>学习人数<br/><span class="coursxq_num">111</span></p></span>
-	   <span class="courstime1"><p>授课讲师<br/><span class="coursxq_num">111</span></p></span>
+	   <span class="courstime1"><p>学习人数<br/><span class="coursxq_num">100</span></p></span>
+	   <span class="courstime1"><p>授课讲师<br/><span class="coursxq_num">100</span></p></span>
    </div>
   
     <div class="clearh"></div>
