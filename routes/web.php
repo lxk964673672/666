@@ -98,12 +98,13 @@ Route::prefix('/admin')->group(function () {
     Route::any('/course/course/create', 'Admin\Course\CourseController@create');
     Route::any('/course/course/store', 'Admin\Course\CourseController@store');
     Route::any('/course/course/list', 'Admin\Course\CourseController@list');
-
-    //课程分类
-    Route::any('/course/detail/create', 'Admin\Course\DetailController@create');
-    Route::any('/course/detail/store', 'Admin\Course\DetailController@store');
-    Route::any('/course/detail/list', 'Admin\Course\DetailController@list');
-
+    Route::any('/course/course/edit/{cou_id}', 'Admin\Course\CourseController@edit');
+    Route::any('/course/course/update/{cou_id}', 'Admin\Course\CourseController@update');
+    Route::any('/course/course/delete/{cou_id}', 'Admin\Course\CourseController@delete');
+    Route::any('/course/course/detail/{cou_id}', 'Admin\Course\CourseController@detail');
+    Route::any('/course/course/details/{catalog_id}', 'Admin\Course\CourseController@details');
+    
+   
     //课程公告
     Route::any('/course/notice/create','Admin\Course\NoticeController@create');
     Route::any('/course/notice/store','Admin\Course\NoticeController@store');
@@ -132,21 +133,6 @@ Route::prefix('/admin')->group(function () {
     Route::any('/course/users_job/create','Admin\Course\Users_jobController@create');
     Route::any('/course/users_job/store','Admin\Course\Users_jobController@store');
     Route::any('/course/users_job/list','Admin\Course\Users_jobController@list');
-
-
-
-
-
-
-
-
-
-
-    Route::any('/course/course/edit/{cou_id}', 'Admin\Course\CourseController@edit');
-    Route::any('/course/course/update/{cou_id}', 'Admin\Course\CourseController@update');
-    Route::any('/course/course/delete/{cou_id}', 'Admin\Course\CourseController@delete');
-    Route::any('/course/course/detail/{cou_id}', 'Admin\Course\CourseController@detail');
-    Route::any('/course/course/details/{catalog_id}', 'Admin\Course\CourseController@details');
 
     //视频课程
     Route::any('/course/video/create', 'admin\VideoController@create');
