@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -59,7 +60,6 @@
                         <span class="nav-label">{{$v['p_name']}}</span>
                         <span class="fa arrow"></span>
                     </a>
-
                     <ul class="nav nav-second-level">
                         @foreach($v['son'] as $kk=>$vv)
                         <li>

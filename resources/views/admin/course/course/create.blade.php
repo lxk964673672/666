@@ -43,7 +43,7 @@
      <textarea class="form-control" rows="3" id="cou_desc" name="cou_desc"></textarea>
     </div>
   </div>
- 
+
   
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
@@ -54,26 +54,59 @@
 </body>
 </html>
 <script src="/admin/js/jquery.js"></script>
+<script src="/admin/status/layui/layui.js"></script>
 <script>
     $(document).on('click','button',function () {
         var cou_name = $('[name="cou_name"]').val();
         var cate_id = $('#cate_id').val();
         var cou_desc = $('[name="cou_desc"]').val();
 
-        // 从session中拿到讲师id 后期写上
-        $.ajax({
+        if(cou_name==''){
+                layui.use('layer', function(){
+                    var layer = layui.layer;
+                    layer.msg('课程名称不能不写', {
+                        icon: 5,
+                        time: 3000 //2秒关闭（如果不配置，默认是3秒）
+                        }, function(){
+                        //do something
+                    });   
+                });
+           return false;
+        }
+       
+       $.ajax({
             url:"{{url('/admin/course/course/store')}}",
             type:'post',
             data:{cou_name:cou_name,cate_id:cate_id,cou_desc:cou_desc},
             dataType: "json",
             success:function(res){
-                if(res.code == "00000"){
-                    alert(res.msg);
+                // console.log(res);
+                if(res.code="00000"){
+                layui.use('layer', function(){
+                    var layer = layui.layer;
+                    layer.msg(res.msg, {
+                        icon: 1,
+                        time: 3000 //2秒关闭（如果不配置，默认是3秒）
+                        }, function(){
+                        //do something
+                    });   
+                });
                     window.location.href=res.url;
                 }else{
-                    alert(res.msg);
+                layui.use('layer', function(){
+                    var layer = layui.layer;
+                    layer.msg(res.msg, {
+                        icon: 5,
+                        time: 3000 //2秒关闭（如果不配置，默认是3秒）
+                        }, function(){
+                        //do something
+                    });   
+                });
                 }
             }
         });
-    });
+    });  
 </script>
+
+
+      
