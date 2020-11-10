@@ -186,9 +186,6 @@
                     </ul>
                 </li>
 
-
-               
-
                 <li>
                     <a href="#">
                         <i class="fa fa fa-bar-chart-o"></i>
@@ -292,7 +289,7 @@
                         </li>
                     </ul>
                 </li>
-
+                
                 <li>
                     <a href="#">
                         <i class="fa fa fa-bar-chart-o"></i>
