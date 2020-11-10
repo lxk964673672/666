@@ -25,7 +25,7 @@
         <div class="col-sm-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5>所有表单元素 <small>包括自定义样式的复选和单选按钮</small></h5>
+                    <h5>角色权限添加</h5>
                     <div class="ibox-tools">
                         <a class="collapse-link">
                             <i class="fa fa-chevron-up"></i>
@@ -45,14 +45,32 @@
                     </div>
                 </div>
                 <div class="ibox-content">
-                    <form method="post" action="/admin/adminAdd" class="form-horizontal">
+                    <form method="post" action="/admin/rolePowerAdd" class="form-horizontal">
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">用户名</label>
-
+                            <label class="col-sm-2 control-label">角色选择</label>
                             <div class="col-sm-10">
-                                <input type="text" name="admin_name" class="form-control">
+                                <select class="form-control m-b" name="role_id">
+                                    <option value="0">请选择角色</option>
+                                    @foreach($roleData as $k=>$v)
+                                    <option value={{$v['role_id']}}>{{$v['role_name']}}</option>
+                                        @endforeach
+                                </select>
                             </div>
                         </div>
+                        <div class="hr-line-dashed"></div>
+                        <div><h3 >权限选择</h3></div>
+                        <div class="hr-line-dashed"></div>
+                        @foreach($powerData as $k=>$v)
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"><input type="checkbox" class="click1" value={{$v['p_id']}} name="p_id[]" id="inlineCheckbox1">{{$v['p_name']}}</label>
+                            <div class="col-sm-10 ">
+                                @foreach($v['son'] as $kk=>$vv)
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" value={{$vv['p_id']}} class="click2" name="p_id[]" id="inlineCheckbox1">{{$vv['p_name']}}</label>
+                                    @endforeach
+                            </div>
+                        </div>
+                        @endforeach
                         <div class="hr-line-dashed"></div>
                         <div class="form-group">
                             <div class="col-sm-4 col-sm-offset-2">
@@ -81,6 +99,29 @@
         $('.i-checks').iCheck({
             checkboxClass: 'icheckbox_square-green',
             radioClass: 'iradio_square-green',
+        });
+        $('.click1').click(function () {
+            var checked = $(this).prop('checked');
+            if (checked == true){
+                $(this).parent().next().find('input').prop('checked',true);
+            }else{
+                $(this).parent().next().find('input').prop('checked',false);
+            }
+        });
+        $('.click2').click(function () {
+                var check=0;
+                $(this).parent().siblings().find('input').each(function () {
+                    if ($(this).prop('checked') == true){
+                        check=1;
+                    }
+                });
+                if ($(this).prop('checked') == true){
+                    $(this).parents('div').prev().find('input').prop('checked',true);
+                }else{
+                    if (check != 1){
+                        $(this).parents('div').prev().find('input').prop('checked',false);
+                    }
+                }
         });
     });
 </script>

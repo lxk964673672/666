@@ -46,17 +46,14 @@ Route::prefix('/index')->group(function () {
 
 
 
-
+//登陆
+Route::any('/admin/login', 'Admin\UserController@login');
 /**
  * 后台
  */
-Route::prefix('/admin')->group(function () {
+Route::prefix('/admin')->middleware('rbac')->group(function () {
     //首页
     Route::get('/index', 'Admin\IndexController@index');
-    //注册
-    Route::any('/regist', 'Admin\UserController@regist');
-    //登陆   
-    Route::any('/login', 'Admin\UserController@login');
     //权限
     Route::any('/powerAdd', 'Admin\PowerController@powerAdd');
     Route::any('/powerList', 'Admin\PowerController@powerList');
