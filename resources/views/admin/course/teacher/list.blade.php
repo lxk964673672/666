@@ -15,8 +15,8 @@
         </a>
 </center>
 <form class="form-horizontal" role="form">
-	<input type="text"  name="tea_name" value="{{$tea_name}}" placeholder="请输入关键字">
-	<button>搜索</button>
+	<input type="text" name="tea_name" value="{{$tea_name}}" placeholder="请输入关键字">
+	<button type="submit" class="btn btn-default">搜索</button>
 </form>
 <table class="table table-bordered">
 	<thead>
@@ -54,6 +54,7 @@
 </body>
 </html>
 <script src="/admin/js/jquery.js"></script>
+<script src="../../../../../admin/status/layui/layui.js"></script>
 <script>
 //软删除
 $(document).on("click",".del",function(){

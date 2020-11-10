@@ -17,7 +17,7 @@
 	<div class="form-group">
 		<label for="firstname" class="col-sm-2 control-label">标题</label>
         <div class="col-sm-8">
-        <input type="text" class="form-control" id="lastname" placeholder="标题">
+        <input type="text" class="form-control" name="" id="lastname" placeholder="标题">
 		</div>
 		</div>
 	</div>
@@ -34,7 +34,7 @@
     <div class="form-group">
 		<label for="firstname" class="col-sm-2 control-label">所需时间(60分钟)</label>
 		<div class="col-sm-8">
-            <input type="text" class="form-control" id="lastname" placeholder="">
+            <input type="text" class="form-control" name="" id="lastname" placeholder="">
 		</div>
 	</div>
 

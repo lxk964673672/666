@@ -49,7 +49,10 @@ class TeacherController extends Controller
         if($tea_name){
             $where[]=['tea_name','like',"%$tea_name%"];
         }
-        $teacher = TeacherModel::join('course_category','teacher.cate_id','=','course_category.cate_id')->where("tea_del","1")->where($where)->paginate(4);
+        $teacher = TeacherModel::join('course_category','teacher.cate_id','=','course_category.cate_id')
+        ->where("tea_del","1")
+        ->where($where)
+        ->paginate(4);
         // dd($teacher);
         return view('admin/course/teacher/list',['teacher'=>$teacher,'tea_name'=>$tea_name]);
     }
