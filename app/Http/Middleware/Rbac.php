@@ -20,7 +20,7 @@ class Rbac
         $admin_id = Request()->session()->get('adminData')['admin_id'];
 //        $admin_id=5;
         if (!$admin_id){
-            return  "<script>alert('请登录');location.href='/admin/login';</script>";
+            return  "<script>alert('请登录');location.href='/admin/login';</script>";die;
         }
 
         $powerData = rbacData($admin_id);
