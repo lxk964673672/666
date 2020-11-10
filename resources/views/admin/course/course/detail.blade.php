@@ -61,8 +61,9 @@ color:orange;
         @endforeach
    
     </dl>
+    <dt>{{$log->links()}}</dt>
 </div>
-
+ 
 <div class="clearh"></div>
 </div>
 <!-- InstanceEndEditable -->

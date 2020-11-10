@@ -13,7 +13,7 @@ use App\Models\Video;
 //课程视频
 class VideoController extends Controller
 {
-    //添加
+    //catalog的视频添加
     public function create(){
     	if(request()->isMethod("get")){
     		$course = Course::where("is_del",'1')->get()->toArray();

@@ -13,7 +13,8 @@
           <!-- session显示讲师名称 id -->
 </head>
 <body>
-<form class="form-horizontal"  action="{{url('/admin/course/course/update/'.$data->cou_id)}}" method="post">
+<form class="form-horizontal">
+  <input type="hidden" name="cou_id" id="cou_id" value="{{$data->cou_id}}">
   <div class="form-group">
     <label for="text" class="col-sm-2 control-label">课程名称：</label>
     <div class="col-sm-10">
@@ -24,7 +25,7 @@
   <div class="form-group">
     <label for="text" class="col-sm-2 control-label">所属分类 :</label>
     <div class="col-sm-10">
-     <select class="form-control" name="cate_id">
+     <select class="form-control" id="cate_id" name="cate_id">
         <option value="0">--顶级分类--</option>
         @foreach($cate as $k=>$v)
         <option value="{{$v->cate_id}}" {{$data->cate_id==$v->cate_id ? "selected" : ""}}>
@@ -53,4 +54,59 @@
 </form>
 </body>
 </html>
- 
+ <script src="/admin/js/jquery.js"></script>
+<script src="/admin/status/layui/layui.js"></script>
+<script>
+      $(document).on('click','button',function(){
+       var cou_id = $("#cou_id").val();
+       var cate_id = $("#cate_id").val();
+       var cou_name = $("#cou_name").val();
+       var cou_desc = $("#cou_desc").val();
+       if(cou_name==''){
+                layui.use('layer', function(){
+                    var layer = layui.layer;
+                    layer.msg('课程名称不能不写', {
+                        icon: 5,
+                        time: 3000 //2秒关闭（如果不配置，默认是3秒）
+                        }, function(){
+                        //do something
+                    });   
+                });
+           return false;
+       }
+       // return false;
+       var url="/admin/course/course/update/"+cou_id;
+       $.ajax({
+            url:url,
+            type:'post',
+            data:{cate_id:cate_id,cou_name:cou_name,cou_desc:cou_desc},
+            dataType: "json",
+            success:function(res){
+                // console.log(res);
+                if(res.code="00000"){
+                layui.use('layer', function(){
+                    var layer = layui.layer;
+                    layer.msg(res.msg, {
+                        icon: 1,
+                        time: 3000 //2秒关闭（如果不配置，默认是3秒）
+                        }, function(){
+                        //do something
+                    });   
+                });
+                    window.location.href=res.url;
+                }else{
+                layui.use('layer', function(){
+                    var layer = layui.layer;
+                    layer.msg(res.msg, {
+                        icon: 5,
+                        time: 3000 //2秒关闭（如果不配置，默认是3秒）
+                        }, function(){
+                        //do something
+                    });   
+                });
+                }
+            }
+        });
+    });  
+</script>
+  

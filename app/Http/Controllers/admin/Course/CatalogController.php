@@ -44,6 +44,7 @@ class CatalogController extends Controller
             // dd($res);
             if($res){
                 return "<script>alert('删除章节成功');location.href='/admin/course/course/list'</script>";
+                
             }else{
                 return "<script>alert('删除章节失败');location.href='/admin/course/course/list'</script>";
             }

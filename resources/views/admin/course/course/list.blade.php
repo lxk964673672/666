@@ -36,18 +36,76 @@
       <td>{{date('Y-m-d H:i:s',$v->cou_time)}}</td>
       <td>{{$v->cou_status==1?'连载':'完结'}}</td>
       <td>
-         <a href="{{url('admin/course/course/edit/'.$v->cou_id)}}">
-              <button type="button" class="btn bg-olive btn-xs" >修改</button>
+         <a href="JavaScript:;">
+              <button type="button" class="btn bg-olive btn-xs edit" cou_id="{{$v->cou_id}}">修改</button>
          </a>  
-         <a href="{{url('admin/course/course/delete/'.$v->cou_id)}}">
-              <button type="button" class="btn bg-olive btn-xs" >删除</button>
+          <a href="javascript:;">
+              <button type="button" class="btn bg-olive btn-xs del" cou_id="{{$v->cou_id}}">删除</button>
          </a>
-         <a href="{{url('admin/course/course/detail/'.$v->cou_id)}}">
-              <button type="button" class="btn bg-olive btn-xs" >详情</button>
+         <a href="javascript:;">
+              <button type="button" class="btn bg-olive btn-xs detail" cou_id="{{$v->cou_id}}">详情</button>
          </a>
       </td>
    </tr>
    @endforeach
 </table>
+</table>{{$data->links()}}
 </body>
 </html>
+<script src="/admin/js/jquery.js"></script>
+<script src="/admin/status/layui/layui.js"></script>
+<script>
+  $(".edit").click(function(){
+    var _this = $(this);
+    var cou_id = _this.attr("cou_id");
+    layui.use('layer', function(){
+    var layer = layui.layer;
+        layer.confirm('is not?', {icon: 4, title:'提示'}, function(index){
+          layer.close(index);
+        });
+        //eg2
+        layer.confirm('是否修改该课程？', function(index){
+          var url = "/admin/course/course/edit/"+cou_id;
+          location.href=url;
+          layer.close(index);
+        });
+    });
+});
+
+ $(".del").click(function(){
+    var _this = $(this);
+    var cou_id = _this.attr("cou_id");
+    layui.use('layer', function(){
+    var layer = layui.layer;
+        layer.confirm('is not?', {icon: 4, title:'提示'}, function(index){
+        layer.close(index);
+        });
+        //eg2
+        layer.confirm('是否删除该课程？', function(index){
+          var url = "/admin/course/course/delete/"+cou_id;
+          location.href=url;
+          layer.close(index);
+        });
+    });
+});
+
+  $(".detail").click(function(){
+    var _this = $(this);
+    var cou_id = _this.attr("cou_id");
+    layui.use('layer', function(){
+    var layer = layui.layer;
+        layer.confirm('is not?', {icon: 4, title:'提示'}, function(index){
+        layer.close(index);
+        });
+        //eg2
+        layer.confirm('是否进入详情?', function(index){
+          var url = "/admin/course/course/detail/"+cou_id;
+          location.href=url;
+          layer.close(index);
+        });
+    });
+});
+
+   
+
+</script>
