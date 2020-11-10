@@ -40,7 +40,7 @@ class CourseController extends Controller
 
 		$data=Course::leftJoin('course_category','course.cate_id','=','course_category.cate_id')->paginate(5);
         
-		return view('admin.course.course.list',['data'=>$data,'query'=>request()->all()]);
+		return view('admin.course.course.list',['data'=>$data]);
 	}
 	public function edit($cou_id){
 		$cate = Category::get();
@@ -88,7 +88,7 @@ class CourseController extends Controller
             }
     }
     public function detail($cou_id){
-        $log=Log::where('cou_id',$cou_id)->get();
+        $log=Log::where('cou_id',$cou_id)->paginate(5);
         $data=Course::where("cou_id",$cou_id)->first();
         return view('admin.course.course.detail',['data'=>$data,'log'=>$log]);
 
