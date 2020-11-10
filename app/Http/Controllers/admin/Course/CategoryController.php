@@ -39,10 +39,22 @@ class CategoryController extends Controller
         return json_encode($arr,true);
 	}
 	public function list(){
-		$cate = Category::get();
-        $cateInfo = $this->CreateTree($cate);
 
-        return view("admin.course.category.list",compact("cateInfo"));
+        $parents_id=request()->parents_id??'';
+        $where=[];
+        if($parents_id){
+            $where[]=['parents_id','like',"%$parents_id%"];
+        }
+       
+		$data = Category::where($where)->paginate(5);
+        
+        //无限极分类
+        $cate_data=Category::get();
+        $cate_data=$this->CreateTree($cate_data);
+        
+        // 获取所有搜索条件 
+        $query=request()->all();
+        return view("admin.course.category.list",['data'=>$data,'cate_data'=>$cate_data,'query'=>request()->all()]);
 	}
     public function delete(Request $request ,$cate_id){
         
@@ -73,9 +85,19 @@ class CategoryController extends Controller
         // dd($post);
         $cate = Category::where('cate_id',$cate_id)->update($post);
         // dd($cate);
-        if($cate!==false){
-            return "<script>alert('修改成功');location.href='/admin/course/category/list'</script>";
-
+        if($cate){
+            $arr = [
+                'code'=>"00000",
+                'msg'=>'课程分类修改成功',
+                'url'=>"/admin/course/category/list"
+            ];
+        }else{
+            $arr = [
+                'code'=>"00002",
+                'msg'=>'课程分类修改失败',
+                'url'=>"/admin/course/category/list"
+            ];
         }
+        return json_encode($arr,true);
     }
 }

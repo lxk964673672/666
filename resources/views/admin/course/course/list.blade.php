@@ -49,5 +49,6 @@
    </tr>
    @endforeach
 </table>
+</table>{{$data->links()}}
 </body>
 </html>

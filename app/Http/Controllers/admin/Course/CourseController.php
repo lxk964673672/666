@@ -38,9 +38,9 @@ class CourseController extends Controller
 	
 	public function list(){
 
-		$data=Course::leftJoin('course_category','course.cate_id','=','course_category.cate_id')->get();
-
-		return view('admin.course.course.list',['data'=>$data]);
+		$data=Course::leftJoin('course_category','course.cate_id','=','course_category.cate_id')->paginate(5);
+        
+		return view('admin.course.course.list',['data'=>$data,'query'=>request()->all()]);
 	}
 	public function edit($cou_id){
 		$cate = Category::get();
