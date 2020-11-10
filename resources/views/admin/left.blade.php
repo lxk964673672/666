@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -168,7 +169,6 @@
                     </ul>
                 </li>
 
-
                 <li>
                     <a href="#">
                         <i class="fa fa fa-bar-chart-o"></i>
@@ -185,11 +185,116 @@
                         </li>
                     </ul>
                 </li>
-              
+
+                <li>
+                    <a href="#">
+                        <i class="fa fa fa-bar-chart-o"></i>
+                        <span class="nav-label">讲师管理</span>
+
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a class="J_menuItem" href="/admin/course/teacher/create">讲师添加</a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="/admin/course/teacher/list">讲师列表</a>
+
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa fa fa-bar-chart-o"></i>
+                        <span class="nav-label">课程公告管理</span>
+
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a class="J_menuItem" href="/admin/course/notice/create">课程公告添加</a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="/admin/course/notice/list">课程公告列表</a>
+
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa fa fa-bar-chart-o"></i>
+                        <span class="nav-label">题库管理</span>
+
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                        <a class="J_menuItem" href="/admin/course/catalog_bank/create">题库添加</a>
+                        </li>
+                        <li>
+                        <a class="J_menuItem" href="/admin/course/catalog_bank/list">题库列表</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa fa fa-bar-chart-o"></i>
+                        <span class="nav-label">课程视频</span>
+
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a class="J_menuItem" href="{{url('/admin/course/video/create')}}">课程视频添加</a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="{{url('/admin/course/video/list')}}">课程视频列表</a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <li>
+                    <a href="#">
+                        <i class="fa fa fa-bar-chart-o"></i>
+                        <span class="nav-label">用户作业管理</span>
+
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a class="J_menuItem" href="/admin/course/users_job/create">用户作业添加</a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="/admin/course/users_job/list">用户作业列表</a>
+
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa fa fa-bar-chart-o"></i>
+                        <span class="nav-label">考试</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a class="J_menuItem" href="/admin/course/exam/create">考试添加</a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="/admin/course/exam/list">考试列表</a>
+                        </li>
+                    </ul>
+                </li>
+                
                 <li>
                     <a href="#">
                         <i class="fa fa fa-bar-chart-o"></i>
                         <span class="nav-label">提问</span>
+
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level">
@@ -198,11 +303,12 @@
                         </li>
                         <li>
                             <a class="J_menuItem" href="admin/question/list">提问展示</a>
-
                         </li>
                     </ul>
                 </li>
 
+
+               
                 <li class="line dk"></li>
             </ul>
         </div>
