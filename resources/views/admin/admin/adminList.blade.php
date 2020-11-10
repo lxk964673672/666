@@ -53,6 +53,7 @@
                         <thead>
                         <tr>
                             <th>管理员名称</th>
+                            <th>管理员角色</th>
                             <th>操作</th>
                         </tr>
                         </thead>
@@ -60,6 +61,7 @@
                         @foreach($data as $k=>$v)
                             <tr class="gradeX">
                                 <td>{{$v['admin_name']}}</td>
+                                <td>@foreach($roleData[$v['admin_id']] as $vv)<span>{{$vv['role_name']}}</span>@endforeach</td>
                                 <td>
                                     <button class="btn btn-default btn-rounded" href="buttons.html#">更改用户角色</button>
                                     <button class="btn btn-default btn-rounded" href="buttons.html#">删除</button>

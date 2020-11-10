@@ -21,8 +21,18 @@ class AdminController extends Controller
     }
     public function adminList()
     {
-        $data = DB::table('shop_admin')->get();
+        $data = DB::table('shop_admin')->leftJoin('shop_admin_role','shop_admin.admin_id','=','shop_admin_role.admin_id')->get();
         $data = arr($data);
-        return view('admin.admin.adminList',['data'=>$data]);
+        $roleData = [];
+        foreach ($data as $k=>$v){
+            if (!empty($v['role_id'])){
+                $roleId = explode(',',$v['role_id']);
+                foreach ($roleId as $kk=>$vv){
+                    $roleData[$v['admin_id']][] = DB::table('shop_role')->where('role_id',$vv)->first();
+                }
+            }
+        }
+        $roleData = arr($roleData);
+        return view('admin.admin.adminList',['data'=>$data,'roleData'=>$roleData]);
     }
 }
