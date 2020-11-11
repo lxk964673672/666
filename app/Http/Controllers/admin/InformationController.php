@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Information;
@@ -23,8 +22,7 @@ class InformationController extends Controller
         // dd($data);
         if($data){
             return redirect('admin/admin/information/list');
-        }
-    	
+        }   	
     }
      //资讯展示
     public function list(){

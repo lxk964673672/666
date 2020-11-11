@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Question;
+use App\Models\Users;
+use App\Models\Course\Course;
 class QuestionController extends Controller
 {
     //提问添加
@@ -31,22 +33,31 @@ class QuestionController extends Controller
         //dd($u_ids);
         $where=[];
         if($u_ids){
-            $where[]=['u_id','like',"%$u_ids%"];
+            $where[]=['users.u_name','like',"%$u_ids%"];
         }
         $cou_ids=request()->cou_ids;
         if($cou_ids){
-            $where[]=['cou_id','like',"%$cou_ids%"];
+            $where[]=['course.cou_name','like',"%$cou_ids%"];
         }
         $q_titles=request()->q_titles;
         if($q_titles){
-            $where[]=['q_title','like',"%$q_titles%"];
+            $where[]=['question.q_title','like',"%$q_titles%"];
         }  
         $q_browses=request()->q_browses;
         if($q_browses){
-            $where[]=['q_browse','like',"%$q_browses%"];
+            $where[]=['question.q_browse','like',"%$q_browses%"];
         }    
-    	$info=Question::where(["is_del"=>"1","is_show"=>"1"])->where($where)->paginate(3);
-    	return view("/admin/question/list",["info"=>$info,"u_ids"=>$u_ids,"cou_ids"=>$cou_ids,"q_titles"=>$q_titles,"q_browses"=>$q_browses]);   
+        $q_names=request()->q_names;
+        if($q_names){
+            $where[]=['question.q_name','like',"%$q_names%"];
+        }  
+        
+    	$info=Question::where(["question.is_del"=>"1","question.is_show"=>"1"])
+        ->where($where)
+        ->join("users","question.u_id","=","users.u_id")
+        ->join("course","question.cou_id","=","course.cou_id")
+        ->paginate(4);
+    	return view("/admin/question/list",["info"=>$info,"u_ids"=>$u_ids,"cou_ids"=>$cou_ids,"q_titles"=>$q_titles,"q_browses"=>$q_browses,"q_names"=>$q_names]);   
     }
     //提问删除
      public function del($id){
