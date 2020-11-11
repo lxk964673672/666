@@ -14,36 +14,34 @@
 </head>
 <body>
 	<table class="table">
+    <td style="color: red">当前登陆</td><td style="color: orange"><?php echo $c; ?></td>
    <tr>
-   	<td>课程id</td>
-   	<td>课程名称</td>
-   	<!-- <td>讲师名称</td> -->
-   	<td>课程介绍</td>
-   	<td>所属分类</td>
-   	<td>添加时间</td>
-   	<td>状态</td>
-      <td>操作</td>
+   	<td style="color: red;">课程id</td>
+   	<td style="color: orange;">课程名称</td>
+   	<td style="color: pink;">课程介绍</td>
+   	<td style="color: #46A3FF;">所属分类</td>
+   	<td style="color: #00FFFF;">添加时间</td>
+   	<td style="color: #1AFD9C;">状态</td>
+    <td style="color: #28FF28;">操作</td>
    </tr>
 
    @foreach($data as $k=>$v)
    <tr>
-      <td>{{$v->cou_id}}</td>
-      <td>{{$v->cou_name}}</td>
-      <!-- <td>$v->tea_name</td> -->
-      <td>{{$v->cou_desc}}</td>
-      <td>{{$v->cate_name}}</td>
-
-      <td>{{date('Y-m-d H:i:s',$v->cou_time)}}</td>
-      <td>{{$v->cou_status==1?'连载':'完结'}}</td>
+      <td style="color: #CF9E9E;">{{$v->cou_id}}</td>
+      <td style="color: #C2C287;">{{$v->cou_name}}</td>
+      <td style="color: #C4E1E1;">{{$v->cou_desc}}</td>
+      <td style="color: #B8B8DC;">{{$v->cate_name}}</td>
+      <td style="color: #CA8EC2;">{{date('Y-m-d H:i:s',$v->cou_time)}}</td>
+      <td style="color: orange;">{{$v->cou_status==1?'连载':'完结'}}</td>
       <td>
          <a href="JavaScript:;">
-              <button type="button" class="btn bg-olive btn-xs edit" cou_id="{{$v->cou_id}}">修改</button>
+              <button type="button" class="btn bg-olive btn-xs edit" cou_id="{{$v->cou_id}}" style="color: #FF5151;">修改</button>
          </a>  
           <a href="javascript:;">
-              <button type="button" class="btn bg-olive btn-xs del" cou_id="{{$v->cou_id}}">删除</button>
+              <button type="button" class="btn bg-olive btn-xs del" cou_id="{{$v->cou_id}}" style="color: #FF5151;">删除</button>
          </a>
          <a href="javascript:;">
-              <button type="button" class="btn bg-olive btn-xs detail" cou_id="{{$v->cou_id}}">详情</button>
+              <button type="button" class="btn bg-olive btn-xs detail" cou_id="{{$v->cou_id}}" style="color: #FF5151;">详情</button>
          </a>
       </td>
    </tr>
