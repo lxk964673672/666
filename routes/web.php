@@ -83,6 +83,7 @@ Route::prefix('/admin')->group(function () {
     Route::any('/course/exam/create','Admin\Course\ExamController@create');
     Route::any('/course/exam/store','Admin\Course\ExamController@store');
     Route::any('/course/exam/list','Admin\Course\ExamController@list');
+    Route::any('/course/exam/del','Admin\Course\ExamController@del');
 
     //作业添加
     Route::any('/course/users_job/create','Admin\Course\Users_jobController@create');
@@ -95,6 +96,7 @@ Route::prefix('/admin')->group(function () {
     Route::any('/course/video/list', 'admin\VideoController@list');
     Route::any('/course/video/del/{id}', 'admin\VideoController@del');
     Route::any('/course/video/upd/{id}', 'admin\VideoController@upd');
+
     //资讯
     Route::any('admin/information/create', 'Admin\InformationController@create');
     Route::any('admin/information/createdo', 'Admin\InformationController@createdo');
