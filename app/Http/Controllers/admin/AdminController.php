@@ -24,7 +24,7 @@ class AdminController extends Controller
         $data1 = DB::table('shop_admin')->leftJoin('shop_admin_role','shop_admin.admin_id','=','shop_admin_role.admin_id')->paginate(2,['shop_admin.type','shop_admin.admin_id','shop_admin.admin_name','shop_admin_role.role_id']);
         $data = arr($data1);
         $roleData = [];
-        foreach ($data as $k=>$v){
+        foreach ($data['data'] as $k=>$v){
             if (!empty($v['role_id'])){
                 $roleId = explode(',',$v['role_id']);
                 foreach ($roleId as $kk=>$vv){

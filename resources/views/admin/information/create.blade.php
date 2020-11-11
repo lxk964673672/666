@@ -12,14 +12,14 @@
 <form class="form-horizontal" role="form" action="/admin/admin/information/createdo" method="post">
     <div class="form-group">
         <label for="firstname" class="col-sm-2 control-label">标题</label>
-        <div class="col-sm-10">
+        <div class="col-sm-5">
             <input type="text" class="form-control" id="one" name="infor_title" 
                    placeholder="请输入标题">
         </div>
     </div>
     <div class="form-group">
         <label for="lastname" class="col-sm-2 control-label">内容</label>
-        <div class="col-sm-10">
+        <div class="col-sm-5">
             <input type="text" class="form-control" id="two" name="infor_content" 
                    placeholder="请输入内容">
         </div>

@@ -32,18 +32,26 @@ class AnswerController extends Controller
         //dd($u_ids);
         $where=[];
         if($u_ids){
-            $where[]=['u_id','like',"%$u_ids%"];
+            $where[]=['users.u_name','like',"%$u_ids%"];
         }
         $cou_ids=request()->cou_ids;
         if($cou_ids){
-            $where[]=['cou_id','like',"%$cou_ids%"];
+            $where[]=['course.cou_name','like',"%$cou_ids%"];
         }
         $q_ids=request()->q_ids;
         if($q_ids){
-            $where[]=['q_id','like',"%$q_ids%"];
+            $where[]=['question.q_title','like',"%$q_ids%"];
         }       
-    	$info=Answer::where("is_del","1")->where($where)->paginate(3);
-    	return view("/admin/answer/list",["info"=>$info,'u_ids'=>$u_ids,'cou_ids'=>$cou_ids,'q_ids'=>$q_ids]);   
+         $a_contents=request()->a_contents;
+        if($a_contents){
+            $where[]=['answer.a_content','like',"%$a_contents%"];
+        }     
+    	$info=Answer::where("answer.is_del","1")->where($where)
+        ->join("users","answer.u_id","=","users.u_id")
+        ->join("question","answer.q_id","=","question.q_id")
+        ->join("course","answer.cou_id","=","course.cou_id")
+        ->paginate(3);
+    	return view("/admin/answer/list",["info"=>$info,'u_ids'=>$u_ids,'cou_ids'=>$cou_ids,'q_ids'=>$q_ids,'a_contents'=>$a_contents]);   
     }
     //回答删除
      public function del($id){

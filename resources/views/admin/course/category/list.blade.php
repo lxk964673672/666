@@ -32,23 +32,23 @@
 
 	<table class="table">
     <tr>
-   	    <td>分类id</td>
-   	    <td>分类名称</td>
-   	    <td>父级ID</td>
-        <td>操作</td>
+   	    <td style="color: pink;">分类id</td>
+   	    <td style="color: pink;">分类名称</td>
+   	    <td style="color: pink;">父级ID</td>
+        <td style="color: pink;">操作</td>
     </tr>
   
     @foreach($data as $k=>$v)
     <tr>
-        <td>{{$v->cate_id}}</td>
-        <td>{{str_repeat('|——',$v->level)}}{{$v->cate_name}}</td>
-        <td>{{$v->parents_id}}</td>
+        <td style="color: red;">{{$v->cate_id}}</td>
+        <td style="color: orange;">{{str_repeat('|——',$v->level)}}{{$v->cate_name}}</td>
+        <td style="color: pink;">{{$v->parents_id}}</td>
         <td>
             <a href="javascript:;">
-              <button type="button" class="btn bg-olive btn-xs edit" cate_id="{{$v->cate_id}}">修改</button>
+              <button type="button" class="btn bg-olive btn-xs edit" cate_id="{{$v->cate_id}}" style="color: #FF5151;">修改</button>
             </a>  
             <a href="javascript:;">
-              <button type="button" class="btn bg-olive btn-xs del"  cate_id="{{$v->cate_id}}">删除</button>
+              <button type="button" class="btn bg-olive btn-xs del"  cate_id="{{$v->cate_id}}" style="color: #FF5151;">删除</button>
             </a>
         </td>
     </tr>
