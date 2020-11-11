@@ -13,9 +13,9 @@
                 </div>
                 <ul class="nav navbar-top-links navbar-right">
                     <li class="dropdown">
-                        <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                            <div class="aaa"><button>退出</button></div> 
-                        </a>
+                        
+                            <a href="{{url('admin/tc')}}">退出</a> 
+                        
                         <ul class="dropdown-menu dropdown-messages">
                             <li class="m-t-xs">
                                 <div class="dropdown-messages-box">
