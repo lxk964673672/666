@@ -27,6 +27,8 @@ Route::prefix('/admin')->middleware('rbac')->group(function () {
     //权限
     Route::any('/powerAdd', 'Admin\PowerController@powerAdd');
     Route::any('/powerList', 'Admin\PowerController@powerList');
+    //管理员删除
+    Route::any('/adminDel', 'Admin\AdminController@adminDel');
     //管理员添加
     Route::any('/adminAdd', 'Admin\AdminController@adminAdd');
     Route::any('/adminList', 'Admin\AdminController@adminList');
