@@ -17,6 +17,7 @@ Route::middleware('rbac')->group(function () {
 });
 //登陆
 Route::any('/admin/login', 'Admin\UserController@login');
+Route::any('/admin/tc', 'Admin\UserController@tc');
 /**
  * 后台
  */
