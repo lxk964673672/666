@@ -78,6 +78,10 @@ Route::prefix('/admin')->middleware('rbac')->group(function () {
     Route::any('/course/notice/create','Admin\Course\NoticeController@create');
     Route::any('/course/notice/store','Admin\Course\NoticeController@store');
     Route::any('/course/notice/list','Admin\Course\NoticeController@list');
+    Route::any('/course/notice/del','Admin\Course\NoticeController@del');
+    Route::any('/course/notice/edit/{id}','Admin\Course\NoticeController@edit');
+    Route::any('/course/notice/update/{id}','Admin\Course\NoticeController@update');
+
 
     //题库管理
     Route::any('/course/catalog_bank/create','Admin\Course\Catalog_bankController@create');
