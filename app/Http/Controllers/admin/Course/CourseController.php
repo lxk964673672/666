@@ -20,6 +20,11 @@ class CourseController extends Controller
 	public function store(){
 		$data=request()->all();
 		$data['cou_time']=time();
+
+        $a=Request()->session()->get('adminData');
+        $b=$a['admin_id'];
+        $data['tea_id']=$b;
+
 		$data=Course::insert($data);
 		if($data){
 			$arr=[
@@ -37,10 +42,12 @@ class CourseController extends Controller
 	}
 	
 	public function list(){
-
-		$data=Course::leftJoin('course_category','course.cate_id','=','course_category.cate_id')->paginate(5);
+        $a=Request()->session()->get('adminData');
+        $b=$a['admin_id'];
+        $c=$a['admin_name'];
+		$data=Course::where('tea_id',$b)->leftJoin('course_category','course.cate_id','=','course_category.cate_id')->paginate(5);
         
-		return view('admin.course.course.list',['data'=>$data]);
+		return view('admin.course.course.list',['data'=>$data,'c'=>$c]);
 	}
 	public function edit($cou_id){
 		$cate = Category::get();
@@ -61,7 +68,7 @@ class CourseController extends Controller
         // dd($post);
         $data = Course::where('cou_id',$cou_id)->update($post);
         // dd($data);
-        // dd($cate);
+        // dd($cate); 
         if($data){
             $arr = [
                 'code'=>"00000",
@@ -88,9 +95,12 @@ class CourseController extends Controller
             }
     }
     public function detail($cou_id){
+        $a=Request()->session()->get('adminData');
+        $b=$a['admin_id'];
+        $c=$a['admin_name'];
         $log=Log::where('cou_id',$cou_id)->paginate(5);
         $data=Course::where("cou_id",$cou_id)->first();
-        return view('admin.course.course.detail',['data'=>$data,'log'=>$log]);
+        return view('admin.course.course.detail',['data'=>$data,'log'=>$log,'c'=>$c]);
 
     }
     public function details($catalog_id){
