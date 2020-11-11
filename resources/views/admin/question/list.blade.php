@@ -8,17 +8,18 @@
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<center>
-<table class="table table-striped" border="30">
-	<h1><b>提问展示</b></h1>
+<table class="table table-striped" border="0">
+	<center><h1><b>提问展示</b></h1></center>
 	<span style="float:right"><a type="button" class="btn btn-primary btn-xs" href="{{'/admin/admin/question/create'}}">返回提问添加</a></span>
 						<form>
-							<input type="text" name="u_ids" placeholder="请输入用户ID" value="{{$u_ids ?? ''}}">
-							<input type="text" name="cou_ids" placeholder="请输入课程ID" value="{{$cou_ids ?? ''}}">
-							<input type="text" name="q_titles" placeholder="请输入问题标题" value="{{$q_titles ?? ''}}">	
-							<input type="text" name="q_browses" placeholder="请输入浏览量" value="{{$q_browses ?? ''}}">																		
-							<input type="submit" value="搜索">
+							<input type="text" name="u_ids" placeholder="请输入用户ID"  style="width:200px"  class="form-control col-sm-3" value="{{$u_ids ?? ''}}">
+							<input type="text" name="cou_ids" placeholder="请输入课程ID"  style="width:200px" class="form-control col-sm-3"  value="{{$cou_ids ?? ''}}">
+							<input type="text" name="q_titles" placeholder="请输入问题标题" style="width:200px"   class="form-control col-sm-3" value="{{$q_titles ?? ''}}">	
+							<input type="text" name="q_browses" placeholder="请输入浏览量"  style="width:200px" class="form-control col-sm-3"  value="{{$q_browses ?? ''}}">											
+							<input type="text" name="q_names" placeholder="请输入内容"  style="width:200px" class="form-control col-sm-3"  value="{{$q_names ?? ''}}">						
+							<button type="submit" class="btn btn-default">搜索</button>
 						</form>
+						<center>
 	<thead>
 		<tr>
 			<th width="20px" height="80px">问题ID</th>
@@ -35,8 +36,8 @@
 		@foreach($info as $v)
 		<tr>
 			<td height="80px">{{$v->q_id}}</td>
-			<td height="80px">{{$v->u_id}}</td>
-			<td height="80px">{{$v->cou_id}}</td>
+			<td height="80px">{{$v->u_name}}</td>
+			<td height="80px">{{$v->cou_name}}</td>
 			<td height="80px">{{$v->q_title}}</td>
 			<td height="80px">{{$v->q_browse}}</td>
 			<td height="80px">{{$v->q_name}}</td>
@@ -49,26 +50,33 @@
 		</tr>
 		@endforeach
 		<tr>
-			<td colspan="8">{{ $info->appends(['u_ids'=>$u_ids,'cou_ids'=>$cou_ids,'q_titles'=>$q_titles,'q_browses'=>$q_browses])->links() }}</td>
-			
+			<td colspan="8">{{ $info->appends(['u_ids'=>$u_ids,'cou_ids'=>$cou_ids,'q_titles'=>$q_titles,'q_browses'=>$q_browses,'q_names'=>$q_names])->links() }}</td>	
 		</tr>
 	</tbody>
 </table>
 </center>
 </body>
 </html>
-
 <script src="../../../jquery.js"></script>
+<script src="../../../../../admin/status/layui/layui.js"></script>
 <script>
 	$(function(){
 		//js删除
 		$(".del").click(function(){
 			var _this = $(this);
 			var q_id = _this.attr("q_id");
-			if(window.confirm("你要删除这条数据吗")){
-				var url = "/admin/admin/question/del/"+q_id;
-				location.href=url;
-			}
+			layui.use('layer', function(){
+            var layer = layui.layer;
+           		layer.confirm('is not?', {icon: 4, title:'提示'}, function(index){
+        			layer.close(index);
+        		});
+        		//eg2
+        		layer.confirm('确定要抛弃我吗？', function(index){
+					var url = "/admin/admin/question/del/"+q_id;
+					location.href=url;
+          			layer.close(index);
+        		});
+       		});
 		});
 	});
 </script>

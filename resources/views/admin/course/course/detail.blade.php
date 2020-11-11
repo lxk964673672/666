@@ -31,9 +31,9 @@ color:orange;
 		<p class="courstime">课程时长：<span class="course_tt">3小时20分</span></p> -->
 
         <!-- 浏览量 -->
-        <p class="courstime">学习人数：<span class="course_tt">{{$data->lll}}人</span></p>
+        <p class="courstime">学习人数：<span class="course_tt"><!-- {{$data->lll}}-->100人</span></p>
         <!-- 讲师 -->
-		<p class="courstime">{{$data->tea_id}}</p>
+		<p class="courstime">讲师：<?php echo $c ?></p>
 
 		<p class="courstime">课程评价：<img width="71" height="14" src="/index/images/evaluate5.png">&nbsp;&nbsp;<span class="hidden-sm hidden-xs">5.0分（10人评价）</span></p>
         <a href="{{url('admin/course/catalog/create/'.$data->cou_id)}}"><h2 class="aa">点击更新章节</h3></a>
@@ -61,8 +61,9 @@ color:orange;
         @endforeach
    
     </dl>
+    <dt>{{$log->links()}}</dt>
 </div>
-
+ 
 <div class="clearh"></div>
 </div>
 <!-- InstanceEndEditable -->

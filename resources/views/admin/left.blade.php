@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -52,174 +53,26 @@
                         <span class="nav-label">主页</span>
                     </a>
                 </li>
+                @foreach($powerData as $k=>$v)
                 <li>
                     <a href="#">
                         <i class="fa fa fa-bar-chart-o"></i>
-                        <span class="nav-label">权限管理</span>
+                        <span class="nav-label">{{$v['p_name']}}</span>
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level">
+                        @foreach($v['son'] as $kk=>$vv)
                         <li>
-                            <a class="J_menuItem" href="/admin/powerAdd">权限添加</a>
+                            <a class="J_menuItem" href={{$vv['p_web']}}>{{$vv['p_name']}}</a>
                         </li>
-                        <li>
-                            <a class="J_menuItem" href="/admin/powerList">权限展示</a>
-                        </li>
+                        @endforeach
                     </ul>
+
                 </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa fa-bar-chart-o"></i>
-
-                        <span class="nav-label">用户</span>
-
-                        <span class="fa arrow"></span>
-                    </a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a class="J_menuItem" href="/admin/userAdd">用户添加</a>
-                        </li>
-                        <li>
-                            <a class="J_menuItem" href="/admin/userList">用户展示</a>
-                        </li>
-                    </ul>
-                </li>
-                 <li>
-                    <a href="#">
-                        <i class="fa fa fa-bar-chart-o"></i>
-
-
-                        <span class="nav-label">资讯</span>
-                        <span class="fa arrow"></span>
-                    </a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a class="J_menuItem" href="admin/information/create">资讯添加</a>
-                        </li>
-                        <li>
-                            <a class="J_menuItem" href="admin/information/list">资讯展示</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa fa-bar-chart-o"></i>
-                        <span class="nav-label">讲师</span>
-                        <span class="fa arrow"></span>
-                    </a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a class="J_menuItem" href="/admin/powerAdd">讲师添加</a>
-                        </li>
-                        <li>
-                            <a class="J_menuItem" href="/admin/powerList">讲师展示</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa fa-bar-chart-o"></i>
-                        <span class="nav-label">问答</span>
-                        <span class="fa arrow"></span>
-                    </a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a class="J_menuItem" href="/admin/powerAdd">问答添加</a>
-                        </li>
-                        <li>
-                            <a class="J_menuItem" href="/admin/powerList">问答展示</a>
-
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa fa-bar-chart-o"></i>
-                        <span class="nav-label">轮播图</span>
-
-                        <span class="fa arrow"></span>
-                    </a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a class="J_menuItem" href="/admin/slide/create">轮播图添加</a>
-                        </li>
-                        <li>
-                            <a class="J_menuItem" href="/admin/slide/list">轮播图列表</a>
-                        </li>
-                    </ul>
-                </li>
-
-
-                 <li>
-                    <a href="#">
-                        <i class="fa fa fa-bar-chart-o"></i>
-                        <span class="nav-label">课程分类</span>
-
-                        <span class="fa arrow"></span>
-                    </a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a class="J_menuItem" href="/admin/course/category/create">课程分类添加</a>
-                        </li>
-                        <li>
-                            <a class="J_menuItem" href="/admin/course/category/list">课程分类列表</a>
-
-                        </li>
-                    </ul>
-                </li>
-
-
-                <li>
-                    <a href="#">
-                        <i class="fa fa fa-bar-chart-o"></i>
-                        <span class="nav-label">课程</span>
-                        <span class="fa arrow"></span>
-                    </a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a class="J_menuItem" href="/admin/course/course/create">课程添加</a>
-                        </li>
-                        <li>
-                            <a class="J_menuItem" href="/admin/course/course/list">课程列表</a>
-
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa fa-bar-chart-o"></i>
-                        <span class="nav-label">课程视频</span>
-                        <span class="fa arrow"></span>
-                    </a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a class="J_menuItem" href="{{url('/admin/course/video/create')}}">课程视频添加</a>
-                        </li>
-                        <li>
-                            <a class="J_menuItem" href="{{url('/admin/course/video/list')}}">课程视频列表</a>
-
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa fa-bar-chart-o"></i>
-                        <span class="nav-label">提问</span>
-                        <span class="fa arrow"></span>
-                    </a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a class="J_menuItem" href="admin/answer/list">回答展示</a>
-                        </li>
-                        <li>
-                            <a class="J_menuItem" href="admin/question/list">提问展示</a>
-
-                        </li>
-                    </ul>
-                </li>
-
+                @endforeach
                 <li class="line dk"></li>
             </ul>
         </div>
     </nav>
     <!--左侧导航结束-->
+

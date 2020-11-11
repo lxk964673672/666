@@ -1,62 +1,29 @@
 <?php
-/*
-*前台
-*/ 
-//前台首页
-Route::any('/','Index\IndexController@index');
-Route::prefix('/index')->group(function () {
-    //登陆页面
-    Route::any('/login','Index\UserController@login');
-    //登陆
-    Route::any('/reg','Index\UserController@reg');
-    //讲师
-    Route::any('/teacher/list','Index\TeacherController@list');
-    //讲师详情
-    Route::any('/teacher/teacher','Index\TeacherController@teacher');
-    // 咨询
-    Route::any('/article/list','Index\ArticleController@list');
-    //咨询详情
-    Route::any('/article/article','Index\ArticleController@article');
-    //课程首页
-    Route::any('/course/list','Index\CourseController@list');
-    //课程首页
-    Route::any('/course/coursecont','Index\CourseController@coursecont');
-    //加入学习
-    Route::any('/course/coursecont1','Index\CourseController@coursecont1');
+ 
 
 
-    Route::any('/page/page','Index\PageController@page');
-    Route::any('/page/contact','Index\PageController@contact');
 
-    Route::any('/course/mycourse','Index\CourseController@mycourse');
 
-    Route::any('/index/video','Index\VideoController@video');
+
+
+
+
+
+
+
+Route::middleware('rbac')->group(function () {
+    //后台首页登陆 验证登陆
+    Route::any('/', 'Admin\IndexController@Index');
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//登陆
+Route::any('/admin/login', 'Admin\UserController@login');
+Route::any('/admin/tc', 'Admin\UserController@tc');
 /**
  * 后台
  */
-Route::prefix('/admin')->group(function () {
+Route::prefix('/admin')->middleware('rbac')->group(function () {
     //首页
     Route::get('/index', 'Admin\IndexController@index');
-    //注册
-    Route::any('/regist', 'Admin\UserController@regist');
-    //登陆   
-    Route::any('/login', 'Admin\UserController@login');
     //权限
     Route::any('/powerAdd', 'Admin\PowerController@powerAdd');
     Route::any('/powerList', 'Admin\PowerController@powerList');
@@ -103,6 +70,39 @@ Route::prefix('/admin')->group(function () {
     Route::any('/course/course/delete/{cou_id}', 'Admin\Course\CourseController@delete');
     Route::any('/course/course/detail/{cou_id}', 'Admin\Course\CourseController@detail');
     Route::any('/course/course/details/{catalog_id}', 'Admin\Course\CourseController@details');
+    
+   
+    //课程公告
+    Route::any('/course/notice/create','Admin\Course\NoticeController@create');
+    Route::any('/course/notice/store','Admin\Course\NoticeController@store');
+    Route::any('/course/notice/list','Admin\Course\NoticeController@list');
+
+    //题库管理
+    Route::any('/course/catalog_bank/create','Admin\Course\Catalog_bankController@create');
+    Route::any('/course/catalog_bank/store','Admin\Course\Catalog_bankController@store');
+    Route::any('/course/catalog_bank/list','Admin\Course\Catalog_bankController@list');
+    Route::any('/course/catalog_bank/del','Admin\Course\Catalog_bankController@del');
+    Route::any('/course/catalog_bank/edit/{id}','Admin\Course\Catalog_bankController@edit');
+    Route::any('/course/catalog_bank/update/{id}','Admin\Course\Catalog_bankController@update');
+
+    //讲师
+    Route::any('/course/teacher/create','Admin\Course\TeacherController@create');
+    Route::any('/course/teacher/store','Admin\Course\TeacherController@store');
+    Route::any('/course/teacher/list','Admin\Course\TeacherController@list');
+    Route::any('/course/teacher/del','Admin\Course\TeacherController@del');
+    Route::any('/course/teacher/edit/{id}','Admin\Course\TeacherController@edit');
+    Route::any('/course/teacher/update/{id}','Admin\Course\TeacherController@update');
+
+
+    //考试添加
+    Route::any('/course/exam/create','Admin\Course\ExamController@create');
+    Route::any('/course/exam/store','Admin\Course\ExamController@store');
+    Route::any('/course/exam/list','Admin\Course\ExamController@list');
+
+    //作业添加
+    Route::any('/course/users_job/create','Admin\Course\Users_jobController@create');
+    Route::any('/course/users_job/store','Admin\Course\Users_jobController@store');
+    Route::any('/course/users_job/list','Admin\Course\Users_jobController@list');
 
     //视频课程
     Route::any('/course/video/create', 'admin\VideoController@create');

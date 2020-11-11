@@ -13,29 +13,85 @@
           <!-- session显示讲师名称 id -->
 </head>
 <body>
+
+    <form action="">
+            <select name='parents_id'>
+               <option value="0">--顶级分类--</option>
+        @php $cate_id=$query['cate_id']??''; @endphp
+        @foreach($cate_data as $k=>$v)
+               <option value="{{$v->cate_id}}">
+        {{str_repeat('|————',$v->level)}}
+        {{$v->cate_name}}
+               </option>
+        @endforeach
+            </select>
+
+                <input type='submit' value="搜索" class="btn btn-default">
+        </form>
+                
+
 	<table class="table">
     <tr>
-   	    <td>分类id</td>
-   	    <td>分类名称</td>
-   	    <td>父级ID</td>
-        <td>操作</td>
+   	    <td style="color: pink;">分类id</td>
+   	    <td style="color: pink;">分类名称</td>
+   	    <td style="color: pink;">父级ID</td>
+        <td style="color: pink;">操作</td>
     </tr>
   
-    @foreach($cateInfo as $k=>$v)
+    @foreach($data as $k=>$v)
     <tr>
-        <td>{{$v->cate_id}}</td>
-        <td>{{str_repeat('|——',$v->level)}}{{$v->cate_name}}</td>
-        <td>{{$v->parents_id}}</td>
+        <td style="color: red;">{{$v->cate_id}}</td>
+        <td style="color: orange;">{{str_repeat('|——',$v->level)}}{{$v->cate_name}}</td>
+        <td style="color: pink;">{{$v->parents_id}}</td>
         <td>
-            <a href="{{url('admin/course/category/edit/'.$v->cate_id)}}">
-              <button type="button" class="btn bg-olive btn-xs" >修改</button>
+            <a href="javascript:;">
+              <button type="button" class="btn bg-olive btn-xs edit" cate_id="{{$v->cate_id}}" style="color: #FF5151;">修改</button>
             </a>  
-            <a href="{{url('admin/course/category/delete/'.$v->cate_id)}}">
-              <button type="button" class="btn bg-olive btn-xs" >删除</button>
+            <a href="javascript:;">
+              <button type="button" class="btn bg-olive btn-xs del"  cate_id="{{$v->cate_id}}" style="color: #FF5151;">删除</button>
             </a>
         </td>
     </tr>
     @endforeach
-</table>
+       
+</table>{{$data->links()}}
 </body>
 </html>
+<script src="../../../jquery.js"></script>
+<script src="../../../../../admin/status/layui/layui.js"></script>
+<script>
+  $(".del").click(function(){
+    var _this = $(this);
+    var cate_id = _this.attr("cate_id");
+    layui.use('layer', function(){
+    var layer = layui.layer;
+        layer.confirm('is not?', {icon: 4, title:'提示'}, function(index){
+          layer.close(index);
+        });
+        //eg2
+        layer.confirm('是否删除？', function(index){
+          var url = "/admin/course/category/delete/"+cate_id;
+          location.href=url;
+          layer.close(index);
+        });
+    });
+});
+
+  $(".edit").click(function(){
+    var _this = $(this);
+    var cate_id = _this.attr("cate_id");
+    layui.use('layer', function(){
+    var layer = layui.layer;
+        layer.confirm('is not?', {icon: 4, title:'提示'}, function(index){
+          layer.close(index);
+        });
+        //eg2
+        layer.confirm('是否修改？', function(index){
+          var url = "/admin/course/category/edit/"+cate_id;
+          location.href=url;
+          layer.close(index);
+        });
+    });
+});
+
+</script>

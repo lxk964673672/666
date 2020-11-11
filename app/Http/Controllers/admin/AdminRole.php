@@ -31,6 +31,8 @@ class AdminRole extends Controller
     }
     public function adminRoleList()
     {
+        $data = DB::table("shop_admin_role")->get();
+
         return view('admin.adminRole.adminRoleList');
     }
 }
