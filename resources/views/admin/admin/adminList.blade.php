@@ -53,6 +53,7 @@
                         <thead>
                         <tr>
                             <th>管理员名称</th>
+                            <th>管理员角色</th>
                             <th>操作</th>
                         </tr>
                         </thead>
@@ -61,7 +62,16 @@
                             <tr class="gradeX">
                                 <td>{{$v['admin_name']}}</td>
                                 <td>
-                                    <button class="btn btn-default btn-rounded" href="buttons.html#">更改用户角色</button>
+                                    @if($v['type'] == 1)
+                                        超级管理员(无法更改)
+                                    @elseif(isset($roleData[$v['admin_id']]))
+                                        @foreach($roleData[$v['admin_id']] as $vv)<span>{{$vv['role_name']}}.'_/_'</span>@endforeach
+                                    @else
+                                        空
+                                    @endif
+                                </td>
+                                <td>
+                                    <button class="btn btn-default btn-rounded" id="update">更改用户角色</button>
                                     <button class="btn btn-default btn-rounded" href="buttons.html#">删除</button>
                                 </td>
                             </tr>
@@ -93,6 +103,11 @@
 
 <!-- Page-Level Scripts -->
 <script>
+
+        $(document).on('click','#update',function () {
+            location.href="/admin/adminRoleAdd";
+        });
+
 </script>
 
 
