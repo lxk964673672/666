@@ -68,22 +68,47 @@
 </body>
 </html>
 <script src="../../../jquery.js"></script>
+<script src="../../../../../admin/status/layui/layui.js"></script>
 <script>
   $(function(){
     //删除
     $(".del").click(function(){
         var _this = $(this);
         var slide_id = _this.attr("slide_id");
-        if(window.confirm("你要删除这条数据吗？")){
+                          layui.use('layer', function(){
+                    var layer = layui.layer;
+                  
+
+
+        layer.confirm('is not?', {icon: 4, title:'提示'}, function(index){
+
+        layer.close(index);
+        });
+        //eg2
+        layer.confirm('是否删除？', function(index){
           var url = "/admin/slide/del/"+slide_id;
           location.href=url;
-        }
+          layer.close(index);
+        });    
+      });
     });
     $(".upd").click(function(){
         var _this = $(this);
         var slide_id = _this.attr("slide_id");
-        var url = "/admin/slide/upd/"+slide_id;
-        location.href=url;
+        var slide_id = _this.attr("slide_id");
+        layui.use('layer', function(){
+              var layer = layui.layer;
+        layer.confirm('is not?', {icon: 4, title:'提示'}, function(index){
+
+        layer.close(index);
+        });
+        //eg2
+        layer.confirm('是否要修改？', function(index){
+          var url = "/admin/slide/upd/"+slide_id;
+          location.href=url;
+          layer.close(index);
+        });    
+      });
     });
   });
 </script>
