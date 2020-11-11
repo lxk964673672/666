@@ -12,6 +12,10 @@
                 </div>
                 <ul class="nav navbar-top-links navbar-right">
                     <li class="dropdown">
+                    <button class="btn btn-outline btn-warning  dim" type="button"><i class="fa fa-warning"></i>
+                    </button>
+                    </li>
+                    <li class="dropdown">
                         <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
                             <i class="fa fa-envelope"></i> <span class="label label-warning">16</span>
                         </a>
