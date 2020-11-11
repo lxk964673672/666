@@ -58,27 +58,27 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($data as $k=>$v)
+                        @foreach($data['data'] as $k=>$v)
                             <tr class="gradeX">
                                 <td>{{$v['admin_name']}}</td>
                                 <td>
                                     @if($v['type'] == 1)
                                         超级管理员(无法更改)
                                     @elseif(isset($roleData[$v['admin_id']]))
-                                        @foreach($roleData[$v['admin_id']] as $vv)<span>{{$vv['role_name']}}.'_/_'</span>@endforeach
+                                        @foreach($roleData[$v['admin_id']] as $vv)<span>{{$vv['role_name']}}__</span>@endforeach
                                     @else
                                         空
                                     @endif
                                 </td>
                                 <td>
                                     <button class="btn btn-default btn-rounded" id="update">更改用户角色</button>
-                                    <button class="btn btn-default btn-rounded" href="buttons.html#">删除</button>
+                                    <button class="btn btn-default btn-rounded" admin_id={{$v['admin_id']}} id="del">删除</button>
                                 </td>
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
-
+                    {{ $data1->links() }}
                 </div>
             </div>
         </div>
@@ -107,6 +107,22 @@
         $(document).on('click','#update',function () {
             location.href="/admin/adminRoleAdd";
         });
+        $(document).on('click','#del',function () {
+            var admin_id = $(this).attr('admin_id');
+            $.ajax({
+                url:'/admin/adminDel',
+                data:{admin_id:admin_id},
+                dataType:'json',
+                type:'post',
+                success:function (res) {
+                    if (res['code'] == 1){
+                        alert(res['msg']);
+                    }else{
+                        alert('删除失败');
+                    }
+                }
+            })
+        })
 
 </script>
 

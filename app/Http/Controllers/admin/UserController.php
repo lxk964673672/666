@@ -26,8 +26,10 @@ class UserController extends Controller
         return view('admin.login');
     }
     public function tc(){
+        //清除session admindata
         Request()->session()->forget('adminData');
+        //清除session powerData
+        Request()->session()->forget('powerData');
             return "<script>alert('退出成功');location.href='/admin/login';</script>";
-        
     }
 }

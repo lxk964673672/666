@@ -23,9 +23,9 @@ class PowerController extends Controller
     }
     public function powerList()
     {
-        $data = DB::table('shop_power')->get();
-        $data = json_decode(json_encode($data),true);
-        $data = createTree($data);
-        return view('admin.power.powerList',['data'=>$data]);
+        $data1 = DB::table('shop_power')->paginate(3);
+        $data = json_decode(json_encode($data1),true);
+        $data = createTree($data['data']);
+        return view('admin.power.powerList',['data'=>$data,'data1'=>$data1]);
     }
 }

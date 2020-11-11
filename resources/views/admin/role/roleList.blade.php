@@ -53,22 +53,30 @@
                         <thead>
                         <tr>
                             <th>角色名称</th>
+                            <th>角色权限</th>
                             <th>操作</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($data as $k=>$v)
+                        @foreach($data['data'] as $k=>$v)
                             <tr class="gradeX">
                                 <td>{{$v['role_name']}}</td>
                                 <td>
-                                    <button class="btn btn-default btn-rounded" href="buttons.html#">更改用户角色</button>
+                                    @if(isset($powerData[$v['role_id']]))
+                                        @foreach($powerData[$v['role_id']] as $vv)<span>{{$vv['p_name']}}__</span>@endforeach
+                                    @else
+                                        空
+                                    @endif
+                                </td>
+                                <td>
+                                    <button class="btn btn-default btn-rounded" href="buttons.html#">更改角色权限</button>
                                     <button class="btn btn-default btn-rounded" href="buttons.html#">删除</button>
                                 </td>
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
-
+                    {{ $data1->links() }}
                 </div>
             </div>
         </div>

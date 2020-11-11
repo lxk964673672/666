@@ -21,10 +21,10 @@ class AdminController extends Controller
     }
     public function adminList()
     {
-        $data = DB::table('shop_admin')->leftJoin('shop_admin_role','shop_admin.admin_id','=','shop_admin_role.admin_id')->get(['shop_admin.type','shop_admin.admin_id','shop_admin.admin_name','shop_admin_role.role_id']);
-        $data = arr($data);
+        $data1 = DB::table('shop_admin')->leftJoin('shop_admin_role','shop_admin.admin_id','=','shop_admin_role.admin_id')->paginate(2,['shop_admin.type','shop_admin.admin_id','shop_admin.admin_name','shop_admin_role.role_id']);
+        $data = arr($data1);
         $roleData = [];
-        foreach ($data as $k=>$v){
+        foreach ($data['data'] as $k=>$v){
             if (!empty($v['role_id'])){
                 $roleId = explode(',',$v['role_id']);
                 foreach ($roleId as $kk=>$vv){
@@ -33,6 +33,18 @@ class AdminController extends Controller
             }
         }
         $roleData = arr($roleData);
-        return view('admin.admin.adminList',['data'=>$data,'roleData'=>$roleData]);
+        return view('admin.admin.adminList',['data'=>$data,'roleData'=>$roleData,'data1'=>$data1]);
+    }
+    public function adminDel()
+    {
+        $admin_id = Request()->admin_id;
+        $res = DB::table('shop_admin_role')->where('admin_id',$admin_id)->first();
+        if ($res){
+            $a = DB::table('shop_admin_role')->where('admin_id',$admin_id)->delete($admin_id);
+            $b = DB::table('shop_admin')->where('admin_id',$admin_id)->delete($admin_id);
+            if ($a && $b){
+                return json_encode(['code'=>1,'msg'=>'删除成功']);
+            }
+        }
     }
 }
