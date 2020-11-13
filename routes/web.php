@@ -101,6 +101,8 @@ Route::prefix('/admin')->middleware('rbac')->group(function () {
     Route::any('/course/exam/store','Admin\Course\ExamController@store');
     Route::any('/course/exam/list','Admin\Course\ExamController@list');
     Route::any('/course/exam/del','Admin\Course\ExamController@del');
+    Route::any('/course/exam/examBackAdd','Admin\Course\ExamController@examBackAdd');
+    Route::any('/course/exam/examBackList','Admin\Course\ExamController@examBackList');
 
     //作业添加
     Route::any('/course/users_job/create','Admin\Course\Users_jobController@create');
