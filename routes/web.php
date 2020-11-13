@@ -136,6 +136,13 @@ Route::prefix('/admin')->middleware('rbac')->group(function () {
     Route::any('admin/answer/update/{id}', 'Admin\AnswerController@update');
     Route::any('admin/answer/updatedo/{id}', 'Admin\AnswerController@updatedo');
 
+
+    //导航栏
+    Route::any('/navigation/createdo', 'Admin\NavigationController@create');
+    Route::any('navigation/list', 'Admin\NavigationController@list');
+    Route::any('navigation/del/{id}', 'Admin\NavigationController@del');
+    Route::any('navigation/upd/{id}', 'Admin\NavigationController@upd');
+
 });
 
 ?>
