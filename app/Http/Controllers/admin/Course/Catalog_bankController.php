@@ -22,7 +22,18 @@ class Catalog_bankController extends Controller
     //添加方法
     public function store(){
         $data = request()->post();
-        // dd($data);
+        if (!empty($data['select1'])){
+            $data['select1']=implode(',',$data['select1']);
+        }
+        if (!empty($data['select2'])){
+            $data['select2']=implode(',',$data['select2']);
+        }
+        if (!empty($data['select3'])){
+            $data['select3']=implode(',',$data['select3']);
+        }
+        if (!empty($data['select4'])){
+            $data['select4']=implode(',',$data['select4']);
+        }
         $res = Catalog_bankModel::insert($data);
         // dd($res);
         if($res){
@@ -53,12 +64,19 @@ class Catalog_bankController extends Controller
         if($catalog_name){
             $where[]=['catalog_name','like',"%$catalog_name%"];
         }
-        $bank = Catalog_bankModel::join('course_catalog','catalog_bank.catalog_id','=','course_catalog.catalog_id')
+        $bank1 = Catalog_bankModel::join('course_catalog','catalog_bank.catalog_id','=','course_catalog.catalog_id')
         ->where("bank_del","1")
         ->where($where)
         ->paginate(4);
-        // dump($bank);
-        return view('admin/course/catalog_bank/list',['bank'=>$bank,'bank_name'=>$bank_name,'catalog_name'=>$catalog_name]);
+        $bank = arr($bank1);
+        $select = [];
+        foreach ($bank['data'] as $k=>$v){
+            $select[$v['bank_id']][]=explode(',',$v['select1']);
+            $select[$v['bank_id']][]=explode(',',$v['select2']);
+            $select[$v['bank_id']][]=explode(',',$v['select3']);
+            $select[$v['bank_id']][]=explode(',',$v['select4']);
+        }
+        return view('admin/course/catalog_bank/list',['select'=>$select,'bank'=>$bank1,'bank_name'=>$bank_name,'catalog_name'=>$catalog_name]);
     }
 
     //软删除

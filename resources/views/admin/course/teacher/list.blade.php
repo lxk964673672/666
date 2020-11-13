@@ -52,7 +52,6 @@
 </body>
 </html>
 <script src="/admin/js/jquery.js"></script>
-<script src="../../../../../admin/status/layui/layui.js"></script>
 <script>
 //软删除
 $(document).on("click",".del",function(){

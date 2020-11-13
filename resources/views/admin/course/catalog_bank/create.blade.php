@@ -36,22 +36,41 @@
     <div class="form-group">
 		<label for="firstname" class="col-sm-2 control-label">题库类型</label>
 		<div class="col-sm-8">
-            <input type="radio" name="bank_type" id="bank_type" value="1" checked> php
-            <input type="radio" name="bank_type" id="bank_type" value="2"> python
-            <input type="radio" name="bank_type" id="bank_type" value="3"> C
-            <input type="radio" name="bank_type" id="bank_type" value="4"> C++
-            <input type="radio" name="bank_type" id="bank_type" value="5"> Pascal
-            <input type="radio" name="bank_type" id="bank_type" value="6"> java
+            <input type="radio" name="bank_type" id="bank_type" value="1" checked>单选题
+            <input type="radio" name="bank_type" id="bank_type" value="2"> 多选题
 		</div>
 	</div>
 
     <div class="form-group">
-		<label for="lastname" class="col-sm-2 control-label">题库内容</label>
+		<label for="lastname" class="col-sm-2 control-label">问题</label>
 		<div class="col-sm-8">
             <textarea name="bank_text" id="bank_text" class="form-control" cols="10" rows="5"></textarea>
 		</div>
 	</div>
-
+    <div class="form-group">
+        <label class="col-sm-2 control-label">选择答案</label>
+        <div class="col-sm-10" name="choose">
+            <div class="input-group m-b">
+                <div class="col-sm-10" style="width: 101px" >
+                    <select class="form-control m-b" name="select[]" style="width: 100px">
+                        <option value="1">A</option>
+                        <option value="2">B</option>
+                        <option value="3">C</option>
+                        <option value="4">D</option>
+                    </select>
+                </div>
+                <span count_num="1"></span>
+                <input type="text" name="select[]"  class="form-control" style="width: 870px">
+                <button type="button" class="btn btn-primary add">增加</button>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="firstname" class="col-sm-2 control-label">分数</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" name="bank_number" id="bank_number" placeholder="分数">
+        </div>
+    </div>
     <div class="form-group">
 		<label for="firstname" class="col-sm-2 control-label">题库难度</label>
 		<div class="col-sm-8">
@@ -63,7 +82,7 @@
 	</div>
 
     <div class="form-group">
-		<label for="firstname" class="col-sm-2 control-label">题库答案</label>
+		<label for="firstname" class="col-sm-2 control-label">正确答案</label>
 		<div class="col-sm-8">
             <textarea name="bank_key" id="bank_key" class="form-control" cols="10" rows="5"></textarea>
 		</div>
@@ -77,6 +96,20 @@
 </form>
 
 </body>
+
+        <div class="input-group m-b" style="display:none;" id="tpl">
+            <div class="col-sm-10" style="width:101px">
+                <select class="form-control m-b" name="select[]" style="width: 100px">
+                    <option value="1">A</option>
+                    <option value="2">B</option>
+                    <option value="3">C</option>
+                    <option value="4">D</option>
+                </select>
+            </div>
+            <span></span>
+            <input type="text" class="form-control" name="select[]" style="width: 870px">
+        </div>
+
 </html>
 <script src="/admin/js/jquery.js"></script>
 <script src="../../../../../admin/status/layui/layui.js"></script>
@@ -85,7 +118,24 @@
 		// alert(111);
 		// 题库名称
 		var bank_name = $("input[name='bank_name']").val();
-		// alert(bank_name);
+
+		//选择答案
+          var select1 = [];
+        $('[count_num="1"]').parents('.input-group').find('[name="select[]"]').each(function () {
+            select1.push($(this).val());
+        });
+          var select2 = [];
+          $('[count_num="2"]').parents('.input-group').find('[name="select[]"]').each(function () {
+              select2.push($(this).val());
+          });
+          var select3 = [];
+          $('[count_num="3"]').parents('.input-group').find('[name="select[]"]').each(function () {
+              select3.push($(this).val());
+          });
+          var select4 = [];
+          $('[count_num="4"]').parents('.input-group').find('[name="select[]"]').each(function () {
+              select4.push($(this).val());
+          });
 		//目录
        	var catalog_id = $('#catalog_id').val();
 		// alert(catalog_id);
@@ -94,6 +144,8 @@
 		// alert(bank_type);
 		// 题库内容
 	   	var bank_text = $("#bank_text").val();
+          // 分数
+          var bank_number = $("#bank_number").val();
 		// alert(bank_text);
 		// 题库难度
 		var bank_hard = $("#bank_hard:checked").val();
@@ -104,11 +156,10 @@
 		$.ajax({
             url:"{{url('/admin/course/catalog_bank/store')}}",
             type:"post",
-            data:{bank_name:bank_name,catalog_id:catalog_id,bank_type:bank_type,bank_text:bank_text,bank_hard:bank_hard,bank_key:bank_key},
+            data:{bank_number:bank_number,select1:select1,select2:select2,select3:select3,select4:select4,bank_name:bank_name,catalog_id:catalog_id,bank_type:bank_type,bank_text:bank_text,bank_hard:bank_hard,bank_key:bank_key},
             dataType: "json",
 			async:true,
             success:function(res){
-                console.log(res);
                 if(res.code="00000"){
 					layui.use('layer', function(){
                     var layer = layui.layer;
@@ -133,6 +184,13 @@
                 }
             }
         });
-       
-    });  
+    });
+      $(document).on('click','.add',function () {
+        var num = $("div[name='choose']").find(".input-group").length;
+        num++;
+        var obj = $("#tpl").clone();
+        obj.find("span").attr("count_num",num);
+        obj.show();
+       $("div[name='choose']").append(obj);
+      });
 </script>

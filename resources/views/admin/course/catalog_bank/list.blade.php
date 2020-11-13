@@ -23,12 +23,14 @@
 	<thead>
 		<tr>
 			<th><input type="checkbox"></th>
-			<th>题库名称</th>
+			<th>试题名称</th>
 			<th>目录</th>
-			<th>题库类型</th>
-            <th>题库内容</th>
-			<th>题库难度</th>
-            <th>题库答案</th>
+			<th>试题类型</th>
+            <th>问题</th>
+            <th>选择答案</th>
+			<th>试题难度</th>
+			<th>试题分数</th>
+            <th>正确答案</th>
             <th>操作</th>
 		</tr>
 	</thead>
@@ -38,21 +40,27 @@
 			<td><input type="checkbox"></td>
 			<td>{{$v->bank_name}}</td>
 			<td>{{$v->catalog_name}}</td>
-            <td>@if($v->bank_type==1)php  
-				@elseif($v->bank_type==2)python  
-				@elseif($v->bank_type==3)C
-				@elseif($v->bank_type==4)C++
-				@elseif($v->bank_type==5)Pascal 
-				@elseif($v->bank_type==6)java 
+            <td>@if($v->bank_type==1)单选择题
+				@elseif($v->bank_type==2)多选题
 				@endif
 			</td>
             <td>{{$v->bank_text}}</td>
+            <td>
+                @foreach($select[$v['bank_id']] as $vv)
+                    @if($vv[0] == 1)A :{{$vv[1]}},
+                    @elseif($vv[0]==2)B :{{$vv[1]}},
+                    @elseif($vv[0]==3)C :{{$vv[1]}},
+                    @elseif($vv[0]==4)D :{{$vv[1]}},
+                    @endif
+                    @endforeach
+            </td>
             <td>@if($v->bank_hard==1)简单  
 				@elseif($v->bank_hard==2)普通  
 				@elseif($v->bank_hard==3)困难
 				@elseif($v->bank_hard==4)地狱模式
 				@endif
 			</td>
+            <td>{{$v->bank_number}}</td>
             <td>{{$v->bank_key}}</td>
 			<td>
 				<a href="{{url('/admin/course/catalog_bank/edit/'.$v->bank_id)}}">
@@ -87,7 +95,6 @@ $(document).on("click",".del",function(){
             async:"false",
             type:"post",
             success:function(res){
-				console.log(res);
                 if(res.code=="0000"){
                 	alert(res.msg);
                 	location.href="{{url('/admin/course/catalog_bank/list')}}";
