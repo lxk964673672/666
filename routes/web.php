@@ -27,6 +27,8 @@ Route::prefix('/admin')->middleware('rbac')->group(function () {
     //权限
     Route::any('/powerAdd', 'Admin\PowerController@powerAdd');
     Route::any('/powerList', 'Admin\PowerController@powerList');
+    //管理员删除
+    Route::any('/adminDel', 'Admin\AdminController@adminDel');
     //管理员添加
     Route::any('/adminAdd', 'Admin\AdminController@adminAdd');
     Route::any('/adminList', 'Admin\AdminController@adminList');
@@ -76,6 +78,10 @@ Route::prefix('/admin')->middleware('rbac')->group(function () {
     Route::any('/course/notice/create','Admin\Course\NoticeController@create');
     Route::any('/course/notice/store','Admin\Course\NoticeController@store');
     Route::any('/course/notice/list','Admin\Course\NoticeController@list');
+    Route::any('/course/notice/del','Admin\Course\NoticeController@del');
+    Route::any('/course/notice/edit/{id}','Admin\Course\NoticeController@edit');
+    Route::any('/course/notice/update/{id}','Admin\Course\NoticeController@update');
+
 
     //题库管理
     Route::any('/course/catalog_bank/create','Admin\Course\Catalog_bankController@create');
@@ -98,6 +104,9 @@ Route::prefix('/admin')->middleware('rbac')->group(function () {
     Route::any('/course/exam/create','Admin\Course\ExamController@create');
     Route::any('/course/exam/store','Admin\Course\ExamController@store');
     Route::any('/course/exam/list','Admin\Course\ExamController@list');
+    Route::any('/course/exam/del','Admin\Course\ExamController@del');
+    Route::any('/course/exam/examBackAdd','Admin\Course\ExamController@examBackAdd');
+    Route::any('/course/exam/examBackList','Admin\Course\ExamController@examBackList');
 
     //作业添加
     Route::any('/course/users_job/create','Admin\Course\Users_jobController@create');
@@ -110,6 +119,7 @@ Route::prefix('/admin')->middleware('rbac')->group(function () {
     Route::any('/course/video/list', 'admin\VideoController@list');
     Route::any('/course/video/del/{id}', 'admin\VideoController@del');
     Route::any('/course/video/upd/{id}', 'admin\VideoController@upd');
+
     //资讯
     Route::any('admin/information/create', 'Admin\InformationController@create');
     Route::any('admin/information/createdo', 'Admin\InformationController@createdo');

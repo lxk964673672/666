@@ -23,7 +23,7 @@ class CourseController extends Controller
 
         $a=Request()->session()->get('adminData');
         $b=$a['admin_id'];
-        $data['tea_id']=$b;
+        $data['admin_id']=$b;
 
 		$data=Course::insert($data);
 		if($data){
@@ -45,7 +45,7 @@ class CourseController extends Controller
         $a=Request()->session()->get('adminData');
         $b=$a['admin_id'];
         $c=$a['admin_name'];
-		$data=Course::where('tea_id',$b)->leftJoin('course_category','course.cate_id','=','course_category.cate_id')->paginate(5);
+		$data=Course::where('admin_id',$b)->leftJoin('course_category','course.cate_id','=','course_category.cate_id')->paginate(5);
         
 		return view('admin.course.course.list',['data'=>$data,'c'=>$c]);
 	}
