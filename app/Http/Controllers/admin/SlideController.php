@@ -122,7 +122,7 @@ class SlideController extends Controller
             return redirect("/admin/slide/list")->with("get","请不要测试我的耐性！");
         }
         if(request()->isMethod('get')){
-            $name = Slide::where("is_del",'1')->first();
+            $name = Slide::where(["slide_id"=>$id,"is_del"=>'1'])->first();
             $swei = Slide::orderBY("slide_weight",'desc')->first("slide_weight")->slide_weight+1;
             return view("admin.slide.upd",["name"=>$name,"swei"=>$swei]);
         }

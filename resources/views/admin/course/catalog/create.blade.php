@@ -58,7 +58,7 @@
     <label for="text" class="col-sm-2 control-label">图片上传：</label>
     <div class="col-sm-10">
         <input type="file" name="video_img" id="lmg">
-        <input type="hidden" name="videodesc_img"  value="uploads/mp3/e53a85ca175901ad8ad4d769d281eea4.mp4" id="video_img">
+        <input type="hidden" name="videodesc_img"  value="" id="video_img">
     </div>
   </div>
  <div  class="input-group" id="imgs_desc"></div>
