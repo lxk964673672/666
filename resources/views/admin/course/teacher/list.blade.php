@@ -25,7 +25,6 @@
 			<th>讲师姓名</th>
             <th>讲师个人简历</th>
 			<th>讲师授课风格</th>
-            <th>用户</th>
             <th>是否展示</th>
             <th>操作</th>
 		</tr>
@@ -37,7 +36,6 @@
 			<td>{{$v->tea_name}}</td>
             <td>{{$v->tea_resume}}</td>
             <td>{{$v->tea_style}}</td>
-            <td></td>
             <td>{{$v->is_show==1?'是':'否'}}</td>
 			<td>
 				<a href="{{url('/admin/course/teacher/edit/'.$v->tea_id)}}">

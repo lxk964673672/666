@@ -20,7 +20,12 @@ class TeacherController extends Controller
     }
     //添加方法
     public function store(){
+
         $data = request()->post();
+        $a=Request()->session()->get('adminData');
+        $b=$a['admin_id'];
+        
+        $data['admin_id']=$b;
         // dd($post);
         $data = TeacherModel::insert($data);
         // dd($data);
