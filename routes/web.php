@@ -18,6 +18,7 @@ Route::middleware('rbac')->group(function () {
 //登陆
 Route::any('/admin/login', 'Admin\UserController@login');
 Route::any('/admin/tc', 'Admin\UserController@tc');
+Route::any('/admin/slide/store', 'admin\SlideController@store');
 /**
  * 后台
  */
@@ -44,7 +45,6 @@ Route::prefix('/admin')->middleware('rbac')->group(function () {
 
     //轮播图
     Route::any('/slide/create', 'admin\SlideController@create');
-    Route::any('/slide/store', 'admin\SlideController@store');
     Route::any('/slide/list', 'admin\SlideController@list');
     Route::any('/slide/del/{id}', 'admin\SlideController@del');
     Route::any('/slide/upd/{id}', 'admin\SlideController@upd');

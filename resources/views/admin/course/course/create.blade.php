@@ -20,6 +20,15 @@
       <input type="text" class="form-control" id="cou_name" name="cou_name" placeholder="课程名称">
     </div>
   </div>
+
+<div class="form-group">
+    <label for="text" class="col-sm-2 control-label">课程视频：</label>
+    <div class="col-sm-10">
+        <input type="file" name="imgs" id="lmg">
+        <input type="hidden" name="img_path"  value="" id="img_paths">
+        <div  class="input-group" id="imgs_desc"></div>
+    </div>
+</div>
   
   <div class="form-group">
     <label for="text" class="col-sm-2 control-label">所属分类 :</label>
@@ -54,13 +63,28 @@
 </body>
 </html>
 <script src="/admin/js/jquery.js"></script>
+<link rel="stylesheet" href="/admin/status/uploadify/uploadify.css">
+<script src="/admin/status/uploadify/jquery.uploadify.js"></script>
 <script src="/admin/status/layui/layui.js"></script>
 <script>
+    $(document).ready(function(){
+        $("#lmg").uploadify({
+            uploader:"/admin/slide/store",
+            swf: "/admin/status/uploadify/uploadify.swf",
+            onUploadSuccess:function(res,data,msg){
+                var images = data;
+                $("#img_paths").val(images);
+                var imgstr = "<img src='/"+images+"' width='200px'>";
+                $("#imgs_desc").append(imgstr);
+            }
+        });
     $(document).on('click','button',function () {
         var cou_name = $('[name="cou_name"]').val();
         var cate_id = $('#cate_id').val();
         var cou_desc = $('[name="cou_desc"]').val();
-
+        var img_path = $("[name='img_path']").val();
+        console.log(img_path);
+        return false;
         if(cou_name==''){
                 layui.use('layer', function(){
                     var layer = layui.layer;
@@ -106,6 +130,7 @@
             }
         });
     });  
+});
 </script>
 
 
