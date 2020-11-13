@@ -16,7 +16,11 @@ class TeacherController extends Controller
     public function create(){
         $a=Request()->session()->get('adminData');
         $admin_id=$a['admin_id'];
-        $res=TeacherModel::where('admin_id',$admin_id)->first();
+        $where=[
+           ['tea_del','=','1'],
+           ['admin_id','=',$admin_id]
+        ];
+        $res=TeacherModel::where($where)->first();
         if($res){
        return "<script>alert('资料已经填写过');location.href='/admin/course/teacher/list'</script>";
 
