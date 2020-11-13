@@ -14,6 +14,14 @@ class TeacherController extends Controller
 {
     //添加页面
     public function create(){
+        $a=Request()->session()->get('adminData');
+        $admin_id=$a['admin_id'];
+        $res=TeacherModel::where('admin_id',$admin_id)->first();
+        if($res){
+       return "<script>alert('资料已经填写过');location.href='/admin/course/teacher/list'</script>";
+
+    }
+
         $data = Category::get();
         $data = $this->CreateTree($data);
         return view('admin/course/teacher/create',['data'=>$data]);
@@ -47,15 +55,23 @@ class TeacherController extends Controller
     
     //展示
     public function list(){
+         $a=Request()->session()->get('adminData');
+        $admin_id=$a['admin_id'];
+        
         //搜索
         $tea_name = request()->tea_name;
         // dump($tea_name);
         $where=[];
         if($tea_name){
             $where[]=['tea_name','like',"%$tea_name%"];
+
         }
+        $wheres=[
+           ['admin_id','=',$admin_id],
+           ['tea_del','=','1']
+        ];
         $teacher = TeacherModel::join('course_category','teacher.cate_id','=','course_category.cate_id')
-        ->where("tea_del","1")
+        ->where($wheres)
         ->where($where)
         ->paginate(4);
         // dd($teacher);
