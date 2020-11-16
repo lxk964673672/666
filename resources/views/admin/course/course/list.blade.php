@@ -24,12 +24,12 @@
    	<td style="color: #1AFD9C;">状态</td>
     <td style="color: #28FF28;">操作</td>
    </tr>
-
+ 
    @foreach($data as $k=>$v)
    <tr>
       <td style="color: #CF9E9E;">{{$v->cou_id}}</td>
       <td style="color: #C2C287;">{{$v->cou_name}}</td>
-      <td style="color: #C4E1E1;">{{$v->cou_desc}}</td>
+      <td style="color: #C4E1E1; width: 450px">{{$v->cou_desc}}</td>
       <td style="color: #B8B8DC;">{{$v->cate_name}}</td>
       <td style="color: #CA8EC2;">{{date('Y-m-d H:i:s',$v->cou_time)}}</td>
       <td style="color: orange;">{{$v->cou_status==1?'连载':'完结'}}</td>
