@@ -89,7 +89,7 @@ Route::prefix('/admin')->middleware('rbac')->group(function () {
     Route::any('/course/catalog_bank/list','Admin\Course\Catalog_bankController@list');
     Route::any('/course/catalog_bank/del','Admin\Course\Catalog_bankController@del');
     Route::any('/course/catalog_bank/edit/{id}','Admin\Course\Catalog_bankController@edit');
-    Route::any('/course/catalog_bank/update/{id}','Admin\Course\Catalog_bankController@update');
+    Route::any('/course/catalog_bank/update','Admin\Course\Catalog_bankController@update');
 
     //讲师
     Route::any('/course/teacher/create','Admin\Course\TeacherController@create');

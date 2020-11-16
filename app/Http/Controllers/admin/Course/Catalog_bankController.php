@@ -96,19 +96,61 @@ class Catalog_bankController extends Controller
     public function edit($id){
         $log = Log::get();
         // dd($log);
-        $bank = Catalog_bankModel::find($id);
+        $bank = Catalog_bankModel::where('bank_id',$id)->first();
+        $bank = arr($bank);
+        if (!empty($bank['select1'])){
+            $bank['select'][] = explode(',',$bank['select1']);
+        }
+        if (!empty($bank['select2'])){
+            $bank['select'][] = explode(',',$bank['select2']);
+        }
+        if (!empty($bank['select3'])){
+            $bank['select'][] = explode(',',$bank['select3']);
+        }
+        if (!empty($bank['select4'])){
+            $bank['select'][] = explode(',',$bank['select4']);
+        }
         // dd($bank);
-        return view('admin/course/catalog_bank/edit',['log'=>$log,'bank'=>$bank]);
+        return view('admin/course/catalog_bank/edit',['bank_id'=>$id,'log'=>$log,'bank'=>$bank]);
     }
     
     //修改方法
-    public function update($id){
-        $bank = request()->all();
-        // dd($bank);
-        $res = Catalog_bankModel::where('bank_id',$id)->update($bank);
-        // dd($res);
-        if($res!=false){
-            return "<script>alert('修改成功');location.href='/admin/course/catalog_bank/list'</script>";
+    public function update(){
+        $data = request()->all();
+        if (!empty($data['select1'])){
+            $data['select1']=implode(',',$data['select1']);
+        }else{
+            $data['select1']='';
         }
+        if (!empty($data['select2'])){
+            $data['select2']=implode(',',$data['select2']);
+        }else{
+            $data['select2']='';
+        }
+        if (!empty($data['select3'])){
+            $data['select3']=implode(',',$data['select3']);
+        }else{
+            $data['select3']='';
+        }
+        if (!empty($data['select4'])){
+            $data['select4']=implode(',',$data['select4']);
+        }else{
+            $data['select4']='';
+        }
+        $res = Catalog_bankModel::where('bank_id',$data['bank_id'])->update($data);
+        if($res){
+            $arr = [
+                'code' => '00000',
+                'msg' => '添加成功',
+                "url" => "/admin/course/catalog_bank/list"
+            ];
+        }else{
+            $arr = [
+                'code' => '00002',
+                'msg' => '添加失败',
+                "url" => "/admin/course/catalog_bank/list"
+            ];
+        }
+        return json_encode($arr,true);
     }  
 }
