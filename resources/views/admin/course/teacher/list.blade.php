@@ -10,9 +10,6 @@
 <body>
 <center>
 <h2>讲师展示</h2>
-<a style="float:right" href="{{url('/admin/course/teacher/create')}}">
-            <button type="button" class="btn btn-pink">添加</button>
-        </a>
 </center>
 <form class="form-horizontal" role="form">
 	<input type="text" name="tea_name" value="{{$tea_name}}" placeholder="请输入关键字">

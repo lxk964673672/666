@@ -67,12 +67,12 @@ class VideoController extends Controller
     		}
     	}
     }
-    //展示
+    //展示 ///
     public function list(){
     	$name = Video::where("course_video.is_del",'1')->join('course',"course_video.cou_id","=","course.cou_id")->get()->toArray();
 		return view('/admin/video/videoshow',["name"=>$name]);
     }
-    //删除
+    //删除 ///
     public function del($id){
         $fgid="/^[0-9]*$/";
         if(!preg_match($fgid,$id)){
