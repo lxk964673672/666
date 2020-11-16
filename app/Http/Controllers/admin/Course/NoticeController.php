@@ -23,9 +23,22 @@ class NoticeController extends Controller
     //添加方法
     public function store(){
         $data = request()->all();
+        $notice=request()->post("notice");
         // dd($data);
         $data['create_time'] = time();
         // dd($data);
+         //验证唯一
+         $date = NoticeModel::where("notice",$notice)->first();
+        //  dd($date);
+            if(!empty($date)){
+                $arr = [
+                    "error"=>'00002',
+                    "msg"=>"内容已存在，请更换",
+                    "url" => "/admin/course/notice/create",
+                ];
+               
+                return json_encode($arr);
+            }
         $notice = NoticeModel::insert($data);
         // dd($data);
         if($notice){
