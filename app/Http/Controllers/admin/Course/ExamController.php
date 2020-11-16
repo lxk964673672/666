@@ -101,7 +101,7 @@ class ExamController extends Controller
         $bank1 = Back::join('course_catalog','catalog_bank.catalog_id','=','course_catalog.catalog_id')
             ->where("bank_del","1")
             ->where($where)
-            ->paginate(4);
+            ->paginate(10);
         $bank = arr($bank1);
         $select = [];
         $catalogData = Catalog::get(['catalog_id','catalog_name']);

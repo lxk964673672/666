@@ -60,6 +60,12 @@
                                         <button type="button" class="btn btn-sm btn-primary"> 搜索</button> </span>
                             </div>
                         </div>
+                        <div>
+                            <button type="button"  class="btn btn-primary self">自动选题</button>
+                        </div>
+                        <div>
+                            <button type="button"  class="btn btn-primary quit">取消选题</button>
+                        </div>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-striped">
@@ -147,18 +153,34 @@
         });
 
     });
+
+    $(document).on('click','.self',function () {
+        $('input:checkbox[name=select]').each(function () {
+            var bank_number = [];
+            bank_number.push(0);
+            $('input:checkbox[name=select]:checked').each(function () {
+                bank_number.push($(this).attr('bank_number'));
+            });
+            var number = sum(bank_number);
+            if (number < 10){
+                $(this).prop('checked',true);
+            }
+        });
+    });
+    $(document).on('click','.quit',function () {
+
+            $('input:checkbox[name=select]:checked').each(function () {
+                $(this).prop('checked',false);
+            });
+    });
     $(document).on('click','#select1',function () {
         var bank_number = [];
         $('input:checkbox[name=select]:checked').each(function () {
             bank_number.push($(this).attr('bank_number'));
         });
         var number = sum(bank_number);
-        if (number > 7 && number <10){
-            alert('不能选这个');
-            $(this).prop('checked',false);
-        }
         if (number == 10){
-            alert('选满100分');
+            alert('选满10分');
         }
         if (number >10){
             alert('选多了');
